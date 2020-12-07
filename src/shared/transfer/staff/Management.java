@@ -5,10 +5,10 @@ import java.util.Date;
 public class Management extends Staff
 {
 
-  protected Management(int cpr, String name, String email, Address address,
-      String phoneNumber, Date startDate, double salary)
+  private Management(int cpr, String fname, String lname, String email,
+      Address address, String phoneNumber, Date startDate, double salary)
   {
-    super(cpr, name, email, address, phoneNumber, startDate, salary);
+    super(cpr, fname, lname, email, address, phoneNumber, startDate, salary);
   }
 
   @Override public int getCpr()
@@ -16,9 +16,14 @@ public class Management extends Staff
     return super.getCpr();
   }
 
-  @Override public String getName()
+  @Override public String getFname()
   {
-    return super.getName();
+    return super.getFname();
+  }
+
+  @Override public String getLname()
+  {
+    return super.getLname();
   }
 
   @Override public String getEmail()
@@ -31,9 +36,9 @@ public class Management extends Staff
     return super.getAddress();
   }
 
-  @Override public String getPhoneNumber()
+  @Override public String getPhoneNo()
   {
-    return super.getPhoneNumber();
+    return super.getPhoneNo();
   }
 
   @Override public Date getStartDate()
