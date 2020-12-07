@@ -7,7 +7,17 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="postgresql-42.2.16" level="project" />
-    <orderEntry type="library" name="lib" level="application" />
+    <orderEntry type="library" exported="" name="postgresql-42.2.16" level="project" />
+    <orderEntry type="library" exported="" name="lib" level="application" />
+    <orderEntry type="module-library" exported="">
+      <library>
+        <CLASSES />
+        <JAVADOC />
+        <SOURCES>
+          <root url="jar://$USER_HOME$/Desktop/FXML SEP/JFoenix-master.zip!/JFoenix-master/demo/src/main/java" />
+          <root url="jar://$USER_HOME$/Desktop/FXML SEP/JFoenix-master.zip!/JFoenix-master/jfoenix/src/main/java" />
+        </SOURCES>
+      </library>
+    </orderEntry>
   </component>
 </module>
