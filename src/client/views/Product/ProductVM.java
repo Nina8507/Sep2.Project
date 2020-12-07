@@ -1,6 +1,6 @@
 package client.views.Product;
 
-public class ProductController
+public class ProductVM
 {
 
 }
