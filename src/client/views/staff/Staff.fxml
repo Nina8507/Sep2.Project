@@ -11,6 +11,11 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
+<?import javax.swing.text.html.ImageView?>
+<?import java.awt.Image?>
+<?import java.awt.Font?>
+<?import java.awt.TextField?>
+<?import java.awt.Insets?>
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="760.0" prefWidth="1125.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <AnchorPane prefHeight="760.0" prefWidth="229.0" style="-fx-background-color: #60bdff;">
