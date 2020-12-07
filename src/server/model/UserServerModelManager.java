@@ -7,12 +7,12 @@ import shared.transfer.User;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 
-public class ServerModelManager implements ServerModel
+public class UserServerModelManager implements UserServerModel
 {
   private UserDAO userDAO;
   private PropertyChangeSupport support;
 
-  public ServerModelManager()
+  public UserServerModelManager()
   {
     userDAO = UserDAOImpl.getInstance();
     support = new PropertyChangeSupport(this);
@@ -23,6 +23,12 @@ public class ServerModelManager implements ServerModel
     System.out.println("ServerModelManager" + userDAO.validateUser(user));
     return userDAO.validateUser(user);
   }
+
+  @Override public User registerUser(User user)
+  {
+    return userDAO.registerUser(user);
+  }
+
   @Override public void addListener(PropertyChangeListener listener)
   {
     support.addPropertyChangeListener(listener);

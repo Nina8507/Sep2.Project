@@ -33,7 +33,7 @@ public class LoginController implements ViewController
     loginResultLabel.textProperty()
         .bindBidirectional(loginVM.loginResponseProperty());
     //loginVM.loginResponseProperty().addListener(
-        //(observableValue, oldValue, newValue) -> onLoginResult(newValue));
+       // (observableValue, oldValue, newValue) -> onLoginResult(newValue));
     loginResultLabel.textProperty().addListener(this::onLoginResult);
   }
 

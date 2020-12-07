@@ -13,7 +13,6 @@ public class ViewHandler
   private Stage mainStage;
   private Scene loginScene;
   private Scene loginResultScene;
-  //private Scene chatScene;
   private Scene registerScene;
   private ViewModelFactory viewModelFactory;
 

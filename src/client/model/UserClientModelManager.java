@@ -8,13 +8,13 @@ import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 
-public class ClientModelManager implements ClientModel
+public class UserClientModelManager implements UserClientModel
 {
   private Client client;
   private PropertyChangeSupport support;
   private User loggedInUser;
 
-  public ClientModelManager(Client client)
+  public UserClientModelManager(Client client)
   {
     this.client = client;
     support = new PropertyChangeSupport(this);
@@ -33,6 +33,12 @@ public class ClientModelManager implements ClientModel
   {
     loggedInUser = new User(username, password);
     client.login(loggedInUser);
+  }
+
+  @Override public void registerUser(String username, String password)
+  {
+    User user = new User(username, password);
+    client.registerUser(user);
   }
 
   @Override public void addListener(PropertyChangeListener listener)

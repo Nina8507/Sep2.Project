@@ -68,6 +68,19 @@ public class SocketClient implements Client
     }
   }
 
+  @Override public void registerUser(User user)
+  {
+    Request request = new Request(UserAction.REGISTER_USER.toString(), user);
+    try
+    {
+      outToServer.writeObject(request);
+    }
+    catch (IOException e)
+    {
+      e.printStackTrace();
+    }
+  }
+
   @Override public void addListener(PropertyChangeListener listener)
   {
     support.addPropertyChangeListener(listener);
