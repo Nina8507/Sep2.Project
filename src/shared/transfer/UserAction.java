@@ -4,6 +4,7 @@ public enum UserAction
 {
   LOGIN_REQUEST,
   LOGIN_RESULT,
+  REGISTER_USER,
   Admin,
   Secretary,
   User

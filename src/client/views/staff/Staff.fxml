@@ -14,113 +14,137 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="760.0" prefWidth="1125.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <AnchorPane prefHeight="760.0" prefWidth="229.0" style="-fx-background-color: #60bdff;">
-         <children>
-            <ImageView fitHeight="158.0" fitWidth="229.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../image/jimahegn_logo.png" />
-               </image>
-            </ImageView>
-            <JFXButton alignment="TOP_LEFT" layoutY="125.0" prefHeight="39.0" prefWidth="229.0" style="-fx-background-color: #60bdff;" text="Dashboard">
-               <graphic>
-                  <ImageView fitHeight="20.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../image/Dashboard.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-               <effect>
-                  <DropShadow />
-               </effect>
-            </JFXButton>
-            <JFXButton alignment="TOP_LEFT" layoutY="164.0" prefHeight="39.0" prefWidth="229.0" style="-fx-background-color: #60bdff;" text="Products">
-               <effect>
-                  <DropShadow />
-               </effect>
-               <graphic>
-                  <ImageView fitHeight="20.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../image/open-box.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </JFXButton>
-            <JFXButton alignment="TOP_LEFT" layoutY="203.0" prefHeight="39.0" prefWidth="229.0" style="-fx-background-color: #60bdff;" text="Suppliers">
-               <graphic>
-                  <ImageView fitHeight="20.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../image/handshake.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-               <effect>
-                  <DropShadow />
-               </effect>
-            </JFXButton>
-            <JFXButton alignment="TOP_LEFT" layoutY="242.0" prefHeight="39.0" prefWidth="229.0" style="-fx-background-color: #60bdff;" text="Orders">
-               <graphic>
-                  <ImageView fitHeight="20.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../image/order.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-               <effect>
-                  <DropShadow />
-               </effect>
-            </JFXButton>
-            <JFXButton alignment="TOP_LEFT" layoutY="281.0" prefHeight="39.0" prefWidth="229.0" style="-fx-background-color: #60bdff;" text="Staff">
-               <graphic>
-                  <ImageView fitHeight="20.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../image/Employee.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-               <effect>
-                  <DropShadow />
-               </effect>
-            </JFXButton>
-            <JFXButton alignment="TOP_LEFT" layoutY="320.0" prefHeight="39.0" prefWidth="229.0" style="-fx-background-color: #60bdff;" text="Costumer">
-               <graphic>
-                  <ImageView fitHeight="20.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../image/Costumer.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-               <effect>
-                  <DropShadow />
-               </effect>
-            </JFXButton>
-            <JFXButton alignment="TOP_LEFT" layoutY="721.0" prefHeight="39.0" prefWidth="229.0" style="-fx-background-color: #60bdff;" text="Chat">
-               <effect>
-                  <DropShadow />
-               </effect>
-               <graphic>
-                  <ImageView fitHeight="19.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../image/free-message-icon.jpg" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </JFXButton>
-            <JFXButton alignment="TOP_LEFT" layoutY="359.0" prefHeight="39.0" prefWidth="229.0" style="-fx-background-color: #60bdff;" text="Sign Out">
-               <graphic>
-                  <ImageView fitHeight="16.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../image/sign out.jpg" />
-                     </image>
-                  </ImageView>
-               </graphic>
-               <effect>
-                  <DropShadow />
-               </effect>
-            </JFXButton>
-         </children>
+      <AnchorPane prefHeight="760.0" prefWidth="229.0"
+                  style="-fx-background-color: #60bdff;">
          <effect>
-            <DropShadow />
+            <DropShadow/>
          </effect>
+         <ImageView fitHeight="158.0" fitWidth="229.0" layoutY="-1.0"
+                    pickOnBounds="true" preserveRatio="true">
+            <image>
+               <Image url="@../image/jimahegn_logo.png"/>
+            </image>
+         </ImageView>
+         <JFXButton alignment="TOP_LEFT" layoutY="125.0" prefHeight="39.0"
+                    prefWidth="229.0" style="-fx-background-color: #60bdff;"
+                    text="Dashboard">
+            <graphic>
+               <ImageView fitHeight="20.0" fitWidth="22.0" pickOnBounds="true"
+                          preserveRatio="true">
+                  <image>
+                     <Image url="@../image/Dashboard.png"/>
+                  </image>
+               </ImageView>
+            </graphic>
+            <effect>
+               <DropShadow/>
+            </effect>
+         </JFXButton>
+         <JFXButton alignment="TOP_LEFT" layoutY="164.0" prefHeight="39.0"
+                    prefWidth="229.0" style="-fx-background-color: #60bdff;"
+                    text="Products">
+            <effect>
+               <DropShadow/>
+            </effect>
+            <graphic>
+               <ImageView fitHeight="20.0" fitWidth="22.0" pickOnBounds="true"
+                          preserveRatio="true">
+                  <image>
+                     <Image url="@../image/open-box.png"/>
+                  </image>
+               </ImageView>
+            </graphic>
+         </JFXButton>
+         <JFXButton alignment="TOP_LEFT" layoutY="203.0" prefHeight="39.0"
+                    prefWidth="229.0" style="-fx-background-color: #60bdff;"
+                    text="Suppliers">
+            <graphic>
+               <ImageView fitHeight="20.0" fitWidth="22.0" pickOnBounds="true"
+                          preserveRatio="true">
+                  <image>
+                     <Image url="@../image/handshake.png"/>
+                  </image>
+               </ImageView>
+            </graphic>
+            <effect>
+               <DropShadow/>
+            </effect>
+         </JFXButton>
+         <JFXButton alignment="TOP_LEFT" layoutY="242.0" prefHeight="39.0"
+                    prefWidth="229.0" style="-fx-background-color: #60bdff;"
+                    text="Orders">
+            <graphic>
+               <ImageView fitHeight="20.0" fitWidth="22.0" pickOnBounds="true"
+                          preserveRatio="true">
+                  <image>
+                     <Image url="@../image/order.png"/>
+                  </image>
+               </ImageView>
+            </graphic>
+            <effect>
+               <DropShadow/>
+            </effect>
+         </JFXButton>
+         <JFXButton alignment="TOP_LEFT" layoutY="281.0" prefHeight="39.0"
+                    prefWidth="229.0" style="-fx-background-color: #60bdff;"
+                    text="Staff">
+            <graphic>
+               <ImageView fitHeight="20.0" fitWidth="22.0" pickOnBounds="true"
+                          preserveRatio="true">
+                  <image>
+                     <Image url="@../image/Employee.png"/>
+                  </image>
+               </ImageView>
+            </graphic>
+            <effect>
+               <DropShadow/>
+            </effect>
+         </JFXButton>
+         <JFXButton alignment="TOP_LEFT" layoutY="320.0" prefHeight="39.0"
+                    prefWidth="229.0" style="-fx-background-color: #60bdff;"
+                    text="Costumer">
+            <graphic>
+               <ImageView fitHeight="20.0" fitWidth="22.0" pickOnBounds="true"
+                          preserveRatio="true">
+                  <image>
+                     <Image url="@../image/Costumer.png"/>
+                  </image>
+               </ImageView>
+            </graphic>
+            <effect>
+               <DropShadow/>
+            </effect>
+         </JFXButton>
+         <JFXButton alignment="TOP_LEFT" layoutY="721.0" prefHeight="39.0"
+                    prefWidth="229.0" style="-fx-background-color: #60bdff;"
+                    text="Chat">
+            <effect>
+               <DropShadow/>
+            </effect>
+            <graphic>
+               <ImageView fitHeight="19.0" fitWidth="21.0" pickOnBounds="true"
+                          preserveRatio="true">
+                  <image>
+                     <Image url="@../image/free-message-icon.jpg"/>
+                  </image>
+               </ImageView>
+            </graphic>
+         </JFXButton>
+         <JFXButton alignment="TOP_LEFT" layoutY="359.0" prefHeight="39.0"
+                    prefWidth="229.0" style="-fx-background-color: #60bdff;"
+                    text="Sign Out">
+            <graphic>
+               <ImageView fitHeight="16.0" fitWidth="20.0" pickOnBounds="true"
+                          preserveRatio="true">
+                  <image>
+                     <Image url="@../image/sign out.jpg"/>
+                  </image>
+               </ImageView>
+            </graphic>
+            <effect>
+               <DropShadow/>
+            </effect>
+         </JFXButton>
       </AnchorPane>
       <AnchorPane layoutX="235.0" layoutY="-1.0" prefHeight="766.0" prefWidth="890.0">
          <children>
