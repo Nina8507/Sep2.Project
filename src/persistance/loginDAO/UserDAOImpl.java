@@ -5,6 +5,7 @@ import shared.transfer.User;
 
 import java.sql.*;
 
+
 public class UserDAOImpl implements UserDAO
 {
   private static UserDAOImpl userInstance;
