@@ -1,27 +1,24 @@
 package client.views.login;
 
-import client.model.ClientModel;
-import javafx.application.Platform;
-import javafx.beans.property.Property;
+import client.model.UserClientModel;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import shared.transfer.UserAction;
 
 import java.beans.PropertyChangeEvent;
-import java.beans.PropertyChangeSupport;
 
 public class LoginVM
 {
-  private ClientModel clientModel;
+  private UserClientModel userClientModel;
   private StringProperty username, password, loginResponse;
 
-  public LoginVM(ClientModel clientModel)
+  public LoginVM(UserClientModel userClientModel)
   {
-    this.clientModel = clientModel;
+    this.userClientModel = userClientModel;
     username = new SimpleStringProperty();
     password = new SimpleStringProperty();
     loginResponse = new SimpleStringProperty();
-    clientModel.addListener(UserAction.LOGIN_RESULT.toString(),
+    userClientModel.addListener(UserAction.LOGIN_RESULT.toString(),
         this::displayMessageLabel);
     System.out.println(loginResponse);
   }
@@ -48,7 +45,7 @@ public class LoginVM
 
   public void login()
   {
-    clientModel.login(username.get(), password.get());
+    userClientModel.login(username.get(), password.get());
   }
 
   public void clear()

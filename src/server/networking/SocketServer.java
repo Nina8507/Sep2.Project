@@ -1,17 +1,17 @@
 package server.networking;
 
-import server.model.ServerModel;
+import server.model.UserServerModel;
 
 import java.net.ServerSocket;
 import java.net.Socket;
 
 public class SocketServer
 {
-  private ServerModel serverModel;
+  private UserServerModel userServerModel;
 
-  public SocketServer(ServerModel serverModel)
+  public SocketServer(UserServerModel userServerModel)
   {
-    this.serverModel = serverModel;
+    this.userServerModel = userServerModel;
   }
 
   public void startServer()
@@ -26,7 +26,7 @@ public class SocketServer
         {
           Socket socket = serverSocket.accept();
           ServerSocketHandler socketHandler = new ServerSocketHandler(socket,
-              serverModel);
+              userServerModel);
 
           Thread t = new Thread(socketHandler);
           t.start();

@@ -58,4 +58,22 @@ public class UserDAOImpl implements UserDAO
     }
     return null;
   }
+
+  @Override public User registerUser(User user)
+  {
+    try(Connection connection = controllerJDBC.getConnection())
+    {
+      PreparedStatement statement = connection.prepareStatement(
+          "INSERT INTO User(username, userpassword) VALUES (?, ?)");
+      statement.setString(1, user.getUsername());
+      statement.setString(2, user.getPassword());
+      statement.executeQuery();
+      return new User(user.getUsername(), user.getPassword());
+    }
+    catch (SQLException throwables)
+    {
+      throwables.printStackTrace();
+    }
+    return null;
+  }
 }

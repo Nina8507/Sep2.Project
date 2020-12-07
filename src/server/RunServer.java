@@ -1,7 +1,7 @@
 package server;
 
-import server.model.ServerModel;
-import server.model.ServerModelManager;
+import server.model.UserServerModel;
+import server.model.UserServerModelManager;
 import server.networking.SocketServer;
 
 import java.sql.SQLException;
@@ -10,8 +10,8 @@ public class RunServer
 {
   public static void main(String[] args) throws SQLException
   {
-    ServerModel serverModel = new ServerModelManager();
-    SocketServer socketServer = new SocketServer(serverModel);
+    UserServerModel userServerModel = new UserServerModelManager();
+    SocketServer socketServer = new SocketServer(userServerModel);
     socketServer.startServer();
   }
 }

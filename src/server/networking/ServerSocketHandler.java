@@ -1,6 +1,6 @@
 package server.networking;
 
-import server.model.ServerModel;
+import server.model.UserServerModel;
 import shared.transfer.Request;
 import shared.transfer.User;
 import shared.transfer.UserAction;
@@ -13,14 +13,14 @@ import java.net.Socket;
 public class ServerSocketHandler implements Runnable
 {
   private Socket socket;
-  private ServerModel serverModel;
+  private UserServerModel userServerModel;
   private ObjectInputStream inFromClient;
   private ObjectOutputStream outToClient;
 
-  public ServerSocketHandler(Socket socket, ServerModel serverModel) throws IOException
+  public ServerSocketHandler(Socket socket, UserServerModel userServerModel) throws IOException
   {
     this.socket = socket;
-    this.serverModel = serverModel;
+    this.userServerModel = userServerModel;
   }
 
   @Override public void run()
@@ -39,11 +39,15 @@ public class ServerSocketHandler implements Runnable
           {
             System.out.println("Login requested!");
             User user = (User) request.getRequestArg();
-            String loginResult = serverModel.validateUser(user);
+            String loginResult = userServerModel.validateUser(user);
             System.out.println("---RESULT: " + loginResult);
             Request response = new Request(UserAction.LOGIN_RESULT.toString(), loginResult);
             System.out.println("ServerSocketHandler " + response.getRequestArg().toString());
             outToClient.writeObject(response);
+          } else if(request.getRequestType().equals(UserAction.REGISTER_USER.toString()))
+          {
+            System.out.println("SocketHandler" + request.getRequestArg());
+            userServerModel.registerUser((User) request.getRequestArg());
           }
         }
         catch (ClassNotFoundException e)

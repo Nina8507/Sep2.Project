@@ -1,17 +1,21 @@
 package client.views.register;
 
-import client.model.ClientModel;
+import client.model.UserClientModel;
 import javafx.beans.property.Property;
+import javafx.beans.property.ReadOnlyStringWrapper;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
 public class RegisterVM
 {
-  private ClientModel clientModel;
+  private UserClientModel userClientModel;
   private StringProperty username, password;
 
-  public RegisterVM(ClientModel clientModel)
+  public RegisterVM(UserClientModel userClientModel)
   {
-    this.clientModel = clientModel;
+    this.userClientModel = userClientModel;
+    username = new SimpleStringProperty();
+    password = new SimpleStringProperty();
   }
 
   public Property<String> enterUsernameProperty()
@@ -31,6 +35,6 @@ public class RegisterVM
 
   public void registerUser()
   {
-
+    userClientModel.registerUser(username.get(), password.get());
   }
 }
