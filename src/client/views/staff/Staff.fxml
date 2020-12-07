@@ -22,14 +22,14 @@
          <children>
             <ImageView fitHeight="158.0" fitWidth="229.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../IdeaProjects/SEP2/src/shared/image/jimahegn_brand56.png" />
+                  <Image url="@../image/jimahegn_logo.png" />
                </image>
             </ImageView>
             <JFXButton alignment="TOP_LEFT" layoutY="125.0" prefHeight="39.0" prefWidth="229.0" style="-fx-background-color: #60bdff;" text="Dashboard">
                <graphic>
                   <ImageView fitHeight="20.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@Dashboard.png" />
+                        <Image url="@../image/Dashboard.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -44,7 +44,7 @@
                <graphic>
                   <ImageView fitHeight="20.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@open-box.png" />
+                        <Image url="@../image/open-box.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -53,7 +53,7 @@
                <graphic>
                   <ImageView fitHeight="20.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@handshake.png" />
+                        <Image url="@../image/handshake.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -65,7 +65,7 @@
                <graphic>
                   <ImageView fitHeight="20.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@order.png" />
+                        <Image url="@../image/order.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -77,7 +77,7 @@
                <graphic>
                   <ImageView fitHeight="20.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@Employee.png" />
+                        <Image url="@../image/Employee.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -89,7 +89,7 @@
                <graphic>
                   <ImageView fitHeight="20.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@Costumer.png" />
+                        <Image url="@../image/Costumer.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -104,7 +104,7 @@
                <graphic>
                   <ImageView fitHeight="19.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@free-message-icon.jpg" />
+                        <Image url="@../image/free-message-icon.jpg" />
                      </image>
                   </ImageView>
                </graphic>
@@ -113,7 +113,7 @@
                <graphic>
                   <ImageView fitHeight="16.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@sign%20out.jpg" />
+                        <Image url="@../image/sign out.jpg" />
                      </image>
                   </ImageView>
                </graphic>
@@ -139,7 +139,7 @@
             </HBox>
             <ImageView fitHeight="28.0" fitWidth="34.0" layoutX="24.0" layoutY="150.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@search.png" />
+                  <Image url="@../image/search.png" />
                </image>
             </ImageView>
             <TextField fx:id="search_staff" layoutX="52.0" layoutY="149.0" prefHeight="35.0" prefWidth="365.0" promptText="Search Supplier" />
