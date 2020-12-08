@@ -415,7 +415,7 @@
                <graphic>
                   <ImageView fitHeight="20.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../../../../Desktop/FXML%20SEP/plus.png" />
+                        <Image url="@../image/plus.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -427,7 +427,7 @@
                <graphic>
                   <ImageView fitHeight="20.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../../../../Desktop/FXML%20SEP/trash.png" />
+                        <Image url="@../image/trash.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -439,7 +439,7 @@
                <graphic>
                   <ImageView fitHeight="20.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../../../../Desktop/FXML%20SEP/Edit.png" />
+                        <Image url="@../image/Edit.png" />
                      </image>
                   </ImageView>
                </graphic>
