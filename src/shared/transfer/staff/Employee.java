@@ -1,14 +1,21 @@
 package shared.transfer.staff;
 
+import shared.transfer.address.Address;
+
 import java.util.Date;
 
 public class Employee extends Staff
 {
 
-  private Employee(int cprNr, String fname, String lname, String email,
+  private Employee(int staff_id, int cprNr, String fname, String lname, String email,
       Address address, String phoneNumber, Date startDate, double salary)
   {
-    super(cprNr, fname, lname, email, address, phoneNumber, startDate, salary);
+    super(staff_id, cprNr, fname, lname, email, address, phoneNumber, startDate, salary);
+  }
+
+  @Override public int getStaff_id()
+  {
+    return super.getStaff_id();
   }
 
   @Override public int getCprNr()

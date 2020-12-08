@@ -1,6 +1,6 @@
 package persistance.staffDAO;
 
-import shared.transfer.staff.Address;
+import shared.transfer.address.Address;
 import shared.transfer.staff.Staff;
 
 import java.util.Date;

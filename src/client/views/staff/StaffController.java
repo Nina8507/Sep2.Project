@@ -1,47 +1,49 @@
 package client.views.staff;
 
+import client.core.ViewHandler;
+import client.core.ViewModelFactory;
+import client.views.ViewController;
 import com.jfoenix.controls.JFXButton;
 import javafx.fxml.FXML;
+import javafx.scene.control.TextField;
 
-public class StaffController
+public class StaffController implements ViewController
 {
-  @FXML
-  private JFXButton dashboard_btn;
+  @FXML private JFXButton onDashboardButton;
+  @FXML private JFXButton onProductsButton;
+  @FXML private JFXButton onSupplierButton;
+  @FXML private JFXButton onOrdersButton;
+  @FXML private JFXButton onStaffButton;
+  @FXML private JFXButton onCustomerButton;
+  @FXML private JFXButton onChatButton;
+  @FXML private JFXButton onSignOutButton;
+  @FXML private TextField searchStaffTextProperty;
+  @FXML private JFXButton onAddStaffButton;
+  @FXML private JFXButton onDeleteStaffButton;
+  @FXML private JFXButton onEditStaffButton;
 
-  @FXML
-  private JFXButton product_brn;
+  private ViewHandler viewHandler;
+  private StaffVM staffVM;
 
-  @FXML
-  private JFXButton supplier_btn;
+  @Override public void init(ViewHandler viewHandler,
+      ViewModelFactory viewModelFactory)
+  {
+    this.viewHandler = viewHandler;
+    this.staffVM = staffVM;
 
-  @FXML
-  private JFXButton orders_btn;
-
-  @FXML
-  private JFXButton staff_btn;
-
-  @FXML
-  private JFXButton Costumer_btn;
-
-  @FXML
-  private JFXButton chat_btn;
-
-  @FXML
-  private JFXButton signout_btn;
-
-  @FXML
-  private ImageView search_btn;
-
-  @FXML
-  private TextField search_staff;
-
-  @FXML
-  private JFXButton add_staff_btn;
-
-  @FXML
-  private JFXButton delete_staff_btn;
-
-  @FXML
-  private JFXButton edit_staff_btn;
-
+    searchStaffTextProperty.textProperty()
+        .bindBidirectional(staffVM.searchStaffTextProperty());
+  }
+  public void onAddStaffButton()
+  {
+    staffVM.openAddStaffView();
+  }
+  public void onDeleteStaffButton()
+  {
+    staffVM.openDeleteStaffView();
+  }
+  public void onEditStaffButton()
+  {
+    staffVM.openEditStaffView();
+  }
 }
