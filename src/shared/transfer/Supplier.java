@@ -10,18 +10,20 @@ public class Supplier implements Serializable
   private Product product;
   private String supplierName;
   private int cvrNr;
-  private Address address;
+  private Address address_id;
   private String email;
+  private String phoneNo;
 
   public Supplier( int supplier_id, Product product, String supplierName, int cvrNr,
-      Address address, String email)
+      Address address_id, String email, String phoneNo)
   {
     this.supplier_id = supplier_id;
     this.product = product;
     this.supplierName = supplierName;
     this.cvrNr = cvrNr;
-    this.address = address;
+    this.address_id = address_id;
     this.email = email;
+    this.phoneNo = phoneNo;
   }
 
   public int getSupplier_id()
@@ -44,13 +46,18 @@ public class Supplier implements Serializable
     return cvrNr;
   }
 
-  public Address getAddress()
+  public Address getAddress_id()
   {
-    return address;
+    return address_id;
   }
 
   public String getEmail()
   {
     return email;
+  }
+
+  public String getPhoneNo()
+  {
+    return phoneNo;
   }
 }

@@ -11,20 +11,20 @@ public abstract class Staff
   private String fname;
   private String lname;
   private String email;
-  private Address address;
+  private Address address_id;
   private String phoneNo;
   private Date startDate;
   private double salary;
 
-  protected Staff( int staff_id, int cprNr, String fname, String lname, String email,
-      Address address, String phoneNumber, Date startDate, double salary)
+  public Staff( int staff_id, int cprNr, String fname, String lname, String email,
+      Address address_id, String phoneNumber, Date startDate, double salary)
   {
     this.staff_id = staff_id;
     this.cprNr = cprNr;
     this.fname = fname;
     this.lname = lname;
     this.email = email;
-    this.address = address;
+    this.address_id = address_id;
     this.phoneNo = phoneNumber;
     this.startDate = startDate;
     this.salary = salary;
@@ -55,9 +55,9 @@ public abstract class Staff
     return email;
   }
 
-  public Address getAddress()
+  public Address getAddress_id()
   {
-    return address;
+    return address_id;
   }
 
   public String getPhoneNo()

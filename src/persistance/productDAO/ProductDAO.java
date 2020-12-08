@@ -11,6 +11,6 @@ public interface ProductDAO
       double price);
   void updateProduct(Product product);
   Product searchProductByProduct_id(int product_id);
-  List<Product> viewAllProductsByProductName(String productName);
+  List<Product> viewAllProductsByProductName(String searchCriteria);
   void deleteProduct(Product product);
 }

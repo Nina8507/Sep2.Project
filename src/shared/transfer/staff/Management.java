@@ -2,15 +2,16 @@ package shared.transfer.staff;
 
 import shared.transfer.address.Address;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Management extends Staff
+public class Management extends Staff implements Serializable
 {
 
-  private Management(int staff_id, int cprNr, String fname, String lname, String email,
-      Address address, String phoneNumber, Date startDate, double salary)
+  public Management(int staff_id, int cprNr, String fname, String lname, String email,
+      Address address_id, String phoneNumber, Date startDate, double salary)
   {
-    super(staff_id, cprNr, fname, lname, email, address, phoneNumber, startDate, salary);
+    super(staff_id, cprNr, fname, lname, email, address_id, phoneNumber, startDate, salary);
   }
 
   @Override public int getStaff_id()
@@ -38,9 +39,9 @@ public class Management extends Staff
     return super.getEmail();
   }
 
-  @Override public Address getAddress()
+  @Override public Address getAddress_id()
   {
-    return super.getAddress();
+    return super.getAddress_id();
   }
 
   @Override public String getPhoneNo()
