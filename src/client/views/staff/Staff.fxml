@@ -135,7 +135,7 @@
                   <Image url="@../image/search.png" />
                </image>
             </ImageView>
-            <TextField fx:id="search_staff" layoutX="52.0" layoutY="149.0" prefHeight="35.0" prefWidth="365.0" promptText="Search Supplier" />
+            <TextField fx:id="search_staff" layoutX="52.0" layoutY="149.0" prefHeight="35.0" prefWidth="365.0" promptText="Search staff member" />
             <HBox layoutX="24.0" layoutY="186.0" prefHeight="39.0" prefWidth="842.0" style="-fx-background-color: #60bdff;">
                <children>
                   <Label text="Staff ID">
