@@ -34,7 +34,7 @@
                <DropShadow />
             </effect>
          </JFXButton>
-         <JFXButton fx:id="product_brn" alignment="TOP_LEFT" layoutY="164.0" prefHeight="39.0" prefWidth="229.0" style="-fx-background-color: #60bdff;" text="Products">
+         <JFXButton fx:id="product_btn" alignment="TOP_LEFT" layoutY="164.0" prefHeight="39.0" prefWidth="229.0" style="-fx-background-color: #60bdff;" text="Products">
             <effect>
                <DropShadow />
             </effect>
@@ -408,7 +408,7 @@
                   </Label>
                </children>
             </HBox>
-            <JFXButton fx:id="add_staff_btn" alignment="TOP_LEFT" layoutX="424.0" layoutY="150.0" prefHeight="28.0" prefWidth="116.0" style="-fx-background-color: #60bdff;" text="Add">
+            <JFXButton fx:id="add_staff_btn" alignment="TOP_LEFT" layoutX="425.0" layoutY="153.0" prefHeight="28.0" prefWidth="116.0" style="-fx-background-color: #60bdff;" text="Add">
                <effect>
                   <DropShadow />
                </effect>
@@ -420,7 +420,7 @@
                   </ImageView>
                </graphic>
             </JFXButton>
-            <JFXButton fx:id="delete_staff_btn" alignment="TOP_LEFT" layoutX="670.0" layoutY="150.0" prefHeight="28.0" prefWidth="116.0" style="-fx-background-color: #60bdff;" text="Delete">
+            <JFXButton fx:id="delete_staff_btn" alignment="TOP_LEFT" layoutX="670.0" layoutY="153.0" prefHeight="28.0" prefWidth="116.0" style="-fx-background-color: #60bdff;" text="Delete">
                <effect>
                   <DropShadow />
                </effect>
@@ -432,7 +432,7 @@
                   </ImageView>
                </graphic>
             </JFXButton>
-            <JFXButton fx:id="edit_staff_btn" alignment="TOP_LEFT" layoutX="547.0" layoutY="150.0" prefHeight="28.0" prefWidth="116.0" style="-fx-background-color: #60bdff;" text="Edit">
+            <JFXButton fx:id="edit_staff_btn" alignment="TOP_LEFT" layoutX="547.0" layoutY="153.0" prefHeight="28.0" prefWidth="116.0" style="-fx-background-color: #60bdff;" text="Edit">
                <effect>
                   <DropShadow />
                </effect>
