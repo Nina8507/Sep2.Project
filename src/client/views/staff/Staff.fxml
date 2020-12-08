@@ -2,7 +2,6 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.DropShadow?>
@@ -409,7 +408,10 @@
                   </Label>
                </children>
             </HBox>
-            <Button fx:id="add_staff" layoutX="428.0" layoutY="153.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="116.0" style="-fx-background-color: #60bdff;" text="Add Staff">
+            <JFXButton fx:id="add_staff_btn" alignment="TOP_LEFT" layoutX="424.0" layoutY="153.0" prefHeight="28.0" prefWidth="116.0" style="-fx-background-color: #60bdff;" text="Add">
+               <effect>
+                  <DropShadow />
+               </effect>
                <graphic>
                   <ImageView fitHeight="20.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -417,17 +419,11 @@
                      </image>
                   </ImageView>
                </graphic>
-            </Button>
-            <Button fx:id="edit_staff" layoutX="550.0" layoutY="153.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="116.0" style="-fx-background-color: #60bdff;" text="Edit Staff">
-               <graphic>
-                  <ImageView fx:id="edit_product" fitHeight="20.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../../../../Desktop/FXML%20SEP/Edit.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </Button>
-            <Button fx:id="delete_staff" layoutX="673.0" layoutY="153.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="116.0" style="-fx-background-color: #60bdff;" text="Delete Staff">
+            </JFXButton>
+            <JFXButton fx:id="delete_staff_btn" alignment="TOP_LEFT" layoutX="677.0" layoutY="153.0" prefHeight="28.0" prefWidth="116.0" style="-fx-background-color: #60bdff;" text="Delete">
+               <effect>
+                  <DropShadow />
+               </effect>
                <graphic>
                   <ImageView fitHeight="20.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -435,7 +431,19 @@
                      </image>
                   </ImageView>
                </graphic>
-            </Button>
+            </JFXButton>
+            <JFXButton fx:id="edit_staff_btn" alignment="TOP_LEFT" layoutX="549.0" layoutY="153.0" prefHeight="28.0" prefWidth="116.0" style="-fx-background-color: #60bdff;" text="Edit">
+               <effect>
+                  <DropShadow />
+               </effect>
+               <graphic>
+                  <ImageView fitHeight="20.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../../Desktop/FXML%20SEP/Edit.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
          </children></AnchorPane>
    </children>
 </AnchorPane>
