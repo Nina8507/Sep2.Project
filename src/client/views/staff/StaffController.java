@@ -21,7 +21,7 @@ public class StaffController
   private JFXButton staff_btn;
 
   @FXML
-  private JFXButton cosumer_btn;
+  private JFXButton Costumer_btn;
 
   @FXML
   private JFXButton chat_btn;
