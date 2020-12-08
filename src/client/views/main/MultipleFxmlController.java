@@ -63,7 +63,7 @@ public class MultipleFxmlController
   {
     System.out.println("You clicked Dashboard");
     FxmlLoader object = new FxmlLoader();
-    Pane view = object.getPage("Supplier");
+    Pane view = object.getPage("../supplier");
     mainPane.setCenter(view);
 
   }
