@@ -68,7 +68,7 @@ public class ViewHandler
     {
       if (loginResultScene == null)
       {
-        loginResultScene = getScene("../views/register/LoginResult.fxml");
+        loginResultScene = getScene("LoginResultt.fxml");
       }
       mainStage.setTitle("Login Successful");
       mainStage.setScene(loginResultScene);

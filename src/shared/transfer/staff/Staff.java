@@ -4,34 +4,41 @@ import java.util.Date;
 
 public abstract class Staff
 {
-   private int cpr;
-   private String name;
+   private int cprNr;
+   private String fname;
+   private String lname;
    private String email;
    private Address address;
-   private String phoneNumber;
+   private String phoneNo;
    private Date startDate;
    private double salary;
 
-  protected Staff(int cpr, String name, String email, Address address,
+  protected Staff(int cprNr, String fname, String lname, String email, Address address,
       String phoneNumber, Date startDate, double salary)
   {
-    this.cpr = cpr;
-    this.name = name;
+    this.cprNr = cprNr;
+    this.fname = fname;
+    this.lname = lname;
     this.email = email;
     this.address = address;
-    this.phoneNumber = phoneNumber;
+    this.phoneNo = phoneNumber;
     this.startDate = startDate;
     this.salary = salary;
   }
 
-  public int getCpr()
+  public int getCprNr()
   {
-    return cpr;
+    return cprNr;
   }
 
-  public String getName()
+  public String getFname()
   {
-    return name;
+    return fname;
+  }
+
+  public String getLname()
+  {
+    return lname;
   }
 
   public String getEmail()
@@ -44,9 +51,9 @@ public abstract class Staff
     return address;
   }
 
-  public String getPhoneNumber()
+  public String getPhoneNo()
   {
-    return phoneNumber;
+    return phoneNo;
   }
 
   public Date getStartDate()
