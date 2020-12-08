@@ -98,7 +98,7 @@
             <graphic>
                <ImageView fitHeight="19.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
                   <image>
-                     <Image url="@../images/free-message-icon.jpg" />
+                     <Image url="@../images/message-icon.jpg" />
                   </image>
                </ImageView>
             </graphic>

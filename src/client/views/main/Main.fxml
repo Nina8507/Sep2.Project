@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="760.0" prefWidth="972.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <AnchorPane prefHeight="760.0" prefWidth="229.0" style="-fx-background-color: #60bdff;">
+            <children>
+                <ImageView fitHeight="158.0" fitWidth="229.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../images/jimahegn_logo.png" />
+                    </image>
+                </ImageView>
+                <JFXButton fx:id="dashboard_btn" alignment="TOP_LEFT" layoutY="125.0" onAction="#handelButtonDashboardAction" prefHeight="39.0" prefWidth="229.0" style="-fx-background-color: #60bdff;" text="Dashboard">
+                    <graphic>
+                        <ImageView fitHeight="20.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../images/Dashboard.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                    <effect>
+                        <DropShadow />
+                    </effect>
+                </JFXButton>
+                <JFXButton fx:id="product_btn" alignment="TOP_LEFT" layoutY="164.0" onAction="#handelButtonProductAction" prefHeight="39.0" prefWidth="229.0" style="-fx-background-color: #60bdff;" text="Products">
+                    <effect>
+                        <DropShadow />
+                    </effect>
+                    <graphic>
+                        <ImageView fitHeight="20.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../images/open-box.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </JFXButton>
+                <JFXButton fx:id="supplier_btn" alignment="TOP_LEFT" layoutY="203.0" onAction="#handelButtonSuppliersAction" prefHeight="39.0" prefWidth="229.0" style="-fx-background-color: #60bdff;" text="Suppliers">
+                    <graphic>
+                        <ImageView fitHeight="20.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../images/handshake.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                    <effect>
+                        <DropShadow />
+                    </effect>
+                </JFXButton>
+                <JFXButton fx:id="order_btn" alignment="TOP_LEFT" layoutY="242.0" onAction="#handelButtonEmployersAction" prefHeight="39.0" prefWidth="229.0" style="-fx-background-color: #60bdff;" text="Orders">
+                    <graphic>
+                        <ImageView fitHeight="20.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../images/order.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                    <effect>
+                        <DropShadow />
+                    </effect>
+                </JFXButton>
+                <JFXButton fx:id="employee_btn" alignment="TOP_LEFT" layoutY="281.0" prefHeight="39.0" prefWidth="229.0" style="-fx-background-color: #60bdff;" text="Employers">
+                    <graphic>
+                        <ImageView fitHeight="20.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../../../Desktop/FXML%20SEP/Employee.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                    <effect>
+                        <DropShadow />
+                    </effect>
+                </JFXButton>
+                <JFXButton fx:id="costumer_btn" alignment="TOP_LEFT" layoutY="320.0" onAction="#handelButtonCostumerAction" prefHeight="39.0" prefWidth="229.0" style="-fx-background-color: #60bdff;" text="Costumer">
+                    <graphic>
+                        <ImageView fitHeight="20.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../images/Costumer.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                    <effect>
+                        <DropShadow />
+                    </effect>
+                </JFXButton>
+                <JFXButton fx:id="chat_btn" alignment="TOP_LEFT" layoutX="1.0" layoutY="719.0" prefHeight="39.0" prefWidth="229.0" style="-fx-background-color: #60bdff;" text="Chat">
+                    <effect>
+                        <DropShadow />
+                    </effect>
+                    <graphic>
+                        <ImageView fitHeight="19.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../images/message-icon.jpg" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </JFXButton>
+                <JFXButton alignment="TOP_LEFT" layoutY="437.0" onAction="#handelButtonSignOutAction" prefHeight="39.0" prefWidth="229.0" style="-fx-background-color: #60bdff;" text="Sign Out">
+                    <graphic>
+                        <ImageView fitHeight="16.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../images/sign out.jpg" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                    <effect>
+                        <DropShadow />
+                    </effect>
+                </JFXButton>
+                <JFXButton fx:id="registration_btn" alignment="TOP_LEFT" layoutY="398.0" onAction="#handelButtonRegistrationAction" prefHeight="39.0" prefWidth="229.0" style="-fx-background-color: #60bdff;" text="Registration">
+                    <graphic>
+                        <ImageView fitHeight="16.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../images/Registration logo.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                    <effect>
+                        <DropShadow />
+                    </effect>
+                </JFXButton>
+                <JFXButton fx:id="activityLog_btn" alignment="TOP_LEFT" layoutY="359.0" onAction="#handelButtonActivityLogAction" prefHeight="39.0" prefWidth="229.0" style="-fx-background-color: #60bdff;" text="Activity log">
+                    <graphic>
+                        <ImageView fitHeight="16.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../images/Activity.jpg" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                    <effect>
+                        <DropShadow />
+                    </effect>
+                </JFXButton>
+            </children>
+            <effect>
+                <DropShadow />
+            </effect>
+        </AnchorPane>
+        <BorderPane fx:id="mainPane" layoutX="230.0" layoutY="-3.0" prefHeight="766.0" prefWidth="743.0" />
+    </children>
+</AnchorPane>
