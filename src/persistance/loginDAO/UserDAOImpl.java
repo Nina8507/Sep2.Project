@@ -9,7 +9,7 @@ import java.sql.*;
 public class UserDAOImpl implements UserDAO
 {
   private static UserDAOImpl userInstance;
-  private JDBCController controllerJDBC;
+  private JDBCController controller;
 
   private UserDAOImpl()
   {
@@ -21,7 +21,7 @@ public class UserDAOImpl implements UserDAO
     {
       throwables.printStackTrace();
     }
-    controllerJDBC = JDBCController.getInstance();
+    controller = JDBCController.getInstance();
   }
 
   public static synchronized UserDAOImpl getInstance()
@@ -35,7 +35,7 @@ public class UserDAOImpl implements UserDAO
 
   @Override public String validateUser(User user)
   {
-    try (Connection connection = controllerJDBC.getConnection())
+    try (Connection connection = controller.getConnection())
     {
       PreparedStatement statement = connection.prepareStatement(
           "SELECT * FROM userlogin WHERE username = ? AND userpassword = ?");
@@ -62,7 +62,7 @@ public class UserDAOImpl implements UserDAO
 
   @Override public User registerUser(User user)
   {
-    try(Connection connection = controllerJDBC.getConnection())
+    try(Connection connection = controller.getConnection())
     {
       PreparedStatement statement = connection.prepareStatement(
           "INSERT INTO User(username, userpassword) VALUES (?, ?)");

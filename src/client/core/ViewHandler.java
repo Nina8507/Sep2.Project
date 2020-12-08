@@ -14,6 +14,7 @@ public class ViewHandler
   private Scene loginScene;
   private Scene loginResultScene;
   private Scene registerScene;
+  private Scene staffScene;
   private ViewModelFactory viewModelFactory;
 
   public ViewHandler(ViewModelFactory viewModelFactory)
@@ -72,6 +73,22 @@ public class ViewHandler
       }
       mainStage.setTitle("Login Successful");
       mainStage.setScene(loginResultScene);
+    }
+    catch (Exception e)
+    {
+      e.printStackTrace();
+    }
+  }
+  public void openStaffView()
+  {
+    try
+    {
+      if (staffScene == null)
+      {
+        staffScene = getScene("../views/staff/staff.fxml");
+      }
+      mainStage.setTitle("Staff");
+      mainStage.setScene(staffScene);
     }
     catch (Exception e)
     {
