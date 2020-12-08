@@ -82,7 +82,7 @@
                <DropShadow />
             </effect>
          </JFXButton>
-         <JFXButton fx:id="cosumer_btn" alignment="TOP_LEFT" layoutY="320.0" prefHeight="39.0" prefWidth="229.0" style="-fx-background-color: #60bdff;" text="Costumer">
+         <JFXButton fx:id="Costumer_btn" alignment="TOP_LEFT" layoutY="320.0" prefHeight="39.0" prefWidth="229.0" style="-fx-background-color: #60bdff;" text="Costumer">
             <graphic>
                <ImageView fitHeight="20.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
                   <image>
