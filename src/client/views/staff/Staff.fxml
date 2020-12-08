@@ -22,7 +22,7 @@
          <ImageView fitHeight="158.0" fitWidth="229.0" layoutY="-1.0"
                     pickOnBounds="true" preserveRatio="true">
             <image>
-               <Image url="@../image/jimahegn_logo.png"/>
+               <Image url="@../images/jimahegn_logo.png"/>
             </image>
          </ImageView>
          <JFXButton alignment="TOP_LEFT" layoutY="125.0" prefHeight="39.0"
@@ -32,7 +32,7 @@
                <ImageView fitHeight="20.0" fitWidth="22.0" pickOnBounds="true"
                           preserveRatio="true">
                   <image>
-                     <Image url="@../image/Dashboard.png"/>
+                     <Image url="@../images/Dashboard.png"/>
                   </image>
                </ImageView>
             </graphic>
@@ -50,7 +50,7 @@
                <ImageView fitHeight="20.0" fitWidth="22.0" pickOnBounds="true"
                           preserveRatio="true">
                   <image>
-                     <Image url="@../image/open-box.png"/>
+                     <Image url="@../images/open-box.png"/>
                   </image>
                </ImageView>
             </graphic>
@@ -62,7 +62,7 @@
                <ImageView fitHeight="20.0" fitWidth="22.0" pickOnBounds="true"
                           preserveRatio="true">
                   <image>
-                     <Image url="@../image/handshake.png"/>
+                     <Image url="@../images/handshake.png"/>
                   </image>
                </ImageView>
             </graphic>
@@ -77,7 +77,7 @@
                <ImageView fitHeight="20.0" fitWidth="22.0" pickOnBounds="true"
                           preserveRatio="true">
                   <image>
-                     <Image url="@../image/order.png"/>
+                     <Image url="@../images/order.png"/>
                   </image>
                </ImageView>
             </graphic>
@@ -92,7 +92,7 @@
                <ImageView fitHeight="20.0" fitWidth="22.0" pickOnBounds="true"
                           preserveRatio="true">
                   <image>
-                     <Image url="@../image/Employee.png"/>
+                     <Image url="@../images/Employee.png"/>
                   </image>
                </ImageView>
             </graphic>
@@ -107,7 +107,7 @@
                <ImageView fitHeight="20.0" fitWidth="22.0" pickOnBounds="true"
                           preserveRatio="true">
                   <image>
-                     <Image url="@../image/Costumer.png"/>
+                     <Image url="@../images/Costumer.png"/>
                   </image>
                </ImageView>
             </graphic>
@@ -125,7 +125,7 @@
                <ImageView fitHeight="19.0" fitWidth="21.0" pickOnBounds="true"
                           preserveRatio="true">
                   <image>
-                     <Image url="@../image/free-message-icon.jpg"/>
+                     <Image url="@../images/free-message-icon.jpg"/>
                   </image>
                </ImageView>
             </graphic>
@@ -137,7 +137,7 @@
                <ImageView fitHeight="16.0" fitWidth="20.0" pickOnBounds="true"
                           preserveRatio="true">
                   <image>
-                     <Image url="@../image/sign out.jpg"/>
+                     <Image url="@../images/sign out.jpg"/>
                   </image>
                </ImageView>
             </graphic>
@@ -159,7 +159,7 @@
             </HBox>
             <ImageView fitHeight="28.0" fitWidth="34.0" layoutX="24.0" layoutY="150.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../image/search.png" />
+                  <Image url="@../images/search.png" />
                </image>
             </ImageView>
             <TextField fx:id="search_staff" layoutX="52.0" layoutY="149.0" prefHeight="35.0" prefWidth="365.0" promptText="Search Supplier" />

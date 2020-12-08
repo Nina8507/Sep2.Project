@@ -5,15 +5,15 @@ import java.util.Date;
 public class Employee extends Staff
 {
 
-  private Employee(int cpr, String fname, String lname, String email,
+  private Employee(int cprNr, String fname, String lname, String email,
       Address address, String phoneNumber, Date startDate, double salary)
   {
-    super(cpr, fname, lname, email, address, phoneNumber, startDate, salary);
+    super(cprNr, fname, lname, email, address, phoneNumber, startDate, salary);
   }
 
-  @Override public int getCpr()
+  @Override public int getCprNr()
   {
-    return super.getCpr();
+    return super.getCprNr();
   }
 
   @Override public String getFname()

@@ -12,7 +12,6 @@ import javafx.scene.control.TextField;
 
 public class LoginController implements ViewController
 {
-  @FXML private Label loginResultLabel;
   @FXML private TextField usernameTextField;
   @FXML private TextField passwordTextField;
   @FXML private Button onLoginButton;
@@ -30,11 +29,11 @@ public class LoginController implements ViewController
         .bindBidirectional(loginVM.usernameProperty());
     passwordTextField.textProperty()
         .bindBidirectional(loginVM.passwordTextProperty());
-    loginResultLabel.textProperty()
-        .bindBidirectional(loginVM.loginResponseProperty());
+    //loginResultLabel.textProperty()
+      //  .bindBidirectional(loginVM.loginResponseProperty());
     //loginVM.loginResponseProperty().addListener(
-       // (observableValue, oldValue, newValue) -> onLoginResult(newValue));
-    loginResultLabel.textProperty().addListener(this::onLoginResult);
+     //  (observableValue, oldValue, newValue) -> onLoginResult());
+   // loginResultLabel.textProperty().addListener(this::onLoginResult);
   }
 
   private void onLoginResult(Observable observable, String old, String response)
@@ -47,8 +46,8 @@ public class LoginController implements ViewController
 
   public void onLoginButton(ActionEvent evt)
   {
-    loginVM.login();
-    //viewHandler.openRegisterView();
+    //loginVM.login();
+    viewHandler.openLoggedInSuccessfulView();
   }
 
   public void onRegisterButton(ActionEvent evt)

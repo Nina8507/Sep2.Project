@@ -4,13 +4,9 @@ import client.core.ViewHandler;
 import client.core.ViewModelFactory;
 import client.views.ViewController;
 import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.scene.control.Label;
 
-public class LoginResult implements ViewController
+public class LoginResultt implements ViewController
 {
-  @FXML private Label loginResultLabel;
-
   public void onExitButton(ActionEvent actionEvent)
   {
     System.exit(0);
@@ -19,6 +15,5 @@ public class LoginResult implements ViewController
   @Override public void init(ViewHandler viewHandler,
       ViewModelFactory viewModelFactory)
   {
-
   }
 }
