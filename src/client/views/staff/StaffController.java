@@ -44,4 +44,9 @@ public class StaffController
   @FXML
   private JFXButton edit_staff_btn;
 
+  public static void main(String[] args)
+  {
+
+  }
+
 }
