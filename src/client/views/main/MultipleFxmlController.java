@@ -80,7 +80,7 @@ public class MultipleFxmlController
   {
     System.out.println("You clicked Supplier");
     FxmlLoader object = new FxmlLoader();
-    Pane view = object.getPage("../supplier");
+    Pane view = object.getPage("../supplier/supplier.fxml");
     mainPane.setCenter(view);
 
   }
@@ -111,7 +111,7 @@ public class MultipleFxmlController
   {
     System.out.println("You clicked Costumer");
     FxmlLoader object = new FxmlLoader();
-    Pane view = object.getPage("Costumer");
+    Pane view = object.getPage("../Costumer");
     mainPane.setCenter(view);
   }
   /*
