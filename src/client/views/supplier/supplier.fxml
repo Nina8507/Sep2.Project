@@ -1,151 +1,78 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.*?>
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.effect.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="760.0" prefWidth="1125.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <AnchorPane prefHeight="760.0" prefWidth="229.0" style="-fx-background-color: #60bdff;">
-         <effect>
-            <DropShadow />
-         </effect>
-         <ImageView fitHeight="158.0" fitWidth="229.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
-            <image>
-               <Image url="@../images/jimahegn_logo.png" />
-            </image>
-         </ImageView>
-         <JFXButton fx:id="dashboard_btn" alignment="TOP_LEFT" layoutY="125.0" onAction="#onDashboardButton" prefHeight="39.0" prefWidth="229.0" style="-fx-background-color: #60bdff;" text="Dashboard">
-            <graphic>
-               <ImageView fitHeight="20.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
-                  <image>
-                     <Image url="@../images/Dashboard.png" />
-                  </image>
-               </ImageView>
-            </graphic>
-            <effect>
-               <DropShadow />
-            </effect>
-         </JFXButton>
-         <JFXButton fx:id="product_btn" alignment="TOP_LEFT" layoutY="164.0" onAction="#onProductsButton" prefHeight="39.0" prefWidth="229.0" style="-fx-background-color: #60bdff;" text="Products">
-            <effect>
-               <DropShadow />
-            </effect>
-            <graphic>
-               <ImageView fitHeight="20.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
-                  <image>
-                     <Image url="@../images/open-box.png" />
-                  </image>
-               </ImageView>
-            </graphic>
-         </JFXButton>
-         <JFXButton fx:id="supplier_btn" alignment="TOP_LEFT" layoutY="203.0" onAction="#onSupplierButton" prefHeight="39.0" prefWidth="229.0" style="-fx-background-color: #60bdff;" text="Suppliers">
-            <graphic>
-               <ImageView fitHeight="20.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
-                  <image>
-                     <Image url="@../images/handshake.png" />
-                  </image>
-               </ImageView>
-            </graphic>
-            <effect>
-               <DropShadow />
-            </effect>
-         </JFXButton>
-         <JFXButton fx:id="orders_btn" alignment="TOP_LEFT" layoutY="242.0" onAction="#onOrderButton" prefHeight="39.0" prefWidth="229.0" style="-fx-background-color: #60bdff;" text="Orders">
-            <graphic>
-               <ImageView fitHeight="20.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
-                  <image>
-                     <Image url="@../images/order.png" />
-                  </image>
-               </ImageView>
-            </graphic>
-            <effect>
-               <DropShadow />
-            </effect>
-         </JFXButton>
-         <JFXButton fx:id="staff_btn" alignment="TOP_LEFT" layoutY="281.0" onAction="#onStaffButton" prefHeight="39.0" prefWidth="229.0" style="-fx-background-color: #60bdff;" text="Staff">
-            <graphic>
-               <ImageView fitHeight="20.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
-                  <image>
-                     <Image url="@../images/Employee.png" />
-                  </image>
-               </ImageView>
-            </graphic>
-            <effect>
-               <DropShadow />
-            </effect>
-         </JFXButton>
-         <JFXButton fx:id="Costumer_btn" alignment="TOP_LEFT" layoutY="320.0" onAction="#onCustomerButton" prefHeight="39.0" prefWidth="229.0" style="-fx-background-color: #60bdff;" text="Customer">
-            <graphic>
-               <ImageView fitHeight="20.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
-                  <image>
-                     <Image url="@../images/Costumer.png" />
-                  </image>
-               </ImageView>
-            </graphic>
-            <effect>
-               <DropShadow />
-            </effect>
-         </JFXButton>
-         <JFXButton fx:id="chat_btn" alignment="TOP_LEFT" layoutY="721.0" onAction="#onChatButton" prefHeight="39.0" prefWidth="229.0" style="-fx-background-color: #60bdff;" text="Chat">
-            <effect>
-               <DropShadow />
-            </effect>
-            <graphic>
-               <ImageView fitHeight="19.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
-                  <image>
-                     <Image url="@../images/message-icon.jpg" />
-                  </image>
-               </ImageView>
-            </graphic>
-         </JFXButton>
-         <JFXButton fx:id="signout_btn" alignment="TOP_LEFT" layoutY="359.0" onAction="#onSignOutButton" prefHeight="39.0" prefWidth="229.0" style="-fx-background-color: #60bdff;" text="Sign Out">
-            <graphic>
-               <ImageView fitHeight="16.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                  <image>
-                     <Image url="@../images/sign out.jpg" />
-                  </image>
-               </ImageView>
-            </graphic>
-            <effect>
-               <DropShadow />
-            </effect>
-         </JFXButton>
-      </AnchorPane>
-      <AnchorPane layoutX="235.0" layoutY="-1.0" prefHeight="766.0" prefWidth="890.0">
+      <AnchorPane layoutX="231.0" layoutY="-1.0" prefHeight="760.0" prefWidth="894.0">
          <children>
-            <HBox alignment="CENTER_LEFT" layoutX="24.0" layoutY="56.0" prefHeight="71.0" prefWidth="842.0" style="-fx-background-color: #60bdff;">
+            <HBox alignment="CENTER_LEFT" layoutX="26.0" layoutY="53.0" prefHeight="71.0" prefWidth="842.0" style="-fx-background-color: #60bdff;">
                <children>
-                  <Label text="Staff">
+                  <Label text="Suppliers">
                      <font>
                         <Font size="24.0" />
                      </font>
                   </Label>
                </children>
             </HBox>
-            <ImageView fx:id="search_btn" fitHeight="28.0" fitWidth="34.0" layoutX="24.0" layoutY="150.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../images/search.png" />
-               </image>
-            </ImageView>
-            <TextField fx:id="search_staff" layoutX="52.0" layoutY="149.0" prefHeight="35.0" prefWidth="365.0" promptText="Search staff member" />
-            <HBox layoutX="24.0" layoutY="186.0" prefHeight="39.0" prefWidth="842.0" style="-fx-background-color: #60bdff;">
+            <HBox alignment="CENTER_LEFT" layoutX="26.0" layoutY="153.0" prefHeight="28.0" prefWidth="842.0" style="-fx-background-color: #ffffff;">
                <children>
-                  <Label text="Staff ID">
+                  <ImageView fitHeight="28.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../../Desktop/FXML%20SEP/search.png" />
+                     </image>
+                  </ImageView>
+                  <TextField fx:id="search_supplier" prefHeight="28.0" prefWidth="365.0" promptText="Search Supplier" />
+                  <Button fx:id="add_supplier" mnemonicParsing="false" prefHeight="2.0" prefWidth="150.0" style="-fx-background-color: #60bdff;" text="Add Suppliers">
+                     <graphic>
+                        <ImageView fitHeight="20.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../../../Desktop/FXML%20SEP/plus.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="edit_supplier" mnemonicParsing="false" prefHeight="2.0" prefWidth="150.0" style="-fx-background-color: #60bdff;" text="Edit Supplier">
+                     <graphic>
+                        <ImageView fitHeight="20.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../../../Desktop/FXML%20SEP/Edit.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="delete_supplier" mnemonicParsing="false" prefHeight="2.0" prefWidth="150.0" style="-fx-background-color: #60bdff;" text="Delete Supplier">
+                     <graphic>
+                        <ImageView fitHeight="20.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../../../Desktop/FXML%20SEP/trash.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </children>
+            </HBox>
+            <HBox layoutX="26.0" layoutY="184.0" prefHeight="39.0" prefWidth="842.0" style="-fx-background-color: #60bdff;">
+               <children>
+                  <Label text="Supplier ID">
                      <padding>
                         <Insets left="90.0" />
                      </padding>
                   </Label>
-                  <Label text="Name">
+                  <Label text="Company Name">
                      <padding>
                         <Insets left="90.0" />
                      </padding>
                   </Label>
-                  <Label text="CPR">
+                  <Label text="CVR">
                      <padding>
                         <Insets left="90.0" />
                      </padding>
@@ -160,48 +87,48 @@
                         <Insets left="90.0" />
                      </padding>
                   </Label>
-                  <Label text="??">
+                  <Label text="Country">
                      <padding>
                         <Insets left="90.0" />
                      </padding>
                   </Label>
                </children>
             </HBox>
-            <HBox layoutX="24.0" layoutY="225.0" prefHeight="9.0" prefWidth="842.0" style="-fx-background-color: #a6daff;">
+            <HBox layoutX="26.0" layoutY="232.0" prefHeight="9.0" prefWidth="842.0" style="-fx-background-color: #a6daff;">
                <children>
                   <Label text="1">
                      <padding>
                         <Insets left="90.0" />
                      </padding>
                   </Label>
-                  <Label text="DD">
+                  <Label text="Kirkedal">
                      <padding>
                         <Insets left="90.0" />
                      </padding>
                   </Label>
-                  <Label alignment="CENTER" prefHeight="17.0" prefWidth="116.0" text="160990">
+                  <Label alignment="CENTER" prefHeight="17.0" prefWidth="116.0" text="27522599">
                      <padding>
                         <Insets left="90.0" />
                      </padding>
                   </Label>
-                  <Label text="Hjemme">
+                  <Label text="Tangetvej 161, 9800 Hjørring">
                      <padding>
                         <Insets left="90.0" />
                      </padding>
                   </Label>
-                  <Label text="Pikfjæs@jima.dk">
+                  <Label text="hej@præcis.dk">
                      <padding>
                         <Insets left="90.0" />
                      </padding>
                   </Label>
-                  <Label>
+                  <Label text="DK">
                      <padding>
                         <Insets left="90.0" />
                      </padding>
                   </Label>
                </children>
             </HBox>
-            <HBox layoutX="24.0" layoutY="242.0" prefHeight="9.0" prefWidth="842.0" style="-fx-background-color: #cccccc;">
+            <HBox layoutX="26.0" layoutY="249.0" prefHeight="9.0" prefWidth="842.0" style="-fx-background-color: #cccccc;">
                <children>
                   <Label text="Supplier ID">
                      <padding>
@@ -235,7 +162,7 @@
                   </Label>
                </children>
             </HBox>
-            <HBox layoutX="24.0" layoutY="259.0" prefHeight="9.0" prefWidth="842.0" style="-fx-background-color: #a6daff;">
+            <HBox layoutX="26.0" layoutY="266.0" prefHeight="9.0" prefWidth="842.0" style="-fx-background-color: #a6daff;">
                <children>
                   <Label text="Supplier ID">
                      <padding>
@@ -269,7 +196,7 @@
                   </Label>
                </children>
             </HBox>
-            <HBox layoutX="24.0" layoutY="276.0" prefHeight="9.0" prefWidth="842.0" style="-fx-background-color: #cccccc;">
+            <HBox layoutX="26.0" layoutY="283.0" prefHeight="9.0" prefWidth="842.0" style="-fx-background-color: #cccccc;">
                <children>
                   <Label text="Supplier ID">
                      <padding>
@@ -303,7 +230,7 @@
                   </Label>
                </children>
             </HBox>
-            <HBox layoutX="24.0" layoutY="293.0" prefHeight="9.0" prefWidth="842.0" style="-fx-background-color: #a6daff;">
+            <HBox layoutX="26.0" layoutY="300.0" prefHeight="9.0" prefWidth="842.0" style="-fx-background-color: #a6daff;">
                <children>
                   <Label text="Supplier ID">
                      <padding>
@@ -337,7 +264,7 @@
                   </Label>
                </children>
             </HBox>
-            <HBox layoutX="24.0" layoutY="310.0" prefHeight="9.0" prefWidth="842.0" style="-fx-background-color: #cccccc;">
+            <HBox layoutX="26.0" layoutY="317.0" prefHeight="9.0" prefWidth="842.0" style="-fx-background-color: #cccccc;">
                <children>
                   <Label text="Supplier ID">
                      <padding>
@@ -371,7 +298,7 @@
                   </Label>
                </children>
             </HBox>
-            <HBox layoutX="24.0" layoutY="327.0" prefHeight="9.0" prefWidth="842.0" style="-fx-background-color: #a6daff;">
+            <HBox layoutX="26.0" layoutY="334.0" prefHeight="9.0" prefWidth="842.0" style="-fx-background-color: #a6daff;">
                <children>
                   <Label text="Supplier ID">
                      <padding>
@@ -405,42 +332,40 @@
                   </Label>
                </children>
             </HBox>
-            <JFXButton fx:id="add_staff_btn" alignment="TOP_LEFT" layoutX="425.0" layoutY="153.0" onAction="#onAddStaffButton" prefHeight="28.0" prefWidth="116.0" style="-fx-background-color: #60bdff;" text="Add">
-               <effect>
-                  <DropShadow />
-               </effect>
-               <graphic>
-                  <ImageView fitHeight="20.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../images/plus.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </JFXButton>
-            <JFXButton fx:id="delete_staff_btn" alignment="TOP_LEFT" layoutX="670.0" layoutY="153.0" onAction="#onDeleteStaffButton" prefHeight="28.0" prefWidth="116.0" style="-fx-background-color: #60bdff;" text="Delete">
-               <effect>
-                  <DropShadow />
-               </effect>
-               <graphic>
-                  <ImageView fitHeight="20.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../images/trash.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </JFXButton>
-            <JFXButton fx:id="edit_staff_btn" alignment="TOP_LEFT" layoutX="547.0" layoutY="153.0" onAction="#onEditStaffButton" prefHeight="28.0" prefWidth="116.0" style="-fx-background-color: #60bdff;" text="Edit">
-               <effect>
-                  <DropShadow />
-               </effect>
-               <graphic>
-                  <ImageView fitHeight="20.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../images/Edit.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </JFXButton>
+            <HBox layoutX="26.0" layoutY="351.0" prefHeight="9.0" prefWidth="842.0" style="-fx-background-color: #cccccc;">
+               <children>
+                  <Label text="Supplier ID">
+                     <padding>
+                        <Insets left="90.0" />
+                     </padding>
+                  </Label>
+                  <Label text="Company Name">
+                     <padding>
+                        <Insets left="90.0" />
+                     </padding>
+                  </Label>
+                  <Label text="CVR">
+                     <padding>
+                        <Insets left="90.0" />
+                     </padding>
+                  </Label>
+                  <Label text="Address">
+                     <padding>
+                        <Insets left="90.0" />
+                     </padding>
+                  </Label>
+                  <Label text="E-mail">
+                     <padding>
+                        <Insets left="90.0" />
+                     </padding>
+                  </Label>
+                  <Label text="Country">
+                     <padding>
+                        <Insets left="90.0" />
+                     </padding>
+                  </Label>
+               </children>
+            </HBox>
          </children></AnchorPane>
    </children>
 </AnchorPane>

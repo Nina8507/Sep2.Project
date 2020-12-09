@@ -1,37 +1,53 @@
 package shared.transfer.staff;
 
+import shared.transfer.address.Address;
+
 import java.util.Date;
 
 public abstract class Staff
 {
-   private int cpr;
-   private String name;
-   private String email;
-   private Address address;
-   private String phoneNumber;
-   private Date startDate;
-   private double salary;
+  private int staff_id;
+  private int cprNr;
+  private String fname;
+  private String lname;
+  private String email;
+  private Address address_id;
+  private String phoneNo;
+  private Date startDate;
+  private double salary;
 
-  protected Staff(int cpr, String name, String email, Address address,
-      String phoneNumber, Date startDate, double salary)
+  public Staff( int staff_id, int cprNr, String fname, String lname, String email,
+      Address address_id, String phoneNumber, Date startDate, double salary)
   {
-    this.cpr = cpr;
-    this.name = name;
+    this.staff_id = staff_id;
+    this.cprNr = cprNr;
+    this.fname = fname;
+    this.lname = lname;
     this.email = email;
-    this.address = address;
-    this.phoneNumber = phoneNumber;
+    this.address_id = address_id;
+    this.phoneNo = phoneNumber;
     this.startDate = startDate;
     this.salary = salary;
   }
 
-  public int getCpr()
+  public int getStaff_id()
   {
-    return cpr;
+    return staff_id;
   }
 
-  public String getName()
+  public int getCprNr()
   {
-    return name;
+    return cprNr;
+  }
+
+  public String getFname()
+  {
+    return fname;
+  }
+
+  public String getLname()
+  {
+    return lname;
   }
 
   public String getEmail()
@@ -39,14 +55,14 @@ public abstract class Staff
     return email;
   }
 
-  public Address getAddress()
+  public Address getAddress_id()
   {
-    return address;
+    return address_id;
   }
 
-  public String getPhoneNumber()
+  public String getPhoneNo()
   {
-    return phoneNumber;
+    return phoneNo;
   }
 
   public Date getStartDate()

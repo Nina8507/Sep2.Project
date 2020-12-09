@@ -1,0 +1,708 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="760.0" prefWidth="1125.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <AnchorPane layoutX="231.0" layoutY="-1.0" prefHeight="760.0" prefWidth="894.0">
+         <children>
+            <HBox layoutX="26.0" layoutY="182.0" prefHeight="39.0" prefWidth="842.0" style="-fx-background-color: #60bdff;">
+               <children>
+                  <Label text="Product Name">
+                     <padding>
+                        <Insets left="40.0" />
+                     </padding>
+                  </Label>
+                  <Label text="Product ID">
+                     <padding>
+                        <Insets left="40.0" />
+                     </padding>
+                  </Label>
+                  <Label text="Quantity">
+                     <padding>
+                        <Insets left="40.0" />
+                     </padding>
+                  </Label>
+                  <Label text="Messurement">
+                     <padding>
+                        <Insets left="40.0" />
+                     </padding>
+                  </Label>
+                  <Label text="Color">
+                     <padding>
+                        <Insets left="40.0" />
+                     </padding>
+                  </Label>
+                  <Label text="Type">
+                     <padding>
+                        <Insets left="40.0" />
+                     </padding>
+                  </Label>
+                  <Label text="Status">
+                     <padding>
+                        <Insets left="40.0" />
+                     </padding>
+                  </Label>
+                  <Label text="Pruchase Price">
+                     <padding>
+                        <Insets left="40.0" />
+                     </padding>
+                  </Label>
+                  <Label text="Sales Price">
+                     <padding>
+                        <Insets left="40.0" />
+                     </padding>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox layoutX="26.0" layoutY="230.0" prefHeight="17.0" prefWidth="842.0" style="-fx-background-color: #a6daff;">
+               <children>
+                  <Label prefHeight="17.0" prefWidth="105.0" text="NoiseCare">
+                     <padding>
+                        <Insets left="40.0" />
+                     </padding>
+                     <HBox.margin>
+                        <Insets left="25.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Label text="#4242">
+                     <padding>
+                        <Insets left="40.0" />
+                     </padding>
+                     <HBox.margin>
+                        <Insets left="25.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Label text="22">
+                     <padding>
+                        <Insets left="40.0" />
+                     </padding>
+                     <HBox.margin>
+                        <Insets left="25.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Label text="10x10x30">
+                     <padding>
+                        <Insets left="40.0" />
+                     </padding>
+                     <HBox.margin>
+                        <Insets left="25.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Label text="Red">
+                     <padding>
+                        <Insets left="40.0" />
+                     </padding>
+                     <HBox.margin>
+                        <Insets left="25.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Label text="Wood">
+                     <padding>
+                        <Insets left="40.0" />
+                     </padding>
+                     <HBox.margin>
+                        <Insets left="25.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Button alignment="BASELINE_CENTER" mnemonicParsing="false" prefHeight="25.0" prefWidth="2.0" style="-fx-background-color: #ff0000;">
+                     <HBox.margin>
+                        <Insets left="25.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Label text="25kr">
+                     <padding>
+                        <Insets left="40.0" />
+                     </padding>
+                     <HBox.margin>
+                        <Insets left="25.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Label text="75kr">
+                     <padding>
+                        <Insets left="40.0" />
+                     </padding>
+                     <HBox.margin>
+                        <Insets left="25.0" />
+                     </HBox.margin>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox layoutX="26.0" layoutY="255.0" prefHeight="17.0" prefWidth="842.0" style="-fx-background-color: #cccccc;">
+               <children>
+                  <Label prefHeight="17.0" prefWidth="105.0" text="NoiseCare">
+                     <padding>
+                        <Insets left="40.0" />
+                     </padding>
+                     <HBox.margin>
+                        <Insets left="25.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Label text="#4242">
+                     <padding>
+                        <Insets left="40.0" />
+                     </padding>
+                     <HBox.margin>
+                        <Insets left="25.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Label text="22">
+                     <padding>
+                        <Insets left="40.0" />
+                     </padding>
+                     <HBox.margin>
+                        <Insets left="25.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Label text="10x10x30">
+                     <padding>
+                        <Insets left="40.0" />
+                     </padding>
+                     <HBox.margin>
+                        <Insets left="25.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Label text="Red">
+                     <padding>
+                        <Insets left="40.0" />
+                     </padding>
+                     <HBox.margin>
+                        <Insets left="25.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Label text="Wood">
+                     <padding>
+                        <Insets left="40.0" />
+                     </padding>
+                     <HBox.margin>
+                        <Insets left="25.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Button alignment="BASELINE_CENTER" mnemonicParsing="false" prefHeight="25.0" prefWidth="2.0" style="-fx-background-color: #ffff00;">
+                     <HBox.margin>
+                        <Insets left="25.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Label text="20kr">
+                     <padding>
+                        <Insets left="40.0" />
+                     </padding>
+                     <HBox.margin>
+                        <Insets left="25.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Label text="70kr">
+                     <padding>
+                        <Insets left="40.0" />
+                     </padding>
+                     <HBox.margin>
+                        <Insets left="25.0" />
+                     </HBox.margin>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox layoutX="26.0" layoutY="280.0" prefHeight="17.0" prefWidth="842.0" style="-fx-background-color: #a6daff;">
+               <children>
+                  <Label prefHeight="17.0" prefWidth="105.0" text="NoiseCare">
+                     <padding>
+                        <Insets left="40.0" />
+                     </padding>
+                     <HBox.margin>
+                        <Insets left="25.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Label text="#4242">
+                     <padding>
+                        <Insets left="40.0" />
+                     </padding>
+                     <HBox.margin>
+                        <Insets left="25.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Label text="22">
+                     <padding>
+                        <Insets left="40.0" />
+                     </padding>
+                     <HBox.margin>
+                        <Insets left="25.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Label text="10x10x30">
+                     <padding>
+                        <Insets left="40.0" />
+                     </padding>
+                     <HBox.margin>
+                        <Insets left="25.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Label text="Red">
+                     <padding>
+                        <Insets left="40.0" />
+                     </padding>
+                     <HBox.margin>
+                        <Insets left="25.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Label text="Wood">
+                     <padding>
+                        <Insets left="40.0" />
+                     </padding>
+                     <HBox.margin>
+                        <Insets left="25.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Button alignment="BASELINE_CENTER" mnemonicParsing="false" prefHeight="25.0" prefWidth="2.0" style="-fx-background-color: #00ff00;">
+                     <HBox.margin>
+                        <Insets left="25.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Label text="50kr">
+                     <padding>
+                        <Insets left="40.0" />
+                     </padding>
+                     <HBox.margin>
+                        <Insets left="25.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Label text="150kr">
+                     <padding>
+                        <Insets left="40.0" />
+                     </padding>
+                     <HBox.margin>
+                        <Insets left="25.0" />
+                     </HBox.margin>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox layoutX="26.0" layoutY="305.0" prefHeight="17.0" prefWidth="842.0" style="-fx-background-color: #cccccc;">
+               <children>
+                  <Label prefHeight="17.0" prefWidth="105.0" text="NoiseCare">
+                     <padding>
+                        <Insets left="40.0" />
+                     </padding>
+                     <HBox.margin>
+                        <Insets left="25.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Label text="#4242">
+                     <padding>
+                        <Insets left="40.0" />
+                     </padding>
+                     <HBox.margin>
+                        <Insets left="25.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Label text="22">
+                     <padding>
+                        <Insets left="40.0" />
+                     </padding>
+                     <HBox.margin>
+                        <Insets left="25.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Label text="10x10x30">
+                     <padding>
+                        <Insets left="40.0" />
+                     </padding>
+                     <HBox.margin>
+                        <Insets left="25.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Label text="Red">
+                     <padding>
+                        <Insets left="40.0" />
+                     </padding>
+                     <HBox.margin>
+                        <Insets left="25.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Label text="Wood">
+                     <padding>
+                        <Insets left="40.0" />
+                     </padding>
+                     <HBox.margin>
+                        <Insets left="25.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Button alignment="BASELINE_CENTER" mnemonicParsing="false" prefHeight="25.0" prefWidth="2.0" style="-fx-background-color: #ff0000;">
+                     <HBox.margin>
+                        <Insets left="25.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Label text="25kr">
+                     <padding>
+                        <Insets left="40.0" />
+                     </padding>
+                     <HBox.margin>
+                        <Insets left="25.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Label text="75kr">
+                     <padding>
+                        <Insets left="40.0" />
+                     </padding>
+                     <HBox.margin>
+                        <Insets left="25.0" />
+                     </HBox.margin>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox layoutX="26.0" layoutY="330.0" prefHeight="17.0" prefWidth="842.0" style="-fx-background-color: #a6daff;">
+               <children>
+                  <Label prefHeight="17.0" prefWidth="105.0" text="NoiseCare">
+                     <padding>
+                        <Insets left="40.0" />
+                     </padding>
+                     <HBox.margin>
+                        <Insets left="25.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Label text="#4242">
+                     <padding>
+                        <Insets left="40.0" />
+                     </padding>
+                     <HBox.margin>
+                        <Insets left="25.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Label text="22">
+                     <padding>
+                        <Insets left="40.0" />
+                     </padding>
+                     <HBox.margin>
+                        <Insets left="25.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Label text="10x10x30">
+                     <padding>
+                        <Insets left="40.0" />
+                     </padding>
+                     <HBox.margin>
+                        <Insets left="25.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Label text="Red">
+                     <padding>
+                        <Insets left="40.0" />
+                     </padding>
+                     <HBox.margin>
+                        <Insets left="25.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Label text="Wood">
+                     <padding>
+                        <Insets left="40.0" />
+                     </padding>
+                     <HBox.margin>
+                        <Insets left="25.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Button alignment="BASELINE_CENTER" mnemonicParsing="false" prefHeight="25.0" prefWidth="2.0" style="-fx-background-color: #ff0000;">
+                     <HBox.margin>
+                        <Insets left="25.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Label text="25kr">
+                     <padding>
+                        <Insets left="40.0" />
+                     </padding>
+                     <HBox.margin>
+                        <Insets left="25.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Label text="75kr">
+                     <padding>
+                        <Insets left="40.0" />
+                     </padding>
+                     <HBox.margin>
+                        <Insets left="25.0" />
+                     </HBox.margin>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox layoutX="26.0" layoutY="355.0" prefHeight="17.0" prefWidth="842.0" style="-fx-background-color: #cccccc;">
+               <children>
+                  <Label prefHeight="17.0" prefWidth="105.0" text="NoiseCare">
+                     <padding>
+                        <Insets left="40.0" />
+                     </padding>
+                     <HBox.margin>
+                        <Insets left="25.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Label text="#4242">
+                     <padding>
+                        <Insets left="40.0" />
+                     </padding>
+                     <HBox.margin>
+                        <Insets left="25.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Label text="22">
+                     <padding>
+                        <Insets left="40.0" />
+                     </padding>
+                     <HBox.margin>
+                        <Insets left="25.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Label text="10x10x30">
+                     <padding>
+                        <Insets left="40.0" />
+                     </padding>
+                     <HBox.margin>
+                        <Insets left="25.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Label text="Red">
+                     <padding>
+                        <Insets left="40.0" />
+                     </padding>
+                     <HBox.margin>
+                        <Insets left="25.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Label text="Wood">
+                     <padding>
+                        <Insets left="40.0" />
+                     </padding>
+                     <HBox.margin>
+                        <Insets left="25.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Button alignment="BASELINE_CENTER" mnemonicParsing="false" prefHeight="25.0" prefWidth="2.0" style="-fx-background-color: #ff0000;">
+                     <HBox.margin>
+                        <Insets left="25.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Label text="25kr">
+                     <padding>
+                        <Insets left="40.0" />
+                     </padding>
+                     <HBox.margin>
+                        <Insets left="25.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Label text="75kr">
+                     <padding>
+                        <Insets left="40.0" />
+                     </padding>
+                     <HBox.margin>
+                        <Insets left="25.0" />
+                     </HBox.margin>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox layoutX="26.0" layoutY="380.0" prefHeight="17.0" prefWidth="842.0" style="-fx-background-color: #a6daff;">
+               <children>
+                  <Label prefHeight="17.0" prefWidth="105.0" text="NoiseCare">
+                     <padding>
+                        <Insets left="40.0" />
+                     </padding>
+                     <HBox.margin>
+                        <Insets left="25.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Label text="#4242">
+                     <padding>
+                        <Insets left="40.0" />
+                     </padding>
+                     <HBox.margin>
+                        <Insets left="25.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Label text="22">
+                     <padding>
+                        <Insets left="40.0" />
+                     </padding>
+                     <HBox.margin>
+                        <Insets left="25.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Label text="10x10x30">
+                     <padding>
+                        <Insets left="40.0" />
+                     </padding>
+                     <HBox.margin>
+                        <Insets left="25.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Label text="Red">
+                     <padding>
+                        <Insets left="40.0" />
+                     </padding>
+                     <HBox.margin>
+                        <Insets left="25.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Label text="Wood">
+                     <padding>
+                        <Insets left="40.0" />
+                     </padding>
+                     <HBox.margin>
+                        <Insets left="25.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Button alignment="BASELINE_CENTER" mnemonicParsing="false" prefHeight="25.0" prefWidth="2.0" style="-fx-background-color: #ff0000;">
+                     <HBox.margin>
+                        <Insets left="25.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Label text="25kr">
+                     <padding>
+                        <Insets left="40.0" />
+                     </padding>
+                     <HBox.margin>
+                        <Insets left="25.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Label text="75kr">
+                     <padding>
+                        <Insets left="40.0" />
+                     </padding>
+                     <HBox.margin>
+                        <Insets left="25.0" />
+                     </HBox.margin>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox layoutX="26.0" layoutY="405.0" prefHeight="17.0" prefWidth="842.0" style="-fx-background-color: #cccccc;">
+               <children>
+                  <Label prefHeight="17.0" prefWidth="105.0" text="NoiseCare">
+                     <padding>
+                        <Insets left="40.0" />
+                     </padding>
+                     <HBox.margin>
+                        <Insets left="25.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Label text="#4242">
+                     <padding>
+                        <Insets left="40.0" />
+                     </padding>
+                     <HBox.margin>
+                        <Insets left="25.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Label text="22">
+                     <padding>
+                        <Insets left="40.0" />
+                     </padding>
+                     <HBox.margin>
+                        <Insets left="25.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Label text="10x10x30">
+                     <padding>
+                        <Insets left="40.0" />
+                     </padding>
+                     <HBox.margin>
+                        <Insets left="25.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Label text="Red">
+                     <padding>
+                        <Insets left="40.0" />
+                     </padding>
+                     <HBox.margin>
+                        <Insets left="25.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Label text="Wood">
+                     <padding>
+                        <Insets left="40.0" />
+                     </padding>
+                     <HBox.margin>
+                        <Insets left="25.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Button alignment="BASELINE_CENTER" mnemonicParsing="false" prefHeight="25.0" prefWidth="2.0" style="-fx-background-color: #ff0000;">
+                     <HBox.margin>
+                        <Insets left="25.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Label text="25kr">
+                     <padding>
+                        <Insets left="40.0" />
+                     </padding>
+                     <HBox.margin>
+                        <Insets left="25.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Label text="75kr">
+                     <padding>
+                        <Insets left="40.0" />
+                     </padding>
+                     <HBox.margin>
+                        <Insets left="25.0" />
+                     </HBox.margin>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox layoutX="26.0" layoutY="151.0" prefHeight="25.0" prefWidth="842.0">
+               <children>
+                  <ImageView fx:id="search_btn" fitHeight="28.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../../Desktop/FXML%20SEP/search.png" />
+                     </image>
+                  </ImageView>
+                  <TextField fx:id="search_field" onAction="#handelSearchAction" prefHeight="28.0" prefWidth="214.0" promptText="Search Product " />
+                  <Button fx:id="add_product" mnemonicParsing="false" onAction="#productAction" prefHeight="2.0" prefWidth="150.0" style="-fx-background-color: #60bdff;" text="Add Product">
+                     <graphic>
+                        <ImageView fitHeight="20.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../../../Desktop/FXML%20SEP/plus.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="Edit_btn" mnemonicParsing="false" onAction="#handelButtonEditAction" prefHeight="2.0" prefWidth="150.0" style="-fx-background-color: #60bdff;" text="Edit Product">
+                     <graphic>
+                        <ImageView fx:id="edit_product" fitHeight="20.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../../../Desktop/FXML%20SEP/Edit.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="move_to_damage_list_btn" mnemonicParsing="false" prefHeight="2.0" prefWidth="150.0" style="-fx-background-color: #60bdff;" text="Move to damage list">
+                     <graphic>
+                        <ImageView fitHeight="20.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../../../Desktop/FXML%20SEP/Move.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="delete_product" mnemonicParsing="false" prefHeight="2.0" prefWidth="150.0" style="-fx-background-color: #60bdff;" text="Delete Product">
+                     <graphic>
+                        <ImageView fitHeight="20.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../../../Desktop/FXML%20SEP/trash.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" layoutX="26.0" layoutY="51.0" prefHeight="71.0" prefWidth="842.0" style="-fx-background-color: #60bdff;">
+               <children>
+                  <Label text="Product">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
