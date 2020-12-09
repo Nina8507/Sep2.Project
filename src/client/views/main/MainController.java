@@ -16,41 +16,30 @@ import java.io.IOException;
 
 public class MainController
 {
-  @FXML
-  private JFXButton dashboard_btn;
+  @FXML private JFXButton dashboard_btn;
 
-  @FXML
-  private JFXButton product_btn;
+  @FXML private JFXButton product_btn;
 
-  @FXML
-  private JFXButton supplier_btn;
+  @FXML private JFXButton supplier_btn;
 
-  @FXML
-  private JFXButton order_btn;
+  @FXML private JFXButton order_btn;
 
-  @FXML
-  private JFXButton employee_btn;
+  @FXML private JFXButton employee_btn;
 
-  @FXML
-  private JFXButton costumer_btn;
+  @FXML private JFXButton costumer_btn;
 
-  @FXML
-  private JFXButton chat_btn;
+  @FXML private JFXButton chat_btn;
 
-  @FXML
-  private JFXButton registration_btn;
+  @FXML private JFXButton registration_btn;
 
-  @FXML
-  private JFXButton activityLog_btn;
+  @FXML private JFXButton activityLog_btn;
 
-  @FXML
-  private BorderPane mainPane;
+  @FXML private BorderPane mainPane;
 
-  @FXML
-  private Pane contentPane;
+  @FXML private Pane contentPane;
 
-
-  public void setContent(Node node) {
+  public void setContent(Node node)
+  {
     contentPane.getChildren().clear(); // removes current pane
     contentPane.getChildren().add(node); // add the new pane to the current pane.
   }
@@ -64,10 +53,7 @@ public class MainController
     mainPane.setCenter(view);
   } */
 
-
-
-  @FXML
-  void handelButtonProductAction(ActionEvent event) throws IOException
+  @FXML void handelButtonProductAction(ActionEvent event) throws IOException
   {
 
     System.out.println("You clicked Product");
@@ -75,20 +61,18 @@ public class MainController
     Pane view = object.getPage("Product");
     mainPane.setCenter(view);
 
-
     Parent productParent = FXMLLoader.load(getClass().getResource("products.fxml"));
 
     Scene productsScene = new Scene(productParent);
 
-    Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
+    Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
     window.setScene(productsScene);
     window.show();
 
   }
 
-  @FXML
-  void handelButtonSuppliersAction(ActionEvent event)
+  @FXML void handelButtonSuppliersAction(ActionEvent event)
   {
     System.out.println("You clicked Supplier");
     FxmlLoader object = new FxmlLoader();
@@ -118,8 +102,7 @@ public class MainController
     mainPane.setCenter(view);
   }*/
 
-  @FXML
-  void handelButtonCostumerAction(ActionEvent event)
+  @FXML void handelButtonCostumerAction(ActionEvent event)
   {
     System.out.println("You clicked Costumer");
     FxmlLoader object = new FxmlLoader();
@@ -162,7 +145,4 @@ public class MainController
     mainPane.setCenter(view);
   }
    */
-
-
-
 }
