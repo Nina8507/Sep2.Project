@@ -39,19 +39,19 @@ public class MultipleFxmlController
   @FXML
   private BorderPane mainPane;
 
-  @FXML
+/*  @FXML
   void handelButtonDashboardAction(ActionEvent event)
   {
     System.out.println("You clicked Dashboard");
     FxmlLoader object = new FxmlLoader();
     Pane view = object.getPage("dashboard");
     mainPane.setCenter(view);
-  }
+  } */
 
   @FXML
   void handelButtonProductAction(ActionEvent event)
   {
-    System.out.println("You clicked Dashboard");
+    System.out.println("You clicked Product");
     FxmlLoader object = new FxmlLoader();
     Pane view = object.getPage("Product");
     mainPane.setCenter(view);
@@ -61,67 +61,73 @@ public class MultipleFxmlController
   @FXML
   void handelButtonSuppliersAction(ActionEvent event)
   {
-    System.out.println("You clicked Dashboard");
+    System.out.println("You clicked Supplier");
     FxmlLoader object = new FxmlLoader();
     Pane view = object.getPage("../supplier");
     mainPane.setCenter(view);
 
   }
 
-  @FXML
+ /* @FXML
   void handelButtonOrderAction(ActionEvent event)
   {
-    System.out.println("You clicked Dashboard");
+    System.out.println("You clicked Order");
     FxmlLoader object = new FxmlLoader();
     Pane view = object.getPage("Order");
     mainPane.setCenter(view);
 
   }
+  */
 
-  @FXML
+
+  /*@FXML
   void handelButtonEmployersAction(ActionEvent event)
   {
-    System.out.println("You clicked Dashboard");
+    System.out.println("You clicked Staff");
     FxmlLoader object = new FxmlLoader();
-    Pane view = object.getPage("Employer");
+    Pane view = object.getPage("Staff");
     mainPane.setCenter(view);
-  }
+  }*/
 
   @FXML
   void handelButtonCostumerAction(ActionEvent event)
   {
-    System.out.println("You clicked Dashboard");
+    System.out.println("You clicked Costumer");
     FxmlLoader object = new FxmlLoader();
     Pane view = object.getPage("Costumer");
     mainPane.setCenter(view);
   }
+  /*
 
   @FXML
   void handelButtonActivityLogAction(ActionEvent event)
   {
-    System.out.println("You clicked Dashboard");
+    System.out.println("You clicked Activity Log");
     FxmlLoader object = new FxmlLoader();
     Pane view = object.getPage("ActivityLog");
     mainPane.setCenter(view);
   }
+*/
 
-  @FXML
+ /* @FXML
   void handelButtonRegistrationAction(ActionEvent event)
   {
-    System.out.println("You clicked Dashboard");
+    System.out.println("You clicked Registration");
     FxmlLoader object = new FxmlLoader();
     Pane view = object.getPage("Registration");
     mainPane.setCenter(view);
   }
+*/
 
-  @FXML
+  /*@FXML
   void handelButtonSignOutAction(ActionEvent event)
   {
-    System.out.println("You clicked Dashboard");
+    System.out.println("You clicked Sign out");
     FxmlLoader object = new FxmlLoader();
     Pane view = object.getPage("SignOut");
     mainPane.setCenter(view);
   }
+   */
 
 
 
