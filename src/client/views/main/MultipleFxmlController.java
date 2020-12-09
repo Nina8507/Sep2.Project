@@ -57,18 +57,21 @@ public class MultipleFxmlController
   @FXML
   void handelButtonProductAction(ActionEvent event) throws IOException
   {
+    //1#
+
     /*System.out.println("You clicked Product");
     FxmlLoader object = new FxmlLoader();
     Pane view = object.getPage("Product");
     mainPane.setCenter(view);*/
+    //2#
 
-    Parent productParent = FXMLLoader.load(getClass().getResource("products.fxml"));
+    /*Parent productParent = FXMLLoader.load(getClass().getResource("products.fxml"));
     Scene productsScene = new Scene(productParent);
 
     Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
 
     window.setScene(productsScene);
-    window.show();
+    window.show(); */
 
   }
 
