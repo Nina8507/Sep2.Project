@@ -1,5 +1,6 @@
 package client.views.main;
 
+import client.core.ViewModelFactory;
 import com.jfoenix.controls.JFXButton;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -13,7 +14,7 @@ import javafx.stage.Stage;
 import java.awt.event.ActionEvent;
 import java.io.IOException;
 
-public class MultipleFxmlController
+public class MainController
 {
   @FXML
   private JFXButton dashboard_btn;
@@ -45,6 +46,15 @@ public class MultipleFxmlController
   @FXML
   private BorderPane mainPane;
 
+  @FXML
+  private Pane contentPane;
+
+
+  public void setContent(Node node) {
+    contentPane.getChildren().clear(); // removes current pane
+    contentPane.getChildren().add(node); // add the new pane to the current pane.
+  }
+
 /*  @FXML
   void handelButtonDashboardAction(ActionEvent event)
   {
@@ -54,24 +64,26 @@ public class MultipleFxmlController
     mainPane.setCenter(view);
   } */
 
+
+
   @FXML
   void handelButtonProductAction(ActionEvent event) throws IOException
   {
-    //1#
 
-    /*System.out.println("You clicked Product");
+    System.out.println("You clicked Product");
     FxmlLoader object = new FxmlLoader();
     Pane view = object.getPage("Product");
-    mainPane.setCenter(view);*/
-    //2#
+    mainPane.setCenter(view);
 
-    /*Parent productParent = FXMLLoader.load(getClass().getResource("products.fxml"));
+
+    Parent productParent = FXMLLoader.load(getClass().getResource("products.fxml"));
+
     Scene productsScene = new Scene(productParent);
 
     Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
 
     window.setScene(productsScene);
-    window.show(); */
+    window.show();
 
   }
 
@@ -113,6 +125,11 @@ public class MultipleFxmlController
     FxmlLoader object = new FxmlLoader();
     Pane view = object.getPage("../Costumer");
     mainPane.setCenter(view);
+  }
+
+  public void init()
+  {
+    // init
   }
   /*
 
