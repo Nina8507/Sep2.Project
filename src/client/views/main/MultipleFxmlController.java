@@ -2,10 +2,16 @@ package client.views.main;
 
 import com.jfoenix.controls.JFXButton;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
 
 import java.awt.event.ActionEvent;
+import java.io.IOException;
 
 public class MultipleFxmlController
 {
@@ -49,12 +55,20 @@ public class MultipleFxmlController
   } */
 
   @FXML
-  void handelButtonProductAction(ActionEvent event)
+  void handelButtonProductAction(ActionEvent event) throws IOException
   {
-    System.out.println("You clicked Product");
+    /*System.out.println("You clicked Product");
     FxmlLoader object = new FxmlLoader();
     Pane view = object.getPage("Product");
-    mainPane.setCenter(view);
+    mainPane.setCenter(view);*/
+
+    Parent productParent = FXMLLoader.load(getClass().getResource("products.fxml"));
+    Scene productsScene = new Scene(productParent);
+
+    Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
+
+    window.setScene(productsScene);
+    window.show();
 
   }
 
