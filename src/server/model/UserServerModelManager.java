@@ -6,6 +6,7 @@ import shared.transfer.User;
 
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
+import java.sql.SQLException;
 
 public class UserServerModelManager implements UserServerModel
 {

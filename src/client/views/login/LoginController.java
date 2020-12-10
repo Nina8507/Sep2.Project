@@ -28,25 +28,12 @@ public class LoginController implements ViewController
         .bindBidirectional(loginVM.usernameProperty());
     passwordTextField.textProperty()
         .bindBidirectional(loginVM.passwordTextProperty());
-    //loginResultLabel.textProperty()
-      //  .bindBidirectional(loginVM.loginResponseProperty());
-    //loginVM.loginResponseProperty().addListener(
-     //  (observableValue, oldValue, newValue) -> onLoginResult());
-   // loginResultLabel.textProperty().addListener(this::onLoginResult);
-  }
-
-  private void onLoginResult(Observable observable, String old, String response)
-  {
-    if ("OK".equals(response))
-    {
-      viewHandler.openLoggedInSuccessfulView();
-    }
   }
 
   public void onLoginButton(ActionEvent evt)
   {
-    //loginVM.login();
-    viewHandler.openLoggedInSuccessfulView();
+    loginVM.login();
+    viewHandler.openStaffView();
   }
 
   public void onRegisterButton(ActionEvent evt)
