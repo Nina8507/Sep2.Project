@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="722.0" prefWidth="842.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="722.0" prefWidth="842.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.views.staff.StaffController">
    <children>
       <HBox alignment="CENTER_LEFT" layoutX="-1.0" layoutY="52.0" prefHeight="71.0" prefWidth="842.0" style="-fx-background-color: #60bdff;">
          <children>
@@ -30,7 +30,7 @@
                   <ImageView fitHeight="20.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true" />
                </graphic>
             </Button>
-            <Button mnemonicParsing="false" onAction="#onEditStaffButton" prefHeight="28.0" prefWidth="147.0" style="-fx-background-color: #60bdff;" text="Edit Staff">
+            <Button mnemonicParsing="false" onAction="#onEditStaffButtons" prefHeight="28.0" prefWidth="147.0" style="-fx-background-color: #60bdff;" text="Edit Staff">
                <graphic>
                   <ImageView fitHeight="20.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true" />
                </graphic>

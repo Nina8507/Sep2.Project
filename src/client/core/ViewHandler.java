@@ -1,7 +1,6 @@
 package client.core;
 
 import client.views.ViewController;
-import client.views.main.MainController;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -12,7 +11,6 @@ import java.io.IOException;
 public class ViewHandler
 {
   private Stage mainStage;
-  private Scene mainScene;
   private Scene loginScene;
   private Scene registerScene;
   private Scene staffScene;
@@ -30,26 +28,6 @@ public class ViewHandler
     mainStage.show();
   }
 
-  public void openMainView() {
-    FXMLLoader loader = new FXMLLoader();
-    if (mainScene == null) {
-      loader.setLocation(getClass().getResource("Main.fxml"));
-      System.out.println(getClass().getResource("Main.fxml").getPath());
-      Parent root = null;
-      try {
-        root = loader.load();
-        MainController controller = loader.getController();
-        controller.init();
-        mainScene = new Scene(root);
-      }
-      catch (IOException e)
-      {
-        e.printStackTrace();
-      }
-    }
-    mainStage.setTitle("Main window");
-    mainStage.setScene(mainScene);
-  }
 
   private void openLoginView()
   {
