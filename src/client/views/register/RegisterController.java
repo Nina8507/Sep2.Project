@@ -19,11 +19,6 @@ public class RegisterController implements ViewController
   private RegisterVM registerVm;
   private ViewHandler viewHandler;
 
-  public void onCreateUserButton(ActionEvent evt)
-  {
-    registerVm.registerUser();
-  }
-
   @Override public void init(ViewHandler viewHandler,
       ViewModelFactory viewModelFactory)
   {
@@ -33,4 +28,8 @@ public class RegisterController implements ViewController
     enterPasswordTextField.textProperty().bindBidirectional(registerVm.enterPasswordProperty());
     reEnterPassTextField.textProperty().bindBidirectional(registerVm.reEnterPassProperty());
   }
+  public void onCreateUserButton(ActionEvent evt)
+{
+  registerVm.registerUser();
+}
 }

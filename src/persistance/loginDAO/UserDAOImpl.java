@@ -57,7 +57,7 @@ public class UserDAOImpl implements UserDAO
     {
       throwables.printStackTrace();
     }
-    return null;
+    return " ";
   }
 
   @Override public User registerUser(User user)
@@ -75,6 +75,6 @@ public class UserDAOImpl implements UserDAO
     {
       throwables.printStackTrace();
     }
-    return null;
+    return user;
   }
 }
