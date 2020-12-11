@@ -8,16 +8,13 @@ import java.util.List;
 
 public interface StaffDAO
 {
-  Staff createNewEmployee(int staff_id, int cprNr, String fname, String lname,
+  Staff createNewEmployee(String username, String password, int staff_id, int cprNr, String fname, String lname,
       Address address_id, String phoneNo, Date startDate, double salary);
-  Staff createNewSecretary(int staff_id, int cprNr, String fname, String lname,
+  Staff createNewSecretary(String username, String password,int staff_id, int cprNr, String fname, String lname,
       Address address_id, String phoneNo, Date startDate, double salary);
-  Staff createNewManager(int staff_id, int cprNr, String fname, String lname,
+  Staff createNewManager(String username, String password,int staff_id, int cprNr, String fname, String lname,
       Address address_id, String phoneNo, Date startDate, double salary);
-  Staff addNewUserEmployee(String username, String password);
-  Staff addNewUserSecretary(String username, String password);
-  Staff addNewManagement(String username, String password);
-  Staff searchStaffByCprNr(int cnpNr);
+  Staff searchStaffByCprNr(int cprNr);
   List<Staff>  viewAllStaffByStaffName(String searchCriteria);
   void deleteStaff(Staff staff);
   void updateStaff(Staff staff);

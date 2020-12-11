@@ -11,9 +11,10 @@ public class SocketServer
   private UserServerModel userServerModel;
   private AdminServerModel adminServerModel;
 
-  public SocketServer(UserServerModel userServerModel)
+  public SocketServer(UserServerModel userServerModel, AdminServerModel adminServerModel)
   {
     this.userServerModel = userServerModel;
+    this.adminServerModel = adminServerModel;
   }
 
   public void startServer()

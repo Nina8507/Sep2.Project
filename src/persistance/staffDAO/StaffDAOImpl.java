@@ -1,6 +1,8 @@
 package persistance.staffDAO;
 
 import persistance.JDBCController;
+import shared.transfer.User;
+import shared.transfer.UserAction;
 import shared.transfer.address.Address;
 import shared.transfer.address.City;
 import shared.transfer.address.Country;
@@ -13,8 +15,9 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Objects;
 
-/*public class StaffDAOImpl implements StaffDAO
+public class StaffDAOImpl implements StaffDAO
 {
   private static StaffDAOImpl staffInstance;
   private JDBCController controller;
@@ -41,25 +44,27 @@ import java.util.List;
     return staffInstance;
   }
 
-  @Override public Staff createNewEmployee(int staff_id, int cprNr,
-      String fname, String lname, Address address_id, String phoneNo,
-      Date startDate, double salary)
+  @Override public Staff createNewEmployee(String username, String password,
+      int staff_id, int cprNr, String fname, String lname, Address address_id,
+      String phoneNo, Date startDate, double salary)
   {
     try (Connection connection = controller.getConnection())
     {
       PreparedStatement statement = connection.prepareStatement(
-          "INSERT INTO Staff(staff_id, cnpNr, fname, lname, address_id, phoneNo, startDate, salary) VALUES(?, ?, ?, ?, ?, ?, ?, ?);");
+          "INSERT INTO Staff(staff_id, cnpNr, fname, lname, address_id, phoneNo, startDate, salary, user_id, password) VALUES(?, ?, ?, ?, ?, ?, ?, ?,? ,?);");
       statement.setInt(1, staff_id);
       statement.setInt(2, cprNr);
       statement.setString(3, fname);
       statement.setString(4, lname);
-      statement.setInt(6, address_id.getAddress_id());
-      statement.setString(7, phoneNo);
-      statement.setDate(8, (java.sql.Date) startDate);
-      statement.setDouble(9, salary);
+      statement.setObject(5, address_id.getAddress_id());
+      statement.setString(6, phoneNo);
+      statement.setDate(7, (java.sql.Date) startDate);
+      statement.setDouble(8, salary);
+      statement.setString(9, username);
+      statement.setString(10, password);
       statement.executeQuery();
-      return new Employee(staff_id, cprNr, fname, lname, address_id,
-          phoneNo, startDate, salary);
+      return new Employee(username, password, staff_id, cprNr, fname, lname,
+          address_id, phoneNo, startDate, salary);
     }
     catch (SQLException throwables)
     {
@@ -68,59 +73,60 @@ import java.util.List;
     return null;
   }
 
-  @Override public Staff createNewSecretary(int staff_id, int cprNr,
-      String fname, String lname, Address address_id, String phoneNo,
-      Date startDate, double salary)
+  @Override public Staff createNewSecretary(String username, String password,
+      int staff_id, int cprNr, String fname, String lname, Address address_id,
+      String phoneNo, Date startDate, double salary)
   {
     try (Connection connection = controller.getConnection())
     {
       PreparedStatement statement = connection.prepareStatement(
-          "INSERT INTO Staff(staff_id, cnpNr, fname, lname,address_id, phoneNo, startDate, salary) VALUES(?, ?, ?, ?, ?, ?, ?, ?);");
+          "INSERT INTO Staff(staff_id, cnpNr, fname, lname, address_id, phoneNo, startDate, salary, user_id, password) VALUES(?, ?, ?, ?, ?, ?, ?, ?,? ,?);");
       statement.setInt(1, staff_id);
       statement.setInt(2, cprNr);
       statement.setString(3, fname);
       statement.setString(4, lname);
-      statement.setInt(6, address_id.getAddress_id());
-      statement.setString(7, phoneNo);
-      statement.setDate(8, (java.sql.Date) startDate);
-      statement.setDouble(9, salary);
+      statement.setObject(5, address_id.getAddress_id());
+      statement.setString(6, phoneNo);
+      statement.setDate(7, (java.sql.Date) startDate);
+      statement.setDouble(8, salary);
+      statement.setString(9, username);
+      statement.setString(10, password);
       statement.executeQuery();
-      return new Secretary(staff_id, cprNr, fname, lname, address_id,
-          phoneNo, startDate, salary);
     }
     catch (SQLException throwables)
     {
       throwables.printStackTrace();
-
     }
+    return new Secretary(username, password, staff_id, cprNr, fname, lname,
+        address_id, phoneNo, startDate, salary);
   }
 
-  @Override public Staff createNewManager(int staff_id, int cprNr, String fname,
-      String lname, String email, Address address_id, String phoneNo,
-      Date startDate, double salary)
+  @Override public Staff createNewManager(String username, String password,
+      int staff_id, int cprNr, String fname, String lname, Address address_id,
+      String phoneNo, Date startDate, double salary)
   {
     try (Connection connection = controller.getConnection())
     {
       PreparedStatement statement = connection.prepareStatement(
-          "INSERT INTO Staff(staff_id, cnpNr, fname, lname, email ,address_id, phoneNo, startDate, salary) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?);");
+          "INSERT INTO Staff(staff_id, cnpNr, fname, lname, address_id, phoneNo, startDate, salary, user_id, password) VALUES(?, ?, ?, ?, ?, ?, ?, ?,? ,?);");
       statement.setInt(1, staff_id);
       statement.setInt(2, cprNr);
       statement.setString(3, fname);
       statement.setString(4, lname);
-      statement.setString(5, email);
-      statement.setInt(6, address_id.getAddress_id());
-      statement.setString(7, phoneNo);
-      statement.setDate(8, (java.sql.Date) startDate);
-      statement.setDouble(9, salary);
+      statement.setObject(5, address_id.getAddress_id());
+      statement.setString(6, phoneNo);
+      statement.setDate(7, (java.sql.Date) startDate);
+      statement.setDouble(8, salary);
+      statement.setString(9, username);
+      statement.setString(10, password);
       statement.executeQuery();
-      return new Management(staff_id, cprNr, fname, lname, email, address_id,
-          phoneNo, startDate, salary);
     }
     catch (SQLException throwables)
     {
       throwables.printStackTrace();
     }
-    return null;
+    return new Management(username, password, staff_id, cprNr, fname, lname,
+        address_id, phoneNo, startDate, salary);
   }
 
   @Override public Staff searchStaffByCprNr(int cprNr)
@@ -133,6 +139,8 @@ import java.util.List;
       ResultSet resultSet = statement.executeQuery();
       if (resultSet.next())
       {
+        String username = resultSet.getString("user_id");
+        String password = resultSet.getString("password");
         int staff_id = resultSet.getInt("staff_id");
         String fname = resultSet.getString("fname");
         String lname = resultSet.getString("lname");
@@ -147,12 +155,22 @@ import java.util.List;
         double salary = resultSet.getDouble("salary");
         Address address = new Address(address_id, street, streetNumber, city,
             country);
-        Staff employee = new Employee(staff_id, cprNr, fname, lname, email,
-            address, phoneNo, startDate, salary);
-        Staff secretary = new Secretary(staff_id, cprNr, fname, lname, email,
-            address, phoneNo, startDate, salary);
-        Staff management = new Management(staff_id, cprNr, fname, lname, email,
-            address, phoneNo, startDate, salary);
+        Staff employee = new Employee(username, password, staff_id, cprNr,
+            fname, lname, address, phoneNo, startDate, salary);
+        Staff secretary = new Secretary(username, password, staff_id, cprNr,
+            fname, lname, address, phoneNo, startDate, salary);
+        Staff management = new Management(username, password, staff_id, cprNr,
+            fname, lname, address, phoneNo, startDate, salary);
+        if(cprNr == Integer.parseInt(UserAction.MANAGER.toString()))
+        {
+          return management;
+        }else if(cprNr == Integer.parseInt(UserAction.EMPLOYEE.toString()))
+        {
+          return employee;
+        }else if(cprNr == Integer.parseInt(UserAction.SECRETARY.toString()))
+        {
+          return secretary;
+        }
       }
     }
     catch (SQLException throwables)
@@ -170,9 +188,7 @@ import java.util.List;
           .prepareStatement("SELECT * FROM Staff WHERE searchCriteria = ?");
       statement.setString(1, searchCriteria);
       ResultSet resultSet = statement.executeQuery();
-      ArrayList<Secretary> secretaryResult = new ArrayList<>();
-      ArrayList<Employee> employeeResult = new ArrayList<>();
-      ArrayList<Management> managerResult = new ArrayList<>();
+      ArrayList<Staff> staffResult = new ArrayList<>();
       while (resultSet.next())
       {
         int staff_id = resultSet.getInt("staff_id");
@@ -187,17 +203,26 @@ import java.util.List;
         String phoneNo = resultSet.getString("phoneNo");
         Date startDate = resultSet.getDate("startDate");
         double salary = resultSet.getDouble("salary");
+        String username = resultSet.getString("username");
+        String password = resultSet.getString("password");
         Address address_id = new Address(address, street, streetNumber, city_id,
-           country_id);
-        Staff employee = new Employee(staff_id, cprNr, searchCriteria, lname,
+            country_id);
+        Staff employee = new Employee(username, password, staff_id, cprNr, searchCriteria, lname,
             address_id, phoneNo, startDate, salary);
-        Staff secretary = new Secretary(staff_id, cprNr, searchCriteria, lname,
+        Staff secretary = new Secretary(username, password, staff_id, cprNr, searchCriteria, lname,
             address_id, phoneNo, startDate, salary);
-        Staff management = new Management(staff_id, cprNr, searchCriteria, lname,
+        Staff management = new Management(username, password, staff_id, cprNr, searchCriteria, lname,
             address_id, phoneNo, startDate, salary);
-        secretaryResult.add((Secretary) secretary);
-        employeeResult.add((Employee) employee);
-        managerResult.add((Management) management);
+        if(staffResult.equals(UserAction.MANAGER.toString()))
+        {
+          staffResult.add(management);
+        } else if(staffResult.equals(UserAction.SECRETARY.toString()))
+        {
+          staffResult.add(secretary);
+        } else if(staffResult.equals(UserAction.EMPLOYEE.toString()))
+        {
+          staffResult.add(employee);
+        }
       }
     }
     catch (SQLException throwables)
@@ -227,15 +252,17 @@ import java.util.List;
     try (Connection connection = controller.getConnection())
     {
       PreparedStatement statement = connection.prepareStatement(
-          "UPDATE Staff SET staff_id = ?, cprNr = ?, fname = ?, lname = ?, address_id = ?, phoneNo = ?, startDate = ?, salary = ?");
+          "UPDATE Staff SET staff_id = ?, cprNr = ?, fname = ?, lname = ?, address_id = ?, phoneNo = ?, startDate = ?, salary = ?, user_id = ?, password = ?");
       statement.setInt(1, staff.getStaff_id());
       statement.setInt(2, staff.getCprNr());
       statement.setString(3, staff.getFname());
       statement.setString(4, staff.getLname());
-      statement.setObject(6, staff.getAddress_id());
-      statement.setString(7, staff.getPhoneNo());
-      statement.setDate(8, (java.sql.Date) staff.getStartDate());
-      statement.setDouble(9, staff.getSalary());
+      statement.setObject(5, staff.getAddress_id());
+      statement.setString(6, staff.getPhoneNo());
+      statement.setDate(7, (java.sql.Date) staff.getStartDate());
+      statement.setDouble(8, staff.getSalary());
+      statement.setString(9, staff.getUsername());
+      statement.setString(10, staff.getPassword());
       statement.executeUpdate();
     }
     catch (SQLException throwables)
@@ -243,4 +270,4 @@ import java.util.List;
       throwables.printStackTrace();
     }
   }
-}*/
+}

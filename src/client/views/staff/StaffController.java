@@ -34,7 +34,7 @@ public class StaffController implements ViewController
       ViewModelFactory viewModelFactory)
   {
     this.viewHandler = viewHandler;
-    this.staffVM = viewModelFactory.getStaffVM();
+    //this.staffVM = viewModelFactory.getStaffVM();
     staff_idColumn.setCellValueFactory(new PropertyValueFactory<>("staff_id"));
     cprNrColumn.setCellValueFactory(new PropertyValueFactory<>("cprNr"));
     lnameColumn.setCellValueFactory(new PropertyValueFactory<>("lname"));

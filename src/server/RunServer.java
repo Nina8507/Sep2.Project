@@ -1,5 +1,7 @@
 package server;
 
+import server.model.adminmodel.AdminServerModel;
+import server.model.adminmodel.AdminServerModelManager;
 import server.model.usermodel.UserServerModel;
 import server.model.usermodel.UserServerModelManager;
 import server.networking.SocketServer;
@@ -11,7 +13,8 @@ public class RunServer
   public static void main(String[] args) throws SQLException
   {
     UserServerModel userServerModel = new UserServerModelManager();
-    SocketServer socketServer = new SocketServer(userServerModel);
+    AdminServerModel adminServerModel = new AdminServerModelManager();
+    SocketServer socketServer = new SocketServer(userServerModel, adminServerModel);
     socketServer.startServer();
   }
 }

@@ -61,6 +61,9 @@ public class ServerSocketHandler implements Runnable
           } else if(request.getRequestType().equals(UserAction.PRODUCT_LIST.toString()))
           {
             adminServerModel.getProductList();
+          } else if(request.getRequestType().equals(UserAction.STAFF_LIST.toString()))
+          {
+            adminServerModel.getStaffList();
           }
         }
         catch (ClassNotFoundException e)

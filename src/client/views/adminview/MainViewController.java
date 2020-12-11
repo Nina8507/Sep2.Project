@@ -2,7 +2,10 @@ package client.views.adminview;
 
 import client.core.ViewHandler;
 import client.core.ViewModelFactory;
+import client.model.adminclientmodel.AdminClientModel;
 import client.views.ViewController;
+import javafx.application.Platform;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -10,6 +13,9 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import shared.transfer.Product;
+import shared.transfer.UserAction;
+
+import java.beans.PropertyChangeEvent;
 
 public class MainViewController implements ViewController
 {
@@ -35,6 +41,7 @@ public class MainViewController implements ViewController
 
   private ViewHandler viewHandler;
   private MainViewVM mainViewVM;
+  private AdminClientModel adminClientModel;
 
 
   @Override public void init(ViewHandler viewHandler,
@@ -50,7 +57,18 @@ public class MainViewController implements ViewController
     columnColor.setCellValueFactory(new PropertyValueFactory<>("color"));
     columnPurchasePrice.setCellValueFactory(new PropertyValueFactory<>("purchasePrice"));
     columnSalePrice.setCellValueFactory(new PropertyValueFactory<>("salePrice"));
+    adminClientModel.addListener(UserAction.PRODUCT_LIST.toString(), this::getProductListToView);
   }
+
+  private void getProductListToView(PropertyChangeEvent evt)
+  {
+    Platform.runLater(() -> {
+      ObservableList<Product> products = (ObservableList<Product>) evt.getNewValue();
+      tableView.getItems().clear();
+      tableView.getItems().addAll(products);
+    });
+  }
+
   public void onDashboardButton(ActionEvent actionEvent)
   {
 

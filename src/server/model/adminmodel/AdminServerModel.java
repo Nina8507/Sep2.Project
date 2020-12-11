@@ -5,4 +5,5 @@ import shared.util.Subject;
 public interface AdminServerModel extends Subject
 {
   void getProductList();
+  void getStaffList();
 }

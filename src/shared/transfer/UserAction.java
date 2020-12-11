@@ -11,6 +11,9 @@ public enum UserAction
   SUPPLIER_LIST,
   STAFF_LIST,
   CUSTOMER_LIST,
+  MANAGER,
+  EMPLOYEE,
+  SECRETARY,
 }
 
 
