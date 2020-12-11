@@ -36,25 +36,24 @@ public class ProductDAOImpl implements ProductDAO
   }
 
   @Override public Product addNewProduct(int product_id, String productName,
-      int length, int width, int height, String material, int quantity,
-      String color, double price)
+      int measurements, String material, int quantity, String color,
+      double purchasePrice, double salePrice)
   {
     try (Connection connection = controller.getConnection())
     {
       PreparedStatement statement = connection.prepareStatement(
-          "INSERT INTO Products(product_id, productName, length, width, height, material, quantity, color, price) VALUES(?,?,?,?,?,?,?,?,?);");
+          "INSERT INTO Products(product_id, productName, measurements, material, quantity, color, purchasePrice, salePrice) VALUES(?,?,?,?,?,?,?, ?);");
       statement.setInt(1, product_id);
       statement.setString(2, productName);
-      statement.setInt(3, length);
-      statement.setInt(4, width);
-      statement.setInt(5, height);
-      statement.setString(6, material);
-      statement.setInt(7, quantity);
-      statement.setString(8, color);
-      statement.setDouble(9, price);
+      statement.setInt(3, measurements);
+      statement.setString(4, material);
+      statement.setInt(5, quantity);
+      statement.setString(6, color);
+      statement.setDouble(7, purchasePrice);
+      statement.setDouble(8, salePrice);
       statement.executeQuery();
-      return new Product(product_id, productName, length, width, height,
-          material, quantity, color, price);
+      return new Product(product_id, productName, measurements, material,
+          quantity, color, purchasePrice, salePrice);
 
     }
     catch (SQLException throwables)
@@ -69,16 +68,15 @@ public class ProductDAOImpl implements ProductDAO
     try (Connection connection = controller.getConnection())
     {
       PreparedStatement statement = connection.prepareStatement(
-          "UPDATE Products SET product_id = ?, productName = ?, length = ?, width = ?, height = ?, material = ?, quantity = ?, color = ?, price = ?");
+          "UPDATE Products SET product_id = ?, productName = ?, measurements = ?, material = ?, quantity = ?, color = ?, purchasePrice = ?, salePrice = ?");
       statement.setInt(1, product.getProduct_id());
       statement.setString(2, product.getProductName());
-      statement.setInt(3, product.getLength());
-      statement.setInt(4, product.getWidth());
-      statement.setInt(5, product.getHeight());
-      statement.setString(6, product.getMaterial());
-      statement.setInt(7, product.getQuantity());
-      statement.setString(8, product.getColor());
-      statement.setDouble(9, product.getPrice());
+      statement.setInt(3, product.getMeasurements());
+      statement.setString(4, product.getMaterial());
+      statement.setInt(5, product.getQuantity());
+      statement.setString(6, product.getColor());
+      statement.setDouble(7, product.getPurchasePrice());
+      statement.setDouble(8, product.getSalePrice());
       statement.executeUpdate();
     }
     catch (SQLException throwables)
@@ -95,20 +93,21 @@ public class ProductDAOImpl implements ProductDAO
           .prepareStatement(" SELECT * FROM Products WHERE product_id = ?");
       statement.setInt(1, product_id);
       ResultSet resultSet = statement.executeQuery();
-      if(resultSet.next())
+      if (resultSet.next())
       {
         String productName = resultSet.getString("productName");
-        int length = resultSet.getInt("length");
-        int width = resultSet.getInt("width");
-        int height = resultSet.getInt("height");
+        int measurements = resultSet.getInt("measurements");
         String material = resultSet.getString("material");
         int quantity = resultSet.getInt("quantity");
         String color = resultSet.getString("color");
-        double price = resultSet.getInt("price");
-        Product product = new Product(product_id, productName, length, width,
-            height, material, quantity, color, price);
+        double purchasePrice = resultSet.getDouble("purchasePrice");
+        double salePrice = resultSet.getDouble("salePrice");
+        Product product = new Product(product_id, productName, measurements,
+            material, quantity, color, purchasePrice, salePrice);
         return product;
-      } else {
+      }
+      else
+      {
         return null;
       }
     }
@@ -133,15 +132,14 @@ public class ProductDAOImpl implements ProductDAO
       {
         int product_id = resultSet.getInt("product_id");
         String productName = resultSet.getString("productName");
-        int length = resultSet.getInt("length");
-        int width = resultSet.getInt("width");
-        int height = resultSet.getInt("height");
+        int measurements = resultSet.getInt("measurements");
         String material = resultSet.getString("material");
         int quantity = resultSet.getInt("quantity");
         String color = resultSet.getString("color");
-        double price = resultSet.getInt("price");
-        Product product = new Product(product_id, productName, length, width,
-            height, material, quantity, color, price);
+        double purchasePrice = resultSet.getDouble("purchasePrice");
+        double salePrice = resultSet.getDouble("salePrice");
+        Product product = new Product(product_id, productName, measurements,
+            material, quantity, color, purchasePrice,salePrice );
         result.add(product);
       }
       return result;

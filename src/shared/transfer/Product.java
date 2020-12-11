@@ -6,24 +6,24 @@ public class Product implements Serializable
 {
   private int product_id;
   private String productName;
-  private int length, width, height ;
+  private int measurements;
   private String material;
   private int quantity;
   private String color;
-  private double price;
+  private double purchasePrice;
+  private double salePrice;
 
-  public Product(int product_id, String productName, int length, int width, int height,
-      String material, int quantity, String color, double price)
+  public Product(int product_id, String productName, int measurements,
+      String material, int quantity, String color, double purchasePrice,double salePrice)
   {
     this.product_id = product_id;
     this.productName = productName;
-    this.length = length;
-    this.width = width;
-    this.height = height;
+    this.measurements = measurements;
     this.material = material;
     this.quantity = quantity;
     this.color = color;
-    this.price = price;
+    this.purchasePrice = purchasePrice;
+    this.salePrice = salePrice;
   }
 
   public int getProduct_id()
@@ -36,19 +36,9 @@ public class Product implements Serializable
     return productName;
   }
 
-  public int getLength()
+  public int getMeasurements()
   {
-    return length;
-  }
-
-  public int getWidth()
-  {
-    return width;
-  }
-
-  public int getHeight()
-  {
-    return height;
+    return measurements;
   }
 
   public String getMaterial()
@@ -66,8 +56,13 @@ public class Product implements Serializable
     return color;
   }
 
-  public double getPrice()
+  public double getPurchasePrice()
   {
-    return price;
+    return purchasePrice;
+  }
+
+  public double getSalePrice()
+  {
+    return salePrice;
   }
 }

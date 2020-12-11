@@ -2,7 +2,6 @@ package server.model.usermodel;
 
 import persistance.loginDAO.UserDAO;
 import persistance.loginDAO.UserDAOImpl;
-import server.model.usermodel.UserServerModel;
 import shared.transfer.User;
 
 import java.beans.PropertyChangeListener;

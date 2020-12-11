@@ -31,9 +31,10 @@ public class MainViewVM implements Subject
     products = FXCollections.observableArrayList(tempProductList);
     for(int i = 0; i < tempProductList.size(); i++)
     {
-      System.out.println(tempProductList.get(i).getProduct_id() + tempProductList.get(i).getProductName() + );
+      System.out.println(tempProductList.get(i).getProduct_id());
     }
   }
+
 
   public void getProductList()
   {
