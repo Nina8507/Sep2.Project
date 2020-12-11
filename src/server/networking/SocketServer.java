@@ -1,6 +1,6 @@
 package server.networking;
 
-import server.model.UserServerModel;
+import server.model.usermodel.UserServerModel;
 
 import java.net.ServerSocket;
 import java.net.Socket;

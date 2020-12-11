@@ -47,34 +47,14 @@ public class UserDAOImpl implements UserDAO
       if (resultSet.next())
       {
         return "OK!";
-      }
-      else
-      {
-        return "ERROR";
+      } else {
+        return "ERROR!";
       }
     }
     catch (SQLException throwables)
     {
       throwables.printStackTrace();
+      return "ERROR";
     }
-    return " ";
-  }
-
-  @Override public User registerUser(User user)
-  {
-    try(Connection connection = controller.getConnection())
-    {
-      PreparedStatement statement = connection.prepareStatement(
-          "INSERT INTO User(username, userpassword) VALUES (?, ?)");
-      statement.setString(1, user.getUsername());
-      statement.setString(2, user.getPassword());
-      statement.executeQuery();
-      return new User(user.getUsername(), user.getPassword());
-    }
-    catch (SQLException throwables)
-    {
-      throwables.printStackTrace();
-    }
-    return user;
   }
 }

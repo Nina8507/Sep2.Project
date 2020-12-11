@@ -68,12 +68,47 @@ public class SocketClient implements Client
     }
   }
 
-  @Override public void registerUser(User user)
+  @Override public void getProductList()
   {
-    Request request = new Request(UserAction.REGISTER_USER.toString(), user);
     try
     {
-      outToServer.writeObject(request);
+      outToServer.writeObject(new Request(UserAction.PRODUCT_LIST.toString(), null));
+    }
+    catch (IOException e)
+    {
+      e.printStackTrace();
+    }
+  }
+
+  @Override public void getSupplierList()
+  {
+    try
+    {
+      outToServer.writeObject(new Request(UserAction.SUPPLIER_LIST.toString(),null));
+    }
+    catch (IOException e)
+    {
+      e.printStackTrace();
+    }
+  }
+
+  @Override public void getStaffList()
+  {
+    try
+    {
+      outToServer.writeObject(new Request(UserAction.STAFF_LIST.toString(),null));
+    }
+    catch (IOException e)
+    {
+      e.printStackTrace();
+    }
+  }
+
+  @Override public void getCustomerList()
+  {
+    try
+    {
+      outToServer.writeObject(new Request(UserAction.CUSTOMER_LIST.toString(), null));
     }
     catch (IOException e)
     {

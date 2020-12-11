@@ -1,10 +1,12 @@
 package server.networking;
 
-import server.model.UserServerModel;
+import server.model.adminmodel.AdminServerModel;
+import server.model.usermodel.UserServerModel;
 import shared.transfer.Request;
 import shared.transfer.User;
 import shared.transfer.UserAction;
 
+import java.beans.PropertyChangeEvent;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -14,13 +16,28 @@ public class ServerSocketHandler implements Runnable
 {
   private Socket socket;
   private UserServerModel userServerModel;
+  private AdminServerModel adminServerModel;
   private ObjectInputStream inFromClient;
   private ObjectOutputStream outToClient;
 
-  public ServerSocketHandler(Socket socket, UserServerModel userServerModel) throws IOException
+  public ServerSocketHandler(Socket socket, UserServerModel userServerModel, AdminServerModel adminServerModel)
   {
     this.socket = socket;
     this.userServerModel = userServerModel;
+    this.adminServerModel = adminServerModel;
+    adminServerModel.addListener(UserAction.PRODUCT_LIST.toString(), this::sendProductListToView);
+  }
+
+  private void sendProductListToView(PropertyChangeEvent evt)
+  {
+    try
+    {
+      outToClient.writeObject(new Request(evt.getPropertyName(), evt.getNewValue()));
+    }
+    catch (IOException e)
+    {
+      e.printStackTrace();
+    }
   }
 
   @Override public void run()
@@ -40,14 +57,10 @@ public class ServerSocketHandler implements Runnable
             System.out.println("Login requested!");
             User user = (User) request.getRequestArg();
             String loginResult = userServerModel.validateUser(user);
-            System.out.println("---RESULT: " + loginResult);
-            Request response = new Request(UserAction.LOGIN_RESULT.toString(), loginResult);
-            System.out.println("ServerSocketHandler " + response.getRequestArg().toString());
-            outToClient.writeObject(response);
-          } else if(request.getRequestType().equals(UserAction.REGISTER_USER.toString()))
+            outToClient.writeObject(loginResult);
+          } else if(request.getRequestType().equals(UserAction.PRODUCT_LIST.toString()))
           {
-            System.out.println("SocketHandler" + request.getRequestArg());
-            userServerModel.registerUser((User) request.getRequestArg());
+            adminServerModel.getProductList();
           }
         }
         catch (ClassNotFoundException e)

@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class StaffDAOImpl implements StaffDAO
+/*public class StaffDAOImpl implements StaffDAO
 {
   private static StaffDAOImpl staffInstance;
   private JDBCController controller;
@@ -42,24 +42,23 @@ public class StaffDAOImpl implements StaffDAO
   }
 
   @Override public Staff createNewEmployee(int staff_id, int cprNr,
-      String fname, String lname, String email, Address address_id, String phoneNo,
+      String fname, String lname, Address address_id, String phoneNo,
       Date startDate, double salary)
   {
     try (Connection connection = controller.getConnection())
     {
       PreparedStatement statement = connection.prepareStatement(
-          "INSERT INTO Staff(staff_id, cnpNr, fname, lname, email ,address_id, phoneNo, startDate, salary) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?);");
+          "INSERT INTO Staff(staff_id, cnpNr, fname, lname, address_id, phoneNo, startDate, salary) VALUES(?, ?, ?, ?, ?, ?, ?, ?);");
       statement.setInt(1, staff_id);
       statement.setInt(2, cprNr);
       statement.setString(3, fname);
       statement.setString(4, lname);
-      statement.setString(5, email);
       statement.setInt(6, address_id.getAddress_id());
       statement.setString(7, phoneNo);
       statement.setDate(8, (java.sql.Date) startDate);
       statement.setDouble(9, salary);
       statement.executeQuery();
-      return new Employee(staff_id, cprNr, fname, lname, email, address_id,
+      return new Employee(staff_id, cprNr, fname, lname, address_id,
           phoneNo, startDate, salary);
     }
     catch (SQLException throwables)
@@ -70,31 +69,30 @@ public class StaffDAOImpl implements StaffDAO
   }
 
   @Override public Staff createNewSecretary(int staff_id, int cprNr,
-      String fname, String lname, String email, Address address_id, String phoneNo,
+      String fname, String lname, Address address_id, String phoneNo,
       Date startDate, double salary)
   {
     try (Connection connection = controller.getConnection())
     {
       PreparedStatement statement = connection.prepareStatement(
-          "INSERT INTO Staff(staff_id, cnpNr, fname, lname, email ,address_id, phoneNo, startDate, salary) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?);");
+          "INSERT INTO Staff(staff_id, cnpNr, fname, lname,address_id, phoneNo, startDate, salary) VALUES(?, ?, ?, ?, ?, ?, ?, ?);");
       statement.setInt(1, staff_id);
       statement.setInt(2, cprNr);
       statement.setString(3, fname);
       statement.setString(4, lname);
-      statement.setString(5, email);
       statement.setInt(6, address_id.getAddress_id());
       statement.setString(7, phoneNo);
       statement.setDate(8, (java.sql.Date) startDate);
       statement.setDouble(9, salary);
       statement.executeQuery();
-      return new Secretary(staff_id, cprNr, fname, lname, email, address_id,
+      return new Secretary(staff_id, cprNr, fname, lname, address_id,
           phoneNo, startDate, salary);
     }
     catch (SQLException throwables)
     {
       throwables.printStackTrace();
+
     }
-    return null;
   }
 
   @Override public Staff createNewManager(int staff_id, int cprNr, String fname,
@@ -191,11 +189,11 @@ public class StaffDAOImpl implements StaffDAO
         double salary = resultSet.getDouble("salary");
         Address address_id = new Address(address, street, streetNumber, city_id,
            country_id);
-        Staff employee = new Employee(staff_id, cprNr, searchCriteria, lname, email,
+        Staff employee = new Employee(staff_id, cprNr, searchCriteria, lname,
             address_id, phoneNo, startDate, salary);
-        Staff secretary = new Secretary(staff_id, cprNr, searchCriteria, lname, email,
+        Staff secretary = new Secretary(staff_id, cprNr, searchCriteria, lname,
             address_id, phoneNo, startDate, salary);
-        Staff management = new Management(staff_id, cprNr, searchCriteria, lname, email,
+        Staff management = new Management(staff_id, cprNr, searchCriteria, lname,
             address_id, phoneNo, startDate, salary);
         secretaryResult.add((Secretary) secretary);
         employeeResult.add((Employee) employee);
@@ -229,12 +227,11 @@ public class StaffDAOImpl implements StaffDAO
     try (Connection connection = controller.getConnection())
     {
       PreparedStatement statement = connection.prepareStatement(
-          "UPDATE Staff SET staff_id = ?, cprNr = ?, fname = ?, lname = ?, email = ?, address_id = ?, phoneNo = ?, startDate = ?, salary = ?");
+          "UPDATE Staff SET staff_id = ?, cprNr = ?, fname = ?, lname = ?, address_id = ?, phoneNo = ?, startDate = ?, salary = ?");
       statement.setInt(1, staff.getStaff_id());
       statement.setInt(2, staff.getCprNr());
       statement.setString(3, staff.getFname());
       statement.setString(4, staff.getLname());
-      statement.setString(5, staff.getEmail());
       statement.setObject(6, staff.getAddress_id());
       statement.setString(7, staff.getPhoneNo());
       statement.setDate(8, (java.sql.Date) staff.getStartDate());
@@ -246,4 +243,4 @@ public class StaffDAOImpl implements StaffDAO
       throwables.printStackTrace();
     }
   }
-}
+}*/

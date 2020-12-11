@@ -3,12 +3,14 @@ package shared.transfer;
 public enum UserAction
 {
   LOGIN_REQUEST,
+  LOGIN_REQUEST_MANAGER,
+  LOGIN_REQUEST_SECRETARY,
+  LOGIN_REQUEST_EMPLOYEE,
   LOGIN_RESULT,
-  REGISTER_USER,
-  Admin,
-  Secretary,
-  User
+  PRODUCT_LIST,
+  SUPPLIER_LIST,
+  STAFF_LIST,
+  CUSTOMER_LIST,
 }
-// some views will be for admins only, some for secretary
-// and some for users
+
 

@@ -1,12 +1,13 @@
 package client.core;
 
+import client.views.adminview.MainViewVM;
 import client.views.login.LoginVM;
-import client.views.register.RegisterVM;
+import client.views.staff.StaffVM;
 
 public class ViewModelFactory
 {
   private LoginVM loginVM;
-  private RegisterVM registerVM;
+  private MainViewVM mainViewVM;
   private ModelFactory modelFactory;
    public ViewModelFactory(ModelFactory modelFactory)
    {
@@ -16,16 +17,18 @@ public class ViewModelFactory
    {
      if(loginVM == null)
      {
-       loginVM = new LoginVM(modelFactory.getClientModel());
+       loginVM = new LoginVM(modelFactory.getUserClientModel());
      }
      return loginVM;
    }
-  public RegisterVM getRegisterVM()
+
+  public MainViewVM getMainViewVM()
   {
-    if(registerVM == null)
+    if(mainViewVM == null)
     {
-      registerVM = new RegisterVM(modelFactory.getClientModel());
+      mainViewVM = new MainViewVM(modelFactory.getAdminClientModel());
     }
-    return registerVM;
+    return mainViewVM;
   }
+
 }

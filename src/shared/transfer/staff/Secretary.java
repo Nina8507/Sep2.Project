@@ -8,10 +8,17 @@ import java.util.Date;
 public class Secretary extends Staff implements Serializable
 {
 
-  public Secretary(int staff_id, int cprNr, String fname, String lname, String email,
-      Address address_id, String phoneNumber, Date startDate, double salary)
+  public Secretary(String username, String password)
   {
-    super(staff_id,cprNr, fname, lname, email, address_id, phoneNumber, startDate, salary);
+    super(username, password);
+  }
+
+  public Secretary(String username, String password, int staff_id, int cprNr,
+      String fname, String lname, Address address_id, String phoneNo,
+      Date startDate, double salary)
+  {
+    super(username, password, staff_id, cprNr, fname, lname, address_id,
+        phoneNo, startDate, salary);
   }
 
   @Override public int getStaff_id()
@@ -34,9 +41,14 @@ public class Secretary extends Staff implements Serializable
     return super.getLname();
   }
 
-  @Override public String getEmail()
+  @Override public String getUsername()
   {
-    return super.getEmail();
+    return super.getUsername();
+  }
+
+  @Override public String getPassword()
+  {
+    return super.getPassword();
   }
 
   @Override public Address getAddress_id()

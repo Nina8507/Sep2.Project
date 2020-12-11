@@ -1,7 +1,7 @@
 package server;
 
-import server.model.UserServerModel;
-import server.model.UserServerModelManager;
+import server.model.usermodel.UserServerModel;
+import server.model.usermodel.UserServerModelManager;
 import server.networking.SocketServer;
 
 import java.sql.SQLException;

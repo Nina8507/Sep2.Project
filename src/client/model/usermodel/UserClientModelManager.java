@@ -1,48 +1,31 @@
-package client.views.login;
+package client.model.usermodel;
 
+import client.networking.Client;
+import shared.transfer.User;
+import shared.transfer.UserAction;
 
-import client.model.usermodel.UserClientModel;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
-import shared.util.Subject;
-
+import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 
-public class LoginVM implements Subject
+public class UserClientModelManager implements UserClientModel
 {
-  private UserClientModel userClientModel;
-  private StringProperty username, password;
+  private Client client;
   private PropertyChangeSupport support;
+  private User loggedInUser;
 
-  public LoginVM(UserClientModel userClientModel)
+  public UserClientModelManager(Client client)
   {
-    this.userClientModel = userClientModel;
-    username = new SimpleStringProperty();
-    password = new SimpleStringProperty();
+    this.client = client;
     support = new PropertyChangeSupport(this);
   }
 
-  public StringProperty usernameProperty()
+  @Override public void login(String username, String password)
   {
-    return username;
+    loggedInUser = new User(username, password);
+    client.login(loggedInUser);
   }
 
-  public StringProperty passwordTextProperty()
-  {
-    return password;
-  }
-
-  public void login()
-  {
-    userClientModel.login(username.get(), password.get());
-  }
-
-  public void clear()
-  {
-    username.set("");
-    password.set("");
-  }
   @Override public void addListener(PropertyChangeListener listener)
   {
     support.addPropertyChangeListener(listener);
@@ -63,7 +46,6 @@ public class LoginVM implements Subject
   {
     support.removePropertyChangeListener(listener);
   }
-
   @Override public void removeListener(String name,
       PropertyChangeListener listener)
   {
@@ -74,5 +56,4 @@ public class LoginVM implements Subject
       support.removePropertyChangeListener(name, listener);
     }
   }
-
 }

@@ -1,12 +1,12 @@
-package server.model;
+package server.model.usermodel;
 
 import persistance.loginDAO.UserDAO;
 import persistance.loginDAO.UserDAOImpl;
+import server.model.usermodel.UserServerModel;
 import shared.transfer.User;
 
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
-import java.sql.SQLException;
 
 public class UserServerModelManager implements UserServerModel
 {
@@ -23,11 +23,6 @@ public class UserServerModelManager implements UserServerModel
   {
     System.out.println("ServerModelManager" + userDAO.validateUser(user));
     return userDAO.validateUser(user);
-  }
-
-  @Override public User registerUser(User user)
-  {
-    return userDAO.registerUser(user);
   }
 
   @Override public void addListener(PropertyChangeListener listener)

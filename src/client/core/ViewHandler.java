@@ -12,7 +12,7 @@ public class ViewHandler
 {
   private Stage mainStage;
   private Scene loginScene;
-  private Scene registerScene;
+  private Scene mainViewScene;
   private Scene staffScene;
   private ViewModelFactory viewModelFactory;
 
@@ -28,8 +28,7 @@ public class ViewHandler
     mainStage.show();
   }
 
-
-  private void openLoginView()
+  public void openLoginView()
   {
     try
     {
@@ -46,23 +45,22 @@ public class ViewHandler
     }
   }
 
-  public void openRegisterView()
+  public void openMainViewScene()
   {
     try
     {
-      if (registerScene == null)
+      if(mainViewScene == null)
       {
-        registerScene = getScene("../views/register/Register.fxml");
+        mainViewScene = getScene("../views/adminview/MainView.fxml");
       }
-      mainStage.setTitle("Register User");
-      mainStage.setScene(registerScene);
+      mainStage.setTitle("Management");
+      mainStage.setScene(mainViewScene);
     }
-    catch (Exception e)
+    catch (IOException e)
     {
       e.printStackTrace();
     }
   }
-
 
   public void openStaffView()
   {
@@ -70,7 +68,7 @@ public class ViewHandler
     {
       if (staffScene == null)
       {
-        staffScene = getScene("../views/staff/staff.fxml");
+        staffScene = getScene("../views/staff/Staff.fxml");
       }
       mainStage.setTitle("Staff");
       mainStage.setScene(staffScene);

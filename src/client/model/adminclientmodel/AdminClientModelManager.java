@@ -1,46 +1,51 @@
-package client.model;
+package client.model.adminclientmodel;
 
 import client.networking.Client;
-import shared.transfer.User;
+import shared.transfer.Product;
 import shared.transfer.UserAction;
 
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
+import java.util.List;
 
-public class UserClientModelManager implements UserClientModel
+public class AdminClientModelManager implements AdminClientModel
 {
   private Client client;
   private PropertyChangeSupport support;
-  private User loggedInUser;
 
-  public UserClientModelManager(Client client)
+  public AdminClientModelManager(Client client)
   {
     this.client = client;
     support = new PropertyChangeSupport(this);
-    client.addListener(UserAction.LOGIN_RESULT.toString(), this::messageLabel);
+    client.addListener(UserAction.PRODUCT_LIST.toString(), this::getProductList);
   }
 
-  private void messageLabel(PropertyChangeEvent propertyChangeEvent)
+  private void getProductList(PropertyChangeEvent evt)
   {
-    System.out.println(
-        "ClientModelManager" + propertyChangeEvent.getNewValue().toString());
-    System.out.println("-----" + propertyChangeEvent.getPropertyName());
-    support.firePropertyChange(propertyChangeEvent);
+    List<Product> products = (List<Product>) evt.getNewValue();
+    support.firePropertyChange(evt.getPropertyName(), null, products);
   }
 
-  @Override public void login(String username, String password)
+  @Override public void getProductList()
   {
-    loggedInUser = new User(username, password);
-    client.login(loggedInUser);
+    client.getProductList();
   }
 
-  @Override public void registerUser(String username, String password)
+  @Override public void getSupplierList()
   {
-    User user = new User(username, password);
-    client.registerUser(user);
+    client.getSupplierList();
   }
 
+  @Override public void getStaffList()
+  {
+    client. getStaffList();
+  }
+
+  @Override public void getCustomerList()
+  {
+    client.getCustomerList();
+  }
   @Override public void addListener(PropertyChangeListener listener)
   {
     support.addPropertyChangeListener(listener);
@@ -71,4 +76,6 @@ public class UserClientModelManager implements UserClientModel
       support.removePropertyChangeListener(name, listener);
     }
   }
+
+
 }

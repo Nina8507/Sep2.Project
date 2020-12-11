@@ -6,6 +6,5 @@ import java.sql.SQLException;
 
 public interface UserDAO
 {
-  String validateUser(User user) ;
-  User registerUser(User user) ;
+  String validateUser(User user);
 }
