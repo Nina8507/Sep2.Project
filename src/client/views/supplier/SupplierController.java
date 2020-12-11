@@ -5,8 +5,6 @@ import javafx.scene.control.TableView;
 
 public class SupplierController
 {
-  public class PleaseProvideControllerClassName
-  {
 
     @FXML private TextField searchStaffTextField;
 
