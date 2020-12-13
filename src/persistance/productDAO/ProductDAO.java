@@ -1,6 +1,6 @@
 package persistance.productDAO;
 
-import shared.transfer.Product;
+import shared.transfer.products.Product;
 
 import java.util.List;
 

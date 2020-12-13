@@ -1,6 +1,6 @@
 package persistance.supplierDAO;
 
-import shared.transfer.Product;
+import shared.transfer.products.Product;
 import shared.transfer.Supplier;
 import shared.transfer.address.Address;
 

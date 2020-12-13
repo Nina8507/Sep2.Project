@@ -3,8 +3,11 @@ package client.views.adminview;
 import client.model.adminclientmodel.AdminClientModel;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import shared.transfer.Product;
+import javafx.scene.Node;
+import javafx.scene.layout.AnchorPane;
+import shared.transfer.products.Product;
 import shared.transfer.UserAction;
+import shared.transfer.staff.Staff;
 import shared.util.Subject;
 
 import java.beans.PropertyChangeEvent;
@@ -16,13 +19,22 @@ public class MainViewVM implements Subject
 {
   private AdminClientModel adminClientModel;
   private ObservableList<Product> products;
+  private ObservableList<Staff> allStaffList;
   private PropertyChangeSupport support;
+  private AnchorPane rightContent;
 
   public MainViewVM(AdminClientModel adminClientModel)
   {
     this.adminClientModel = adminClientModel;
     support = new PropertyChangeSupport(this);
     adminClientModel.addListener(UserAction.PRODUCT_LIST.toString(), this::sendProductListToView);
+    adminClientModel.addListener(UserAction.STAFF_LIST.toString(), this::sendStaffListToView);
+  }
+
+  private void sendStaffListToView(PropertyChangeEvent evt)
+  {
+    List<Staff> tempStaffList = (List<Staff>) evt.getNewValue();
+    allStaffList= FXCollections.observableList(tempStaffList);
   }
 
   private void sendProductListToView(PropertyChangeEvent evt)
@@ -88,4 +100,15 @@ public class MainViewVM implements Subject
     }
   }
 
+  public void setRightArea(Node node)
+  {
+    rightContent.getChildren().clear();
+    rightContent.getChildren().add(node);
+
+  }
+
+  public void setRightContentNode(AnchorPane rightContent)
+  {
+    this.rightContent = rightContent;
+  }
 }

@@ -1,9 +1,12 @@
 package client.core;
 
 import client.views.ViewController;
+import client.views.staff.StaffController;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -16,15 +19,16 @@ public class ViewHandler
   private Scene staffScene;
   private ViewModelFactory viewModelFactory;
 
-  public ViewHandler(ViewModelFactory viewModelFactory)
+  public ViewHandler(ViewModelFactory viewModelFactory, Stage stage)
   {
     this.viewModelFactory = viewModelFactory;
-    mainStage = new Stage();
+    mainStage = stage;
   }
 
   public void start()
   {
     openLoginView();
+    //openMainViewScene();
     mainStage.show();
   }
 
@@ -61,22 +65,41 @@ public class ViewHandler
       e.printStackTrace();
     }
   }
-
+  private AnchorPane staffPane;
   public void openStaffView()
   {
-    try
-    {
-      if (staffScene == null)
+
+    if (staffPane == null) {
+      try
       {
-        staffScene = getScene("../views/staff/Staff.fxml");
+        System.out.println("PATH: " + getClass().getResource("../views/staff/Staff.fxml"));
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("../views/staff/Staff.fxml"));
+        staffPane = loader.load();
+        StaffController controller = loader.getController();
+        controller.init(this, viewModelFactory);
       }
-      mainStage.setTitle("Staff");
-      mainStage.setScene(staffScene);
+      catch (IOException e)
+      {
+        e.printStackTrace();
+      }
     }
-    catch (Exception e)
-    {
-      e.printStackTrace();
-    }
+    setMainRightArea(staffPane);
+
+
+//    try
+//    {
+//      if (staffScene == null)
+//      {
+//        staffScene = getScene("../views/staff/Staff.fxml");
+//      }
+//      mainStage.setTitle("Staff");
+//      mainStage.setScene(staffScene);
+//    }
+//    catch (Exception e)
+//    {
+//      e.printStackTrace();
+//    }
   }
 
   private Scene getScene(String s) throws IOException
@@ -87,6 +110,10 @@ public class ViewHandler
     ViewController view = loader.getController();
     view.init(this, viewModelFactory);
     return new Scene(root);
+  }
+
+  private void setMainRightArea(Node node) {
+    viewModelFactory.getMainViewVM().setRightArea(node);
   }
 
 }

@@ -1,8 +1,9 @@
 package client.model.adminclientmodel;
 
 import client.networking.Client;
-import shared.transfer.Product;
+import shared.transfer.products.Product;
 import shared.transfer.UserAction;
+import shared.transfer.staff.Staff;
 
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
@@ -19,6 +20,13 @@ public class AdminClientModelManager implements AdminClientModel
     this.client = client;
     support = new PropertyChangeSupport(this);
     client.addListener(UserAction.PRODUCT_LIST.toString(), this::getProductList);
+    client.addListener(UserAction.STAFF_LIST.toString(), this::getStaffList);
+  }
+
+  private void getStaffList(PropertyChangeEvent evt)
+  {
+    List<Staff> staffList = (List<Staff>) evt.getNewValue();
+    support.firePropertyChange(evt.getPropertyName(), null, staffList);
   }
 
   private void getProductList(PropertyChangeEvent evt)

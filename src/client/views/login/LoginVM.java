@@ -2,25 +2,40 @@ package client.views.login;
 
 
 import client.model.usermodel.UserClientModel;
+import client.networking.Client;
+import javafx.application.Platform;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import shared.transfer.UserAction;
 import shared.util.Subject;
 
+import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 
 public class LoginVM implements Subject
 {
   private UserClientModel userClientModel;
+  private Client client;
   private StringProperty username, password;
   private PropertyChangeSupport support;
 
-  public LoginVM(UserClientModel userClientModel)
+  public LoginVM(UserClientModel userClientModel, Client client)
   {
+    this.client = client;
     this.userClientModel = userClientModel;
     username = new SimpleStringProperty();
     password = new SimpleStringProperty();
     support = new PropertyChangeSupport(this);
+    client.addListener(UserAction.LOGIN_RESULT.toString(), this::fireResult);
+  }
+
+  private void fireResult(PropertyChangeEvent propertyChangeEvent)
+  {
+    Platform.runLater(() -> {
+      support.firePropertyChange(UserAction.LOGIN_RESULT.toString(), null,
+          propertyChangeEvent);
+    });
   }
 
   public StringProperty usernameProperty()

@@ -45,7 +45,7 @@ public class SocketClient implements Client
     {
       while (true)
       {
-        Request request = (Request) inFromServer.readObject();
+        Request request = (Request) inFromServer.readObject(); // "OK!"
         support.firePropertyChange(request.getRequestType(), null, request.getRequestArg());
       }
     }

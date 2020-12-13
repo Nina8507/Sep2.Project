@@ -14,6 +14,8 @@ public enum UserAction
   MANAGER,
   EMPLOYEE,
   SECRETARY,
+  DAMAGED_PRODUCT,
+  MOVE_PRODUCT_TO_DAMAGE_LIST,
 }
 
 

@@ -36,19 +36,21 @@ public class LoginController implements ViewController
 
   private void onLoginRequest(PropertyChangeEvent evt)
   {
-    Platform.runLater(() -> {
-      User user = (User) evt.getNewValue();
-      if(UserAction.LOGIN_RESULT.toString().equals(UserAction.LOGIN_REQUEST_SECRETARY.toString()))
-      {
-        //viewHandler.openSecretaryView();
-      } else if(UserAction.LOGIN_RESULT.toString().equals(UserAction.LOGIN_REQUEST_EMPLOYEE.toString()))
-      {
-        //viewHandler.openEmployeeView();
-      }else if(UserAction.LOGIN_REQUEST_MANAGER.toString().equals(UserAction.LOGIN_REQUEST_MANAGER.toString()))
-      {
-        viewHandler.openMainViewScene();
-      }
-    });
+
+      System.out.println("IM HERE");
+//      User user = (User) evt.getNewValue();
+      viewHandler.openMainViewScene();
+//      if(UserAction.LOGIN_RESULT.toString().equals(UserAction.LOGIN_REQUEST_SECRETARY.toString()))
+//      {
+//        //viewHandler.openSecretaryView();
+//      } else if(UserAction.LOGIN_RESULT.toString().equals(UserAction.LOGIN_REQUEST_EMPLOYEE.toString()))
+//      {
+//        //viewHandler.openEmployeeView();
+//      }else if(UserAction.LOGIN_REQUEST_MANAGER.toString().equals(UserAction.LOGIN_REQUEST_MANAGER.toString()))
+//      {
+//        viewHandler.openMainViewScene();
+//      }
+
   }
 
   public void onLoginButton(ActionEvent evt)

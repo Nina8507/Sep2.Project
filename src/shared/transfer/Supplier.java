@@ -1,6 +1,7 @@
 package shared.transfer;
 
 import shared.transfer.address.Address;
+import shared.transfer.products.Product;
 
 import java.io.Serializable;
 

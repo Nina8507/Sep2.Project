@@ -9,15 +9,17 @@ public class ViewModelFactory
   private LoginVM loginVM;
   private MainViewVM mainViewVM;
   private ModelFactory modelFactory;
-   public ViewModelFactory(ModelFactory modelFactory)
+  private ClientFactory clientFactory;
+   public ViewModelFactory(ModelFactory modelFactory, ClientFactory cf)
    {
      this.modelFactory = modelFactory;
+     clientFactory = cf;
    }
    public LoginVM getLoginVM()
    {
      if(loginVM == null)
      {
-       loginVM = new LoginVM(modelFactory.getUserClientModel());
+       loginVM = new LoginVM(modelFactory.getUserClientModel(), clientFactory.getClient());
      }
      return loginVM;
    }

@@ -1,7 +1,7 @@
 package persistance.productDAO;
 
 import persistance.JDBCController;
-import shared.transfer.Product;
+import shared.transfer.products.Product;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -52,15 +52,13 @@ public class ProductDAOImpl implements ProductDAO
       statement.setDouble(7, purchasePrice);
       statement.setDouble(8, salePrice);
       statement.executeQuery();
-      return new Product(product_id, productName, measurements, material,
-          quantity, color, purchasePrice, salePrice);
-
     }
     catch (SQLException throwables)
     {
       throwables.printStackTrace();
     }
-    return null;
+    return new Product(product_id, productName, measurements, material,
+      quantity, color, purchasePrice, salePrice);
   }
 
   @Override public void updateProduct(Product product)
@@ -87,6 +85,7 @@ public class ProductDAOImpl implements ProductDAO
 
   @Override public Product searchProductByProduct_id(int product_id)
   {
+    Product product = null;
     try (Connection connection = controller.getConnection())
     {
       PreparedStatement statement = connection
@@ -102,8 +101,8 @@ public class ProductDAOImpl implements ProductDAO
         String color = resultSet.getString("color");
         double purchasePrice = resultSet.getDouble("purchasePrice");
         double salePrice = resultSet.getDouble("salePrice");
-        Product product = new Product(product_id, productName, measurements,
-            material, quantity, color, purchasePrice, salePrice);
+        product = new Product(product_id, productName, measurements, material, quantity,
+            color, purchasePrice, salePrice);
         return product;
       }
       else
@@ -115,19 +114,20 @@ public class ProductDAOImpl implements ProductDAO
     {
       throwables.printStackTrace();
     }
-    return null;
+    return product;
   }
 
   @Override public List<Product> viewAllProductsByProductName(
       String searchCriteria)
   {
+    ArrayList<Product> result = new ArrayList<>();
     try (Connection connection = controller.getConnection())
     {
       PreparedStatement statement = connection
           .prepareStatement("SELECT * FROM Products WHERE productName LIKE ?");
       statement.setString(1, "%" + searchCriteria + "%");
       ResultSet resultSet = statement.executeQuery();
-      ArrayList<Product> result = new ArrayList<>();
+
       while (resultSet.next())
       {
         int product_id = resultSet.getInt("product_id");
@@ -139,16 +139,15 @@ public class ProductDAOImpl implements ProductDAO
         double purchasePrice = resultSet.getDouble("purchasePrice");
         double salePrice = resultSet.getDouble("salePrice");
         Product product = new Product(product_id, productName, measurements,
-            material, quantity, color, purchasePrice,salePrice );
+            material, quantity, color, purchasePrice, salePrice);
         result.add(product);
       }
-      return result;
     }
     catch (SQLException throwables)
     {
       throwables.printStackTrace();
     }
-    return null;
+    return result;
   }
 
   @Override public void deleteProduct(Product product)

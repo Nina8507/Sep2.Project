@@ -63,14 +63,13 @@ public class StaffDAOImpl implements StaffDAO
       statement.setString(9, username);
       statement.setString(10, password);
       statement.executeQuery();
-      return new Employee(username, password, staff_id, cprNr, fname, lname,
-          address_id, phoneNo, startDate, salary);
     }
     catch (SQLException throwables)
     {
       throwables.printStackTrace();
     }
-    return null;
+    return new Employee(username, password, staff_id, cprNr, fname, lname,
+        address_id, phoneNo, startDate, salary);
   }
 
   @Override public Staff createNewSecretary(String username, String password,
@@ -131,6 +130,7 @@ public class StaffDAOImpl implements StaffDAO
 
   @Override public Staff searchStaffByCprNr(int cprNr)
   {
+    Staff employee = null, secretary = null, management = null;
     try (Connection connection = controller.getConnection())
     {
       PreparedStatement statement = connection.prepareStatement(
@@ -155,40 +155,42 @@ public class StaffDAOImpl implements StaffDAO
         double salary = resultSet.getDouble("salary");
         Address address = new Address(address_id, street, streetNumber, city,
             country);
-        Staff employee = new Employee(username, password, staff_id, cprNr,
+         employee = new Employee(username, password, staff_id, cprNr,
             fname, lname, address, phoneNo, startDate, salary);
-        Staff secretary = new Secretary(username, password, staff_id, cprNr,
+         secretary = new Secretary(username, password, staff_id, cprNr,
             fname, lname, address, phoneNo, startDate, salary);
-        Staff management = new Management(username, password, staff_id, cprNr,
+         management = new Management(username, password, staff_id, cprNr,
             fname, lname, address, phoneNo, startDate, salary);
-        if(cprNr == Integer.parseInt(UserAction.MANAGER.toString()))
-        {
-          return management;
-        }else if(cprNr == Integer.parseInt(UserAction.EMPLOYEE.toString()))
-        {
-          return employee;
-        }else if(cprNr == Integer.parseInt(UserAction.SECRETARY.toString()))
-        {
-          return secretary;
-        }
       }
     }
     catch (SQLException throwables)
     {
       throwables.printStackTrace();
     }
-    return null;
+    if(cprNr == Integer.parseInt(UserAction.MANAGER.toString()))
+    {
+      return management;
+    }else if(cprNr == Integer.parseInt(UserAction.EMPLOYEE.toString()))
+    {
+      return employee;
+    }else if(cprNr == Integer.parseInt(UserAction.SECRETARY.toString()))
+    {
+      return secretary;
+    } else
+      return null;
   }
 
   @Override public List<Staff> viewAllStaffByStaffName(String searchCriteria)
   {
+    ArrayList<Staff> staffResult = new ArrayList<>();
+    Staff management = null, secretary = null, employee = null;
     try (Connection connection = controller.getConnection())
     {
       PreparedStatement statement = connection
           .prepareStatement("SELECT * FROM Staff WHERE searchCriteria = ?");
       statement.setString(1, searchCriteria);
       ResultSet resultSet = statement.executeQuery();
-      ArrayList<Staff> staffResult = new ArrayList<>();
+
       while (resultSet.next())
       {
         int staff_id = resultSet.getInt("staff_id");
@@ -207,27 +209,28 @@ public class StaffDAOImpl implements StaffDAO
         String password = resultSet.getString("password");
         Address address_id = new Address(address, street, streetNumber, city_id,
             country_id);
-        Staff employee = new Employee(username, password, staff_id, cprNr, searchCriteria, lname,
+        employee = new Employee(username, password, staff_id, cprNr, searchCriteria, lname,
             address_id, phoneNo, startDate, salary);
-        Staff secretary = new Secretary(username, password, staff_id, cprNr, searchCriteria, lname,
+        secretary = new Secretary(username, password, staff_id, cprNr, searchCriteria, lname,
             address_id, phoneNo, startDate, salary);
-        Staff management = new Management(username, password, staff_id, cprNr, searchCriteria, lname,
+        management = new Management(username, password, staff_id, cprNr, searchCriteria, lname,
             address_id, phoneNo, startDate, salary);
-        if(staffResult.equals(UserAction.MANAGER.toString()))
-        {
-          staffResult.add(management);
-        } else if(staffResult.equals(UserAction.SECRETARY.toString()))
-        {
-          staffResult.add(secretary);
-        } else if(staffResult.equals(UserAction.EMPLOYEE.toString()))
-        {
-          staffResult.add(employee);
-        }
+
       }
     }
     catch (SQLException throwables)
     {
       throwables.printStackTrace();
+    }
+    if(staffResult.equals(UserAction.MANAGER.toString()))
+    {
+      staffResult.add(management);
+    } else if(staffResult.equals(UserAction.SECRETARY.toString()))
+    {
+      staffResult.add(secretary);
+    } else if(staffResult.equals(UserAction.EMPLOYEE.toString()))
+    {
+      staffResult.add(employee);
     }
     return null;
   }

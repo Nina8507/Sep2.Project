@@ -5,7 +5,7 @@ import persistance.productDAO.ProductDAOImpl;
 import persistance.staffDAO.StaffDAO;
 import persistance.staffDAO.StaffDAOImpl;
 import shared.transfer.Customer;
-import shared.transfer.Product;
+import shared.transfer.products.Product;
 import shared.transfer.Supplier;
 import shared.transfer.UserAction;
 import shared.transfer.staff.Staff;
@@ -35,14 +35,17 @@ public class AdminServerModelManager implements AdminServerModel
     staffList = new ArrayList<>();
     customers = new ArrayList<>();
   }
+
   @Override public void getProductList()
   {
-    support.firePropertyChange(UserAction.PRODUCT_LIST.toString(), null, new ArrayList<>(productDAO.viewAllProductsByProductName("products")));
+    support.firePropertyChange(UserAction.PRODUCT_LIST.toString(), null,
+        new ArrayList<>(productDAO.viewAllProductsByProductName("products")));
   }
 
   @Override public void getStaffList()
   {
-    support.firePropertyChange(UserAction.STAFF_LIST.toString(), null, new ArrayList<>(staffDAO.viewAllStaffByStaffName("staff")));
+    support.firePropertyChange(UserAction.STAFF_LIST.toString(), null,
+        new ArrayList<>(staffDAO.viewAllStaffByStaffName("staff")));
   }
 
   @Override public void addListener(PropertyChangeListener listener)
@@ -65,6 +68,7 @@ public class AdminServerModelManager implements AdminServerModel
   {
     support.removePropertyChangeListener(listener);
   }
+
   @Override public void removeListener(String name,
       PropertyChangeListener listener)
   {

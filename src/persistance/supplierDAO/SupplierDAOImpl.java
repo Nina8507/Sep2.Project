@@ -1,7 +1,7 @@
 package persistance.supplierDAO;
 
 import persistance.JDBCController;
-import shared.transfer.Product;
+import shared.transfer.products.Product;
 import shared.transfer.Supplier;
 import shared.transfer.address.Address;
 

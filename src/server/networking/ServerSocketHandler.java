@@ -56,8 +56,9 @@ public class ServerSocketHandler implements Runnable
           {
             System.out.println("Login requested!");
             User user = (User) request.getRequestArg();
-            String loginResult = userServerModel.validateUser(user);
-            outToClient.writeObject(loginResult);
+            String loginResult = userServerModel.validateUser(user); // "OK!"
+            Request r = new Request(UserAction.LOGIN_RESULT.toString(), "OK!");
+            outToClient.writeObject(r);
           } else if(request.getRequestType().equals(UserAction.PRODUCT_LIST.toString()))
           {
             adminServerModel.getProductList();

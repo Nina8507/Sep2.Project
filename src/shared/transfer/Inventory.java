@@ -1,5 +1,7 @@
 package shared.transfer;
 
+import shared.transfer.products.Product;
+
 import java.io.Serializable;
 
 public class Inventory implements Serializable
