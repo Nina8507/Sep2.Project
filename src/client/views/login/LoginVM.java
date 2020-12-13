@@ -6,16 +6,21 @@ import client.networking.Client;
 import javafx.application.Platform;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import shared.transfer.User;
 import shared.transfer.UserAction;
 import shared.util.Subject;
 
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
+import java.util.ArrayList;
 
 public class LoginVM implements Subject
 {
   private UserClientModel userClientModel;
+  private ObservableList<User> users;
   private Client client;
   private StringProperty username, password;
   private PropertyChangeSupport support;
@@ -27,10 +32,10 @@ public class LoginVM implements Subject
     username = new SimpleStringProperty();
     password = new SimpleStringProperty();
     support = new PropertyChangeSupport(this);
-    client.addListener(UserAction.LOGIN_RESULT.toString(), this::fireResult);
+    client.addListener(UserAction.LOGIN_RESULT.toString(), this::loginResultFromDbs);
   }
 
-  private void fireResult(PropertyChangeEvent propertyChangeEvent)
+  private void loginResultFromDbs(PropertyChangeEvent propertyChangeEvent)
   {
     Platform.runLater(() -> {
       support.firePropertyChange(UserAction.LOGIN_RESULT.toString(), null,
@@ -53,10 +58,10 @@ public class LoginVM implements Subject
     userClientModel.login(username.get(), password.get());
   }
 
-  public void clear()
+  public void getUsers()
   {
-    username.set("");
-    password.set("");
+    ArrayList<User> userList = client.getUserList();
+    users = FXCollections.observableList(userList);
   }
   @Override public void addListener(PropertyChangeListener listener)
   {
@@ -89,5 +94,4 @@ public class LoginVM implements Subject
       support.removePropertyChangeListener(name, listener);
     }
   }
-
 }

@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class DamagedListDAOImpl implements DamagedListDAO
+/*public class DamagedListDAOImpl implements DamagedListDAO
 {
   private static DamagedListDAOImpl damagedListInstance;
   private JDBCController controller;
@@ -52,9 +52,9 @@ public class DamagedListDAOImpl implements DamagedListDAO
         int damagedList_id = resultSet.getInt("damagedProduct_id");
         Product product = (Product) resultSet.getObject("product_id");
         Date date = (Date) resultSet.getObject("date");
-        DamageProduct damageProduct = new DamageProduct(damagedList_id, product,
-            date);
-        result.add(damageProduct);
+       DamageProduct damageProduct = new DamageProduct(damagedList_id, product,
+            //date);
+       result.add(damageProduct);
       }
     }
     catch (SQLException throwables)
@@ -97,6 +97,6 @@ public class DamagedListDAOImpl implements DamagedListDAO
       throwables.printStackTrace();
     }
   }
-}
+}*/
 
 

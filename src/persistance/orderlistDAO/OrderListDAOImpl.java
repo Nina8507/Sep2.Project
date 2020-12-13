@@ -58,7 +58,7 @@ public class OrderListDAOImpl implements OrderListDAO
     return new OrderList(order_id, employee_id, customer_id, date);
   }
 
-  @Override public List<OrderList> viewAllOrders(String searchCriteria)
+  @Override public List<OrderList> searchAnOrders(String searchCriteria)
   {
     ArrayList<OrderList> result = new ArrayList<>();
     try (Connection connection = controller.getConnection())

@@ -8,6 +8,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import shared.transfer.Request;
 import shared.transfer.User;
 import shared.transfer.UserAction;
 
@@ -31,25 +32,28 @@ public class LoginController implements ViewController
         .bindBidirectional(loginVM.usernameProperty());
     passwordTextField.textProperty()
         .bindBidirectional(loginVM.passwordTextProperty());
-    loginVM.addListener(UserAction.LOGIN_RESULT.toString(), this::onLoginRequest);
+    loginVM
+        .addListener(UserAction.LOGIN_RESULT.toString(), this::onLoginRequest);
   }
 
   private void onLoginRequest(PropertyChangeEvent evt)
   {
-
-      System.out.println("IM HERE");
-//      User user = (User) evt.getNewValue();
+    Request request = new Request(UserAction.LOGIN_RESULT.toString(),
+        evt.getNewValue());
+    if (UserAction.LOGIN_RESULT.toString()
+        .equals(UserAction.LOGIN_REQUEST_SECRETARY.toString()))
+    {
+      //viewHandler.openSecretaryView();
+    }
+    else if (UserAction.LOGIN_RESULT.toString()
+        .equals(UserAction.LOGIN_REQUEST_EMPLOYEE.toString()))
+    {
+      //viewHandler.openEmployeeView();
+    }
+    else if (request.equals(UserAction.LOGIN_REQUEST_MANAGER.toString()))
+    {
       viewHandler.openMainViewScene();
-//      if(UserAction.LOGIN_RESULT.toString().equals(UserAction.LOGIN_REQUEST_SECRETARY.toString()))
-//      {
-//        //viewHandler.openSecretaryView();
-//      } else if(UserAction.LOGIN_RESULT.toString().equals(UserAction.LOGIN_REQUEST_EMPLOYEE.toString()))
-//      {
-//        //viewHandler.openEmployeeView();
-//      }else if(UserAction.LOGIN_REQUEST_MANAGER.toString().equals(UserAction.LOGIN_REQUEST_MANAGER.toString()))
-//      {
-//        viewHandler.openMainViewScene();
-//      }
+    }
 
   }
 

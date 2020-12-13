@@ -15,7 +15,6 @@ public class UserServerModelManager implements UserServerModel
 {
   private UserDAO userDAO;
   private PropertyChangeSupport support;
-
   private List<User> users;
 
   public UserServerModelManager()
@@ -25,9 +24,9 @@ public class UserServerModelManager implements UserServerModel
     users = new ArrayList<>();
   }
 
-  @Override public String validateUser(User user)
+  @Override public User validateUser(User user)
   {
-    System.out.println("ServerModelManager" + userDAO.validateUser(user));
+    System.out.println(user);
     return userDAO.validateUser(user);
   }
 
@@ -36,16 +35,6 @@ public class UserServerModelManager implements UserServerModel
     if (users.size() == 0)
       users = userDAO.getUsers();
     return users;
-  }
-
-  List<Product> products;
-
-  public void setDamagedProduct(DamagedProduct dp) {
-      for (Product p : products) {
-        if (p.getProduct_id() == dp.getProductId) {
-          p.setDamaged(dp);
-        }
-      }
   }
 
   @Override public void addListener(PropertyChangeListener listener)

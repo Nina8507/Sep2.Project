@@ -10,7 +10,7 @@ import java.util.List;
 public interface OrderListDAO
 {
   OrderList addNewOrder(int order_id, Employee employee_id, Customer customer_id, Date date);
-  List<OrderList> viewAllOrders(String searchCriteria);
+  List<OrderList> searchAnOrders(String searchCriteria);
   void updateAnOrder(OrderList order);
   void deleteAnOrder(OrderList order);
 }

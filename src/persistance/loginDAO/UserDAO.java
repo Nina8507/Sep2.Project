@@ -3,8 +3,10 @@ package persistance.loginDAO;
 import shared.transfer.User;
 
 import java.sql.SQLException;
+import java.util.List;
 
 public interface UserDAO
 {
-  String validateUser(User user);
+  User validateUser(User user);
+  List<User> getUsers();
 }

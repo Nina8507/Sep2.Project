@@ -4,7 +4,8 @@ import persistance.JDBCController;
 import shared.transfer.User;
 
 import java.sql.*;
-
+import java.util.ArrayList;
+import java.util.List;
 
 public class UserDAOImpl implements UserDAO
 {
@@ -33,28 +34,53 @@ public class UserDAOImpl implements UserDAO
     return userInstance;
   }
 
-  @Override public String validateUser(User user)
+  @Override public User validateUser(User user)
   {
     try (Connection connection = controller.getConnection())
     {
       PreparedStatement statement = connection.prepareStatement(
-          "SELECT * FROM userlogin WHERE username = ? AND userpassword = ?");
+          "SELECT * FROM staff WHERE user_id = ? AND password = ?");
       statement.setString(1, user.getUsername());
       statement.setString(2, user.getPassword());
-      System.out.println(statement);
       ResultSet resultSet = statement.executeQuery();
-      System.out.println(resultSet);
+
       if (resultSet.next())
       {
-        return "OK!";
-      } else {
-        return "ERROR!";
+        String user_id = resultSet.getString("user_id");
+        String password = resultSet.getString("password");
+        User getUser = new User(user_id, password);
+        return getUser;
       }
     }
     catch (SQLException throwables)
     {
       throwables.printStackTrace();
-      return "ERROR";
     }
+    return null;
+  }
+
+  @Override public List<User> getUsers()
+  {
+    ArrayList<User> result = new ArrayList<>();
+    try (Connection connection = controller.getConnection())
+    {
+      PreparedStatement statement = connection
+          .prepareStatement("SELECT user_id, password FROM STAFF WHERE");
+      ResultSet resultSet = statement.executeQuery();
+
+      while (resultSet.next())
+      {
+        String user_id = resultSet.getString("user_id");
+        String password = resultSet.getString("password");
+
+        User userList = new User(user_id, password);
+        result.add(userList);
+      }
+    }
+    catch (SQLException throwables)
+    {
+      throwables.printStackTrace();
+    }
+    return result;
   }
 }

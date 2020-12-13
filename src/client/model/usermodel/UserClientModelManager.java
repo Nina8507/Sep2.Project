@@ -7,6 +7,7 @@ import shared.transfer.UserAction;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
+import java.util.List;
 
 public class UserClientModelManager implements UserClientModel
 {
@@ -24,6 +25,11 @@ public class UserClientModelManager implements UserClientModel
   {
     loggedInUser = new User(username, password);
     client.login(loggedInUser);
+  }
+
+  @Override public List<User> getUserList()
+  {
+    return client.getUserList();
   }
 
   @Override public void addListener(PropertyChangeListener listener)

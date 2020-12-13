@@ -12,18 +12,22 @@ public class DamageProduct implements Serializable
   public DamageProduct(DamageProduct damageProduct_id, Product product, Date date)
   {
     this.damageProduct_id = damageProduct_id;
-    this.product = product;z
+    this.product = product;
     this.date = date;
   }
 
-  public DamageProduct getDamageProduct()
+  public DamageProduct getDamageProduct_id()
   {
     return damageProduct_id;
+  }
+
+  public Product getProduct()
+  {
+    return product;
   }
 
   public Date getDate()
   {
     return date;
   }
-
 }

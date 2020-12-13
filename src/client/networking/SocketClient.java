@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
+import java.util.ArrayList;
 
 public class SocketClient implements Client
 {
@@ -45,7 +46,7 @@ public class SocketClient implements Client
     {
       while (true)
       {
-        Request request = (Request) inFromServer.readObject(); // "OK!"
+        Request request = (Request) inFromServer.readObject(); //
         support.firePropertyChange(request.getRequestType(), null, request.getRequestArg());
       }
     }
@@ -57,7 +58,7 @@ public class SocketClient implements Client
 
   @Override public void login(User user)
   {
-    Request request = new Request(UserAction.LOGIN_REQUEST.toString(), user);
+    Request request = new Request(UserAction.LOGIN_RESULT.toString(), user);
     try
     {
       outToServer.writeObject(request);
@@ -66,6 +67,19 @@ public class SocketClient implements Client
     {
       e.printStackTrace();
     }
+  }
+
+  @Override public ArrayList<User> getUserList()
+  {
+    try
+    {
+      outToServer.writeObject(new Request(UserAction.USER_LIST.toString(), null));
+    }
+    catch (IOException e)
+    {
+      e.printStackTrace();
+    }
+    return null;
   }
 
   @Override public void getProductList()

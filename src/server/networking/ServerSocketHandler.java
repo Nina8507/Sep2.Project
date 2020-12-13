@@ -52,13 +52,17 @@ public class ServerSocketHandler implements Runnable
         try
         {
           Request request = (Request) inFromClient.readObject();
-          if(request.getRequestType().equals(UserAction.LOGIN_REQUEST.toString()))
+          if(request.getRequestType().equals(UserAction.LOGIN_RESULT.toString()))
           {
             System.out.println("Login requested!");
             User user = (User) request.getRequestArg();
-            String loginResult = userServerModel.validateUser(user); // "OK!"
-            Request r = new Request(UserAction.LOGIN_RESULT.toString(), "OK!");
-            outToClient.writeObject(r);
+            User loginUser = userServerModel.validateUser(user);
+            Request response = new Request(UserAction.LOGIN_RESULT.toString(), loginUser);
+           System.out.println(response);
+           outToClient.writeObject(response);
+          } else if(request.getRequestType().equals(UserAction.USER_LIST.toString()))
+          {
+            userServerModel.getUsers();
           } else if(request.getRequestType().equals(UserAction.PRODUCT_LIST.toString()))
           {
             adminServerModel.getProductList();
