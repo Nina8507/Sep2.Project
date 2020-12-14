@@ -13,17 +13,15 @@ public class ViewModelFactory
   private SupplierVM supplierVM;
   private AddSupplierVM addSupplierVM;
   private ModelFactory modelFactory;
-  private ClientFactory clientFactory;
-   public ViewModelFactory(ModelFactory modelFactory, ClientFactory cf)
+   public ViewModelFactory(ModelFactory modelFactory)
    {
      this.modelFactory = modelFactory;
-     clientFactory = cf;
    }
    public LoginVM getLoginVM()
    {
      if(loginVM == null)
      {
-       loginVM = new LoginVM(modelFactory.getUserClientModel(), clientFactory.getClient());
+       loginVM = new LoginVM(modelFactory.getUserClientModel());
      }
      return loginVM;
    }
