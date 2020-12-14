@@ -2,6 +2,7 @@ package server.networking;
 
 import server.model.addsuppliermodel.AddSupplierServerModel;
 import server.model.adminmodel.AdminServerModel;
+import server.model.listviewsuppliermodel.ListViewSupplierServerModel;
 import server.model.supplierModel.SupplierServerModel;
 import server.model.usermodel.UserServerModel;
 import shared.transfer.Request;
@@ -22,6 +23,7 @@ public class ServerSocketHandler implements Runnable
   private UserServerModel userServerModel;
   private AdminServerModel adminServerModel;
   private AddSupplierServerModel addSupplierServerModel;
+  private ListViewSupplierServerModel listViewSupplierServerModel;
   private SupplierServerModel supplierServerModel;
   private ObjectInputStream inFromClient;
   private ObjectOutputStream outToClient;
@@ -29,13 +31,14 @@ public class ServerSocketHandler implements Runnable
   public ServerSocketHandler(Socket socket, UserServerModel userServerModel,
       AdminServerModel adminServerModel,
       SupplierServerModel supplierServerModel,
-      AddSupplierServerModel addSupplierServerModel)
+      AddSupplierServerModel addSupplierServerModel, ListViewSupplierServerModel listViewSupplierServerModel)
   {
     this.socket = socket;
     this.userServerModel = userServerModel;
     this.adminServerModel = adminServerModel;
     this.supplierServerModel = supplierServerModel;
     this.addSupplierServerModel = addSupplierServerModel;
+    this.listViewSupplierServerModel = listViewSupplierServerModel;
     adminServerModel.addListener(UserAction.PRODUCT_LIST.toString(),
         this::sendProductListToView);
   }
@@ -99,7 +102,11 @@ public class ServerSocketHandler implements Runnable
           {
             //userServerModel.logoutUser()
           }
-
+          else if(request.getRequestType().equals(UserAction.GET_VALUES_FROM_DAO.toString()))
+          {
+            Supplier getSupplier = (Supplier) request.getRequestArg();
+            Supplier supplierValues = listViewSupplierServerModel.getSupplierValues(getSupplier);
+          }
         }
         catch (ClassNotFoundException e)
         {

@@ -1,7 +1,6 @@
 package client.views.supplier;
 
 import client.model.supplierclientmodel.SupplierClientModel;
-import client.networking.Client;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.collections.ObservableList;

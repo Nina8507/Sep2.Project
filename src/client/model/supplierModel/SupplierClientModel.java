@@ -1,5 +1,7 @@
 package client.model.supplierModel;
 
-public class SupplierClientModel implements SupplierClientModelImpl
+import shared.util.Subject;
+
+public interface SupplierClientModel extends Subject
 {
 }

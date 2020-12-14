@@ -7,14 +7,16 @@ import java.util.Date;
 
 public abstract class Staff extends User
 {
-  private int staff_id;
-  private int cprNr;
-  private String fname;
-  private String lname;
-  private Address address_id;
+  private String staff_id;
+  private String cprNr;
+  private String name;
+  private String street;
+  private String city;
+  private String zipcode;
+  private String country;
   private String phoneNo;
-  private Date startDate;
-  private double salary;
+  private String startDate;
+  private String salary;
   private String username;
   private String password;
   private String role;
@@ -24,58 +26,61 @@ public abstract class Staff extends User
     super(username, password, role);
   }
 
-  public Staff(String username, String password, String role, int staff_id, int cprNr,
-      String fname, String lname,
-      Address address_id, String phoneNo, Date startDate, double salary)
+  public Staff(String username, String password)
+  {
+    super(username, password);
+  }
+
+  public Staff(String username, String password, String role, String staff_id,
+      String cprNr, String name, String street, String city, String zipcode,
+      String country, String phoneNo, String startDate, String salary)
   {
     super(username, password, role);
     this.staff_id = staff_id;
     this.cprNr = cprNr;
-    this.fname = fname;
-    this.lname = lname;
-    this.address_id = address_id;
+    this.name = name;
+    this.street = street;
+    this.city = city;
+    this.zipcode = zipcode;
+    this.country = country;
     this.phoneNo = phoneNo;
     this.startDate = startDate;
     this.salary = salary;
   }
 
-  public int getStaff_id()
+  public String getStaff_id()
   {
     return staff_id;
   }
 
-  public int getCprNr()
+  public String getCprNr()
   {
     return cprNr;
   }
 
-  public String getFname()
+  public String getName()
   {
-    return fname;
+    return name;
   }
 
-  public String getLname()
+  public String getStreet()
   {
-    return lname;
+    return street;
   }
 
-  @Override public String getUsername()
+  public String getCity()
   {
-    return super.getUsername();
-  }
-  @Override public String getRole()
-  {
-    return super.getRole();
+    return city;
   }
 
-  @Override public String getPassword()
+  public String getZipcode()
   {
-    return super.getPassword();
+    return zipcode;
   }
 
-  public Address getAddress_id()
+  public String getCountry()
   {
-    return address_id;
+    return country;
   }
 
   public String getPhoneNo()
@@ -83,13 +88,28 @@ public abstract class Staff extends User
     return phoneNo;
   }
 
-  public Date getStartDate()
+  public String getStartDate()
   {
     return startDate;
   }
 
-  public double getSalary()
+  public String getSalary()
   {
     return salary;
+  }
+
+  @Override public String getUsername()
+  {
+    return username;
+  }
+
+  @Override public String getPassword()
+  {
+    return password;
+  }
+
+  @Override public String getRole()
+  {
+    return role;
   }
 }

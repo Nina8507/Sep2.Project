@@ -1,5 +1,7 @@
 package client.model.staffmodel;
 
-public interface StaffClientModel
+import shared.util.Subject;
+
+public interface StaffClientModel extends Subject
 {
 }

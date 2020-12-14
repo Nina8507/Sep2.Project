@@ -4,7 +4,6 @@ import shared.transfer.Request;
 import shared.transfer.Supplier;
 import shared.transfer.User;
 import shared.transfer.UserAction;
-import shared.transfer.staff.Staff;
 
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
@@ -151,6 +150,19 @@ public class SocketClient implements Client
     try
     {
       outToServer.writeObject(new Request(UserAction.LOGOUT_USER.toString(), user));
+    }
+    catch (IOException e)
+    {
+      e.printStackTrace();
+    }
+  }
+
+  @Override public void getSupplierValues(Supplier supplier)
+  {
+    Request request = new Request(UserAction.GET_VALUES_FROM_DAO.toString(), supplier);
+    try
+    {
+      outToServer.writeObject(request);
     }
     catch (IOException e)
     {

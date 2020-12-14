@@ -12,6 +12,8 @@ public class Request implements Serializable
     this.requestType = requestType;
     this.requestArg = requestArg;
   }
+
+
   public String getRequestType()
   {
     return requestType;

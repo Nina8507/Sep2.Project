@@ -53,7 +53,7 @@ public class SupplierController implements ViewController
 
   public void onEditSupplierButton()
   {
-
+    viewHandler.openListViewSupplier();
   }
 
   public void onDeleteSupplierButton()

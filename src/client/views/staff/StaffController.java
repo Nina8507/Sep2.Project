@@ -34,20 +34,20 @@ public class StaffController implements ViewController
       ViewModelFactory viewModelFactory)
   {
     this.viewHandler = viewHandler;
-    //this.staffVM = viewModelFactory.getStaffVM();
-//    staff_idColumn.setCellValueFactory(new PropertyValueFactory<>("staff_id"));
-//    cprNrColumn.setCellValueFactory(new PropertyValueFactory<>("cprNr"));
-//    lnameColumn.setCellValueFactory(new PropertyValueFactory<>("lname"));
-//    fnameColumn.setCellValueFactory(new PropertyValueFactory<>("fname"));
-//    emailColumn.setCellValueFactory(new PropertyValueFactory<>("email"));
-//    addressColumn.setCellValueFactory(new PropertyValueFactory<>("address"));
-//    phoneNoColumn.setCellValueFactory(new PropertyValueFactory<>("phoneNo"));
-//    startDateColumn.setCellValueFactory(new PropertyValueFactory<>("startDate"));
-//    salaryColumn.setCellValueFactory(new PropertyValueFactory<>("salary"));
+    this.staffVM = viewModelFactory.getStaffVM();
+    staff_idColumn.setCellValueFactory(new PropertyValueFactory<>("staff_id"));
+    cprNrColumn.setCellValueFactory(new PropertyValueFactory<>("cprNr"));
+    lnameColumn.setCellValueFactory(new PropertyValueFactory<>("lname"));
+    fnameColumn.setCellValueFactory(new PropertyValueFactory<>("fname"));
+    emailColumn.setCellValueFactory(new PropertyValueFactory<>("email"));
+    addressColumn.setCellValueFactory(new PropertyValueFactory<>("address"));
+    phoneNoColumn.setCellValueFactory(new PropertyValueFactory<>("phoneNo"));
+    startDateColumn.setCellValueFactory(new PropertyValueFactory<>("startDate"));
+    salaryColumn.setCellValueFactory(new PropertyValueFactory<>("salary"));
   }
   @FXML void onAddStaffButton(ActionEvent event)
   {
-
+    viewHandler.openAddNewStaffView();
   }
 
   @FXML void onDeleteStaffButton(ActionEvent event)

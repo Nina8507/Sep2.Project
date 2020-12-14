@@ -7,41 +7,74 @@ import java.util.Date;
 
 public class Management extends Staff implements Serializable
 {
-
-  public Management(String username, String password, String role,  int staff_id, int cprNr,
-      String fname, String lname, Address address_id, String phoneNo,
-      Date startDate, double salary)
-  {
-    super(username, password, role, staff_id, cprNr, fname, lname, address_id,
-        phoneNo, startDate, salary);
-  }
-
   public Management(String username, String password, String role)
   {
     super(username, password, role);
   }
-  @Override public int getStaff_id()
+
+  public Management(String username, String password)
+  {
+    super(username, password);
+  }
+
+  public Management(String username, String password, String role,
+      String staff_id, String cprNr, String name, String street, String city,
+      String zipcode, String country, String phoneNo, String startDate,
+      String salary)
+  {
+    super(username, password, role, staff_id, cprNr, name, street, city,
+        zipcode, country, phoneNo, startDate, salary);
+  }
+
+  @Override public String getStaff_id()
   {
     return super.getStaff_id();
   }
 
-  @Override public int getCprNr()
+  @Override public String getCprNr()
   {
     return super.getCprNr();
   }
 
-  @Override public String getFname()
+  @Override public String getName()
   {
-    return super.getFname();
+    return super.getName();
   }
 
-  @Override public String getLname()
+  @Override public String getStreet()
   {
-    return super.getLname();
+    return super.getStreet();
   }
 
-  @Override public String getRole() {return super.getRole();}
+  @Override public String getCity()
+  {
+    return super.getCity();
+  }
 
+  @Override public String getZipcode()
+  {
+    return super.getZipcode();
+  }
+
+  @Override public String getCountry()
+  {
+    return super.getCountry();
+  }
+
+  @Override public String getPhoneNo()
+  {
+    return super.getPhoneNo();
+  }
+
+  @Override public String getStartDate()
+  {
+    return super.getStartDate();
+  }
+
+  @Override public String getSalary()
+  {
+    return super.getSalary();
+  }
 
   @Override public String getUsername()
   {
@@ -53,23 +86,8 @@ public class Management extends Staff implements Serializable
     return super.getPassword();
   }
 
-  @Override public Address getAddress_id()
+  @Override public String getRole()
   {
-    return super.getAddress_id();
-  }
-
-  @Override public String getPhoneNo()
-  {
-    return super.getPhoneNo();
-  }
-
-  @Override public Date getStartDate()
-  {
-    return super.getStartDate();
-  }
-
-  @Override public double getSalary()
-  {
-    return super.getSalary();
+    return super.getRole();
   }
 }

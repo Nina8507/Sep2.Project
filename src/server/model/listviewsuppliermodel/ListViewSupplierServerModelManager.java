@@ -1,26 +1,25 @@
-package client.model.supplierclientmodel;
+package server.model.listviewsuppliermodel;
 
-import client.networking.Client;
-import shared.transfer.UserAction;
-import java.beans.PropertyChangeEvent;
+import persistance.supplierDAO.SupplierDAO;
+import persistance.supplierDAO.SupplierDAOImpl;
+import shared.transfer.Supplier;
+
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 
-public class SupplierClientModelManager implements SupplierClientModel
+public class ListViewSupplierServerModelManager implements ListViewSupplierServerModel
 {
   private PropertyChangeSupport support;
-  private Client client;
+  private SupplierDAO supplierDAO;
 
-  public SupplierClientModelManager(Client client)
+  public ListViewSupplierServerModelManager()
   {
-    this.client = client;
     support = new PropertyChangeSupport(this);
-    client.addListener(UserAction.ADD_NEW_SUPPLIER.toString(), this::onCreatedNewSupplier);
+    supplierDAO = SupplierDAOImpl.getInstance();
   }
-
-  private void onCreatedNewSupplier(PropertyChangeEvent evt)
+  @Override public Supplier getSupplierValues(Supplier getSupplier)
   {
-    support.firePropertyChange(evt);
+    return supplierDAO.getSupplier(getSupplier);
   }
 
   @Override public void addListener(PropertyChangeListener listener)
@@ -54,5 +53,6 @@ public class SupplierClientModelManager implements SupplierClientModel
       support.removePropertyChangeListener(name, listener);
     }
   }
+
 
 }

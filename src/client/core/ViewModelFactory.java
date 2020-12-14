@@ -2,15 +2,21 @@ package client.core;
 
 import client.views.adminview.MainViewVM;
 import client.views.login.LoginVM;
+import client.views.staff.StaffVM;
+import client.views.staff.addnewstaff.AddStaffVM;
 import client.views.supplier.SupplierVM;
 import client.views.supplier.addsupplier.AddSupplierVM;
+import client.views.supplier.listviewsupplier.ListViewSupplierVM;
 
 public class ViewModelFactory
 {
   private LoginVM loginVM;
   private MainViewVM mainViewVM;
   private SupplierVM supplierVM;
+  private StaffVM staffVM;
   private AddSupplierVM addSupplierVM;
+  private ListViewSupplierVM listViewSupplierVM;
+  private AddStaffVM addStaffVM;
   private ModelFactory modelFactory;
 
    public ViewModelFactory(ModelFactory modelFactory)
@@ -49,5 +55,32 @@ public class ViewModelFactory
       addSupplierVM = new AddSupplierVM(modelFactory.getAddSupplierClientModel());
     }
     return addSupplierVM;
+  }
+
+  public ListViewSupplierVM getListViewSupplierVM()
+  {
+    if(listViewSupplierVM == null)
+    {
+      listViewSupplierVM = new ListViewSupplierVM(modelFactory.getListViewSupplierClientModel());
+    }
+    return listViewSupplierVM;
+  }
+
+  public StaffVM getStaffVM()
+  {
+    if(staffVM == null)
+    {
+      staffVM = new StaffVM(modelFactory.getStaffClientModel());
+    }
+    return staffVM;
+  }
+
+  public AddStaffVM getAddStaffVM()
+  {
+    if(addStaffVM == null)
+    {
+      staffVM = new StaffVM(modelFactory.getAddStaffClientModel());
+    }
+    return addStaffVM;
   }
 }

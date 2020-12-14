@@ -4,6 +4,8 @@ import server.model.addsuppliermodel.AddSupplierServerModel;
 import server.model.addsuppliermodel.AddSupplierServerModelManager;
 import server.model.adminmodel.AdminServerModel;
 import server.model.adminmodel.AdminServerModelManager;
+import server.model.listviewsuppliermodel.ListViewSupplierServerModel;
+import server.model.listviewsuppliermodel.ListViewSupplierServerModelManager;
 import server.model.supplierModel.SupplierServerModel;
 import server.model.supplierModel.SupplierServerModelManager;
 import server.model.usermodel.UserServerModel;
@@ -20,7 +22,10 @@ public class RunServer
     AdminServerModel adminServerModel = new AdminServerModelManager();
     SupplierServerModel supplierServerModel = new SupplierServerModelManager();
     AddSupplierServerModel addSupplierServerModel = new AddSupplierServerModelManager();
-    SocketServer socketServer = new SocketServer(userServerModel, adminServerModel, supplierServerModel, addSupplierServerModel);
+    ListViewSupplierServerModel listViewSupplierServerModel = new ListViewSupplierServerModelManager();
+    SocketServer socketServer = new SocketServer(userServerModel,
+        adminServerModel, supplierServerModel, addSupplierServerModel,
+        listViewSupplierServerModel);
     socketServer.startServer();
   }
 }

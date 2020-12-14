@@ -1,26 +1,30 @@
-package client.model.supplierclientmodel;
+package client.model.listviewsupplier;
 
 import client.networking.Client;
-import shared.transfer.UserAction;
-import java.beans.PropertyChangeEvent;
+import shared.transfer.Supplier;
+
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 
-public class SupplierClientModelManager implements SupplierClientModel
+public class ListViewSupplierClientModelManager
+    implements ListViewSupplierClientModel
 {
   private PropertyChangeSupport support;
   private Client client;
 
-  public SupplierClientModelManager(Client client)
+  public ListViewSupplierClientModelManager(Client client)
   {
     this.client = client;
     support = new PropertyChangeSupport(this);
-    client.addListener(UserAction.ADD_NEW_SUPPLIER.toString(), this::onCreatedNewSupplier);
   }
 
-  private void onCreatedNewSupplier(PropertyChangeEvent evt)
+  @Override public void getSelectedSupplierValues(String supplier_id,
+      String fName, String lName, String cvrNr, String street, String city,
+      String country, String zipcode, String email, String phoneNo)
   {
-    support.firePropertyChange(evt);
+    Supplier supplier = new Supplier(supplier_id, fName, lName, cvrNr,
+        street, city, country, zipcode, email, phoneNo);
+    client.getSupplierValues(supplier);
   }
 
   @Override public void addListener(PropertyChangeListener listener)

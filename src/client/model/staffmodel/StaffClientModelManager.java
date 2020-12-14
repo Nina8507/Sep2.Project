@@ -1,27 +1,22 @@
-package client.model.supplierclientmodel;
+package client.model.staffmodel;
 
 import client.networking.Client;
-import shared.transfer.UserAction;
-import java.beans.PropertyChangeEvent;
+
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 
-public class SupplierClientModelManager implements SupplierClientModel
+public class StaffClientModelManager implements StaffClientModel
 {
   private PropertyChangeSupport support;
   private Client client;
 
-  public SupplierClientModelManager(Client client)
+  public StaffClientModelManager(Client client)
   {
-    this.client = client;
     support = new PropertyChangeSupport(this);
-    client.addListener(UserAction.ADD_NEW_SUPPLIER.toString(), this::onCreatedNewSupplier);
+    this.client = client;
   }
 
-  private void onCreatedNewSupplier(PropertyChangeEvent evt)
-  {
-    support.firePropertyChange(evt);
-  }
+
 
   @Override public void addListener(PropertyChangeListener listener)
   {
@@ -54,5 +49,4 @@ public class SupplierClientModelManager implements SupplierClientModel
       support.removePropertyChangeListener(name, listener);
     }
   }
-
 }
