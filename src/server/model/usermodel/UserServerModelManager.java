@@ -29,7 +29,6 @@ public class UserServerModelManager implements UserServerModel
     System.out.println(user);
     return userDAO.validateUser(user);
   }
-
   @Override public List<User> getUsers()
   {
     if (users.size() == 0)

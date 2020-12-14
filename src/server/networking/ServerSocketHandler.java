@@ -51,6 +51,7 @@ public class ServerSocketHandler implements Runnable
       {
         try
         {
+          System.out.println("waiting for client...");
           Request request = (Request) inFromClient.readObject();
           if(request.getRequestType().equals(UserAction.LOGIN_RESULT.toString()))
           {
@@ -63,10 +64,12 @@ public class ServerSocketHandler implements Runnable
           } else if(request.getRequestType().equals(UserAction.USER_LIST.toString()))
           {
             userServerModel.getUsers();
-          } else if(request.getRequestType().equals(UserAction.PRODUCT_LIST.toString()))
+          }
+          else if(request.getRequestType().equals(UserAction.PRODUCT_LIST.toString()))
           {
             adminServerModel.getProductList();
-          } else if(request.getRequestType().equals(UserAction.STAFF_LIST.toString()))
+          }
+          else if(request.getRequestType().equals(UserAction.STAFF_LIST.toString()))
           {
             adminServerModel.getStaffList();
           }
