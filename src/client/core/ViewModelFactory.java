@@ -1,6 +1,5 @@
 package client.core;
 
-import client.model.supplierclientmodel.SupplierClientModel;
 import client.views.adminview.MainViewVM;
 import client.views.login.LoginVM;
 import client.views.supplier.SupplierVM;
@@ -13,6 +12,7 @@ public class ViewModelFactory
   private SupplierVM supplierVM;
   private AddSupplierVM addSupplierVM;
   private ModelFactory modelFactory;
+
    public ViewModelFactory(ModelFactory modelFactory)
    {
      this.modelFactory = modelFactory;
@@ -38,8 +38,7 @@ public class ViewModelFactory
   {
     if(supplierVM == null)
     {
-      supplierVM = new SupplierVM(
-          (SupplierClientModel) modelFactory.getSupplierClientModel(), clientFactory.getClient());
+      supplierVM = new SupplierVM(modelFactory.getSupplierClientModel());
     }
     return supplierVM;
   }
@@ -47,7 +46,7 @@ public class ViewModelFactory
   {
     if(addSupplierVM == null)
     {
-      addSupplierVM = new AddSupplierVM(modelFactory.getAddSupplierClientModel(), clientFactory.getClient());
+      addSupplierVM = new AddSupplierVM(modelFactory.getAddSupplierClientModel());
     }
     return addSupplierVM;
   }

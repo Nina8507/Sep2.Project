@@ -3,13 +3,10 @@ package client.views.login;
 import client.core.ViewHandler;
 import client.core.ViewModelFactory;
 import client.views.ViewController;
-import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import shared.transfer.Request;
-import shared.transfer.User;
 import shared.transfer.UserAction;
 import shared.transfer.staff.Management;
 

@@ -16,18 +16,16 @@ import java.beans.PropertyChangeSupport;
 public class LoginVM implements Subject
 {
   private UserClientModel userClientModel;
-  private Client client;
   private StringProperty username, password;
   private PropertyChangeSupport support;
 
-  public LoginVM(UserClientModel userClientModel, Client client)
+  public LoginVM(UserClientModel userClientModel)
   {
-    this.client = client;
     this.userClientModel = userClientModel;
     username = new SimpleStringProperty();
     password = new SimpleStringProperty();
     support = new PropertyChangeSupport(this);
-    client.addListener(UserAction.LOGIN_RESULT.toString(), this::fireResult);
+    userClientModel.addListener(UserAction.LOGIN_RESULT.toString(), this::fireResult);
   }
 
   private void fireResult(PropertyChangeEvent propertyChangeEvent)

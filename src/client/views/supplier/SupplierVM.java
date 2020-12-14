@@ -2,7 +2,6 @@ package client.views.supplier;
 
 import client.model.supplierclientmodel.SupplierClientModel;
 import client.networking.Client;
-import javafx.beans.property.Property;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.collections.ObservableList;
@@ -17,17 +16,15 @@ import java.beans.PropertyChangeSupport;
 public class SupplierVM implements Subject
 {
   private SupplierClientModel supplierClientModel;
-  private Client client;
   private ObservableList<Supplier> suppliers;
   private PropertyChangeSupport support;
   private AnchorPane rightContent;
   private StringProperty searchSupplierTextProperty= new SimpleStringProperty();
 
-  public SupplierVM(SupplierClientModel supplierClientModel, Client client)
+  public SupplierVM(SupplierClientModel supplierClientModel)
   {
     this.supplierClientModel = supplierClientModel;
     support = new PropertyChangeSupport(this);
-    this.client = client;
   }
 
   public void setRightContentNode(AnchorPane rightContent)

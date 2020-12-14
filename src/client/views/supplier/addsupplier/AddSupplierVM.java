@@ -24,13 +24,10 @@ public class AddSupplierVM
   private StringProperty registerResponse = new SimpleStringProperty();
 
   private AddSupplierClientModel addSupplierClientModel;
-  private Client client;
 
-  public AddSupplierVM(AddSupplierClientModel addSupplierClientModel,
-      Client client)
+  public AddSupplierVM(AddSupplierClientModel addSupplierClientModel)
   {
     this.addSupplierClientModel = addSupplierClientModel;
-    this.client = client;
     addSupplierClientModel.addListener(UserAction.ADD_NEW_SUPPLIER.toString(), this ::onCreateNewSupplier);
   }
 
