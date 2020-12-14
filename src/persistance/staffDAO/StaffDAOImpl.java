@@ -247,7 +247,7 @@ public class StaffDAOImpl implements StaffDAO
       statement.setString(10, staff.getPassword());
       statement.setString(11, staff.getRole());
       statement.setString(12, staff.getPhoneNo());
-      statement.setString(13.staff.getStartDate());
+      statement.setString(13, staff.getStartDate());
       statement.executeUpdate();
     }
     catch (SQLException throwables)
