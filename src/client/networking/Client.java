@@ -19,4 +19,5 @@ public interface Client extends Subject
   void createNewSupplier(Supplier supplierToCreate);
   void logoutUser(User user);
   void getSupplierValues(Supplier supplier);
+  void createNewEmployee(Staff employeeToCreate);
 }

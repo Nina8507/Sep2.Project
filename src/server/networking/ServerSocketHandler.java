@@ -1,5 +1,6 @@
 package server.networking;
 
+import server.model.addemployeemodel.AddEmployeeServerModel;
 import server.model.addsuppliermodel.AddSupplierServerModel;
 import server.model.adminmodel.AdminServerModel;
 import server.model.listviewsuppliermodel.ListViewSupplierServerModel;
@@ -9,6 +10,7 @@ import shared.transfer.Request;
 import shared.transfer.Supplier;
 import shared.transfer.User;
 import shared.transfer.UserAction;
+import shared.transfer.staff.Employee;
 import shared.transfer.staff.Staff;
 
 import java.beans.PropertyChangeEvent;
@@ -23,6 +25,7 @@ public class ServerSocketHandler implements Runnable
   private UserServerModel userServerModel;
   private AdminServerModel adminServerModel;
   private AddSupplierServerModel addSupplierServerModel;
+  private AddEmployeeServerModel addEmployeeServerModel;
   private ListViewSupplierServerModel listViewSupplierServerModel;
   private SupplierServerModel supplierServerModel;
   private ObjectInputStream inFromClient;
@@ -31,7 +34,7 @@ public class ServerSocketHandler implements Runnable
   public ServerSocketHandler(Socket socket, UserServerModel userServerModel,
       AdminServerModel adminServerModel,
       SupplierServerModel supplierServerModel,
-      AddSupplierServerModel addSupplierServerModel, ListViewSupplierServerModel listViewSupplierServerModel)
+      AddSupplierServerModel addSupplierServerModel, ListViewSupplierServerModel listViewSupplierServerModel, AddEmployeeServerModel addEmployeeServerModel)
   {
     this.socket = socket;
     this.userServerModel = userServerModel;
@@ -39,6 +42,7 @@ public class ServerSocketHandler implements Runnable
     this.supplierServerModel = supplierServerModel;
     this.addSupplierServerModel = addSupplierServerModel;
     this.listViewSupplierServerModel = listViewSupplierServerModel;
+    this.addEmployeeServerModel = addEmployeeServerModel;
     adminServerModel.addListener(UserAction.PRODUCT_LIST.toString(),
         this::sendProductListToView);
   }
@@ -106,6 +110,10 @@ public class ServerSocketHandler implements Runnable
           {
             Supplier getSupplier = (Supplier) request.getRequestArg();
             Supplier supplierValues = listViewSupplierServerModel.getSupplierValues(getSupplier);
+          } else if(request.getRequestType().equals(UserAction.CREATE_NEW_EMPLOYEE.toString()))
+          {
+            Employee employeeToCreate = (Employee) request.getRequestArg();
+            addEmployeeServerModel.createNewEmployee(employeeToCreate);
           }
         }
         catch (ClassNotFoundException e)

@@ -1,33 +1,38 @@
-package client.model.addsuppliercleintmodel;
+package client.model.addemployeeclientmodel;
 
+import client.model.addstaffclientmodel.AddStaffClientModelManager;
 import client.networking.Client;
-import shared.transfer.Supplier;
 import shared.transfer.UserAction;
+import shared.transfer.staff.Employee;
+import shared.transfer.staff.Staff;
 
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 
-public class AddSupplierClientModelManager implements AddSupplierClientModel
+public class AddEmployeeClientModelManager implements AddEmployeeClientModel
 {
   private PropertyChangeSupport support;
   private Client client;
 
-  public AddSupplierClientModelManager(Client client)
+  public AddEmployeeClientModelManager(Client client)
   {
     this.client = client;
     support = new PropertyChangeSupport(this);
-    client.addListener(UserAction.ADD_NEW_SUPPLIER.toString(), evt -> {
+    client.addListener(UserAction.CREATE_NEW_EMPLOYEE.toString(), evt -> {
       support.firePropertyChange(evt);
     });
   }
 
-  @Override public void createNewSupplier(String supplier_id, String fName,
-      String lName, String cvrNr, String email, String phoneNo, String city,
-      String zipcode, String street, String country)
+  @Override public void createNewEmployee(String staff_id, String cprNr,
+      String name, String street, String city, String zipcode, String country,
+      String phoneNo, String startDate, String salary, String username,
+      String password, String role)
   {
-    Supplier supplierToCreate = new Supplier(supplier_id, fName, lName, cvrNr,
-        email, phoneNo, zipcode, street, country, city);
-    client.createNewSupplier(supplierToCreate);
+    Staff employeeToCreate = new Employee(staff_id, cprNr,
+        name, street, city, zipcode, country,
+        phoneNo, startDate, salary, username,
+        password, role);
+    client.createNewEmployee(employeeToCreate);
   }
 
   @Override public void addListener(PropertyChangeListener listener)
@@ -61,4 +66,5 @@ public class AddSupplierClientModelManager implements AddSupplierClientModel
       support.removePropertyChangeListener(name, listener);
     }
   }
+
 }

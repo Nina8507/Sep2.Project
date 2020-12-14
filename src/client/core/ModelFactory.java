@@ -1,5 +1,9 @@
 package client.core;
 
+import client.model.addemployeeclientmodel.AddEmployeeClientModel;
+import client.model.addemployeeclientmodel.AddEmployeeClientModelManager;
+import client.model.addsecretaryclientmodel.AddSecretaryClientModel;
+import client.model.addsecretaryclientmodel.AddSecretaryClientModelManager;
 import client.model.addsuppliercleintmodel.AddSupplierClientModel;
 import client.model.addsuppliercleintmodel.AddSupplierClientModelManager;
 import client.model.adminclientmodel.AdminClientModel;
@@ -21,6 +25,7 @@ public class ModelFactory
   private AddSupplierClientModel addSupplierClientModel;
   private ListViewSupplierClientModel listViewSupplierClientModel;
   private StaffClientModel staffClientModel;
+  private AddEmployeeClientModel addEmployeeClientModel;
   private ClientFactory clientFactory;
 
   public ModelFactory(ClientFactory clientFactory)
@@ -78,4 +83,13 @@ public class ModelFactory
     }
     return staffClientModel;
   }
+  public AddEmployeeClientModel getAddEmployeeClientModel()
+  {
+    if (addEmployeeClientModel == null)
+    {
+      addEmployeeClientModel = new AddEmployeeClientModelManager(clientFactory.getClient());
+    }
+    return addEmployeeClientModel;
+  }
+
 }

@@ -1,5 +1,6 @@
 package server.networking;
 
+import server.model.addemployeemodel.AddEmployeeServerModel;
 import server.model.addsuppliermodel.AddSupplierServerModel;
 import server.model.adminmodel.AdminServerModel;
 import server.model.listviewsuppliermodel.ListViewSupplierServerModel;
@@ -16,17 +17,19 @@ public class SocketServer
   private SupplierServerModel supplierServerModel;
   private AddSupplierServerModel addSupplierServerModel;
   private ListViewSupplierServerModel listViewSupplierServerModel;
+  private AddEmployeeServerModel addEmployeeServerModel;
 
   public SocketServer(UserServerModel userServerModel,
       AdminServerModel adminServerModel,
       SupplierServerModel supplierServerModel,
-      AddSupplierServerModel addSupplierServerModel, ListViewSupplierServerModel listViewSupplierServerModel)
+      AddSupplierServerModel addSupplierServerModel, ListViewSupplierServerModel listViewSupplierServerModel, AddEmployeeServerModel addEmployeeServerModel)
   {
     this.userServerModel = userServerModel;
     this.adminServerModel = adminServerModel;
     this.supplierServerModel = supplierServerModel;
     this.addSupplierServerModel = addSupplierServerModel;
     this.listViewSupplierServerModel = listViewSupplierServerModel;
+    this.addEmployeeServerModel = addEmployeeServerModel;
   }
 
   public void startServer()
@@ -42,7 +45,7 @@ public class SocketServer
           Socket socket = serverSocket.accept();
           ServerSocketHandler socketHandler = new ServerSocketHandler(socket,
               userServerModel, adminServerModel, supplierServerModel,
-              addSupplierServerModel, listViewSupplierServerModel);
+              addSupplierServerModel, listViewSupplierServerModel, addEmployeeServerModel);
 
           Thread t = new Thread(socketHandler);
           t.start();

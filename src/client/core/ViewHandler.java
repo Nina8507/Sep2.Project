@@ -23,6 +23,7 @@ public class ViewHandler
   private AnchorPane productPane;
   private AnchorPane listSupplierPane;
   private AnchorPane addNewStaffPane;
+  private AnchorPane addEmployeePane;
   private ViewModelFactory viewModelFactory;
 
   public ViewHandler(ViewModelFactory viewModelFactory, Stage stage)
@@ -192,7 +193,25 @@ public class ViewHandler
     }
     setMainRightArea(addNewStaffPane);
   }
-
+  public void openAddEmployeeView()
+  {
+    if (addEmployeePane == null)
+    {
+      FXMLLoader loader = new FXMLLoader(
+          getClass().getResource("../views/staff/addnewstaff/addemployee/AddStaff.fxml"));
+      try
+      {
+        addEmployeePane = loader.load();
+      }
+      catch (IOException e)
+      {
+        e.printStackTrace();
+      }
+      SupplierController controller = loader.getController();
+      controller.init(this, viewModelFactory);
+    }
+    setMainRightArea(addEmployeePane);
+  }
   private Scene getScene(String s) throws IOException
   {
     FXMLLoader loader = new FXMLLoader();

@@ -1,5 +1,7 @@
 package server;
 
+import server.model.addemployeemodel.AddEmployeeServerModel;
+import server.model.addemployeemodel.AddEmployeeServerModelManager;
 import server.model.addsuppliermodel.AddSupplierServerModel;
 import server.model.addsuppliermodel.AddSupplierServerModelManager;
 import server.model.adminmodel.AdminServerModel;
@@ -22,10 +24,11 @@ public class RunServer
     AdminServerModel adminServerModel = new AdminServerModelManager();
     SupplierServerModel supplierServerModel = new SupplierServerModelManager();
     AddSupplierServerModel addSupplierServerModel = new AddSupplierServerModelManager();
+    AddEmployeeServerModel addEmployeeServerModel = new AddEmployeeServerModelManager();
     ListViewSupplierServerModel listViewSupplierServerModel = new ListViewSupplierServerModelManager();
     SocketServer socketServer = new SocketServer(userServerModel,
         adminServerModel, supplierServerModel, addSupplierServerModel,
-        listViewSupplierServerModel);
+        listViewSupplierServerModel, addEmployeeServerModel);
     socketServer.startServer();
   }
 }

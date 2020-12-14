@@ -4,6 +4,8 @@ import client.views.adminview.MainViewVM;
 import client.views.login.LoginVM;
 import client.views.staff.StaffVM;
 import client.views.staff.addnewstaff.AddStaffVM;
+import client.views.staff.addnewstaff.addemployee.AddEmployeeVM;
+import client.views.staff.addnewstaff.addnewsecretary.AddSecretaryVM;
 import client.views.supplier.SupplierVM;
 import client.views.supplier.addsupplier.AddSupplierVM;
 import client.views.supplier.listviewsupplier.ListViewSupplierVM;
@@ -16,7 +18,8 @@ public class ViewModelFactory
   private StaffVM staffVM;
   private AddSupplierVM addSupplierVM;
   private ListViewSupplierVM listViewSupplierVM;
-  private AddStaffVM addStaffVM;
+  private AddSecretaryVM addSecretaryVM;
+  private AddEmployeeVM addEmployeeVM;
   private ModelFactory modelFactory;
 
    public ViewModelFactory(ModelFactory modelFactory)
@@ -75,12 +78,21 @@ public class ViewModelFactory
     return staffVM;
   }
 
-  public AddStaffVM getAddStaffVM()
+  public AddEmployeeVM getAddEmployeeVM()
   {
-    if(addStaffVM == null)
+    if(addEmployeeVM == null)
     {
-      staffVM = new StaffVM(modelFactory.getAddStaffClientModel());
+      addEmployeeVM = new AddEmployeeVM(modelFactory.getAddEmployeeClientModel());
     }
-    return addStaffVM;
+    return addEmployeeVM;
+  }
+
+  public AddSecretaryVM getAddSecretaryVM()
+  {
+    if(addSecretaryVM == null)
+    {
+      addSecretaryVM = new AddSecretaryVM(modelFactory.getAddSecretaryClientModel());
+    }
+    return addSecretaryVM;
   }
 }
