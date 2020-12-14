@@ -1,6 +1,7 @@
 package client.model.adminclientmodel;
 
 import client.networking.Client;
+import shared.transfer.User;
 import shared.transfer.products.Product;
 import shared.transfer.UserAction;
 import shared.transfer.staff.Staff;
@@ -14,6 +15,7 @@ public class AdminClientModelManager implements AdminClientModel
 {
   private Client client;
   private PropertyChangeSupport support;
+  private User user;
 
   public AdminClientModelManager(Client client)
   {
@@ -54,6 +56,12 @@ public class AdminClientModelManager implements AdminClientModel
   {
     client.getCustomerList();
   }
+
+  @Override public void logoutUser()
+  {
+    client.logoutUser(user);
+  }
+
   @Override public void addListener(PropertyChangeListener listener)
   {
     support.addPropertyChangeListener(listener);

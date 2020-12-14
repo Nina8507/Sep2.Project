@@ -44,14 +44,14 @@ public class StaffDAOImpl implements StaffDAO
     return staffInstance;
   }
 
-  @Override public Staff createNewEmployee(String username, String password,
+  @Override public Staff createNewEmployee(String username, String password, String role,
       int staff_id, int cprNr, String fname, String lname, Address address_id,
       String phoneNo, Date startDate, double salary)
   {
     try (Connection connection = controller.getConnection())
     {
       PreparedStatement statement = connection.prepareStatement(
-          "INSERT INTO Staff(staff_id, cnpNr, fname, lname, address_id, phoneNo, startDate, salary, user_id, password) VALUES(?, ?, ?, ?, ?, ?, ?, ?,? ,?);");
+          "INSERT INTO Staff(staff_id, cnpNr, fname, lname, address_id, phoneNo, startDate, salary, user_id, password, role) VALUES(?, ?,?, ?, ?, ?, ?, ?, ?,? ,?);");
       statement.setInt(1, staff_id);
       statement.setInt(2, cprNr);
       statement.setString(3, fname);
@@ -62,24 +62,25 @@ public class StaffDAOImpl implements StaffDAO
       statement.setDouble(8, salary);
       statement.setString(9, username);
       statement.setString(10, password);
+      statement.setString(11, role);
       statement.executeQuery();
     }
     catch (SQLException throwables)
     {
       throwables.printStackTrace();
     }
-    return new Employee(username, password, staff_id, cprNr, fname, lname,
+    return new Employee(username, password, role, staff_id, cprNr, fname, lname,
         address_id, phoneNo, startDate, salary);
   }
 
-  @Override public Staff createNewSecretary(String username, String password,
+  @Override public Staff createNewSecretary(String username, String password, String role,
       int staff_id, int cprNr, String fname, String lname, Address address_id,
       String phoneNo, Date startDate, double salary)
   {
     try (Connection connection = controller.getConnection())
     {
       PreparedStatement statement = connection.prepareStatement(
-          "INSERT INTO Staff(staff_id, cnpNr, fname, lname, address_id, phoneNo, startDate, salary, user_id, password) VALUES(?, ?, ?, ?, ?, ?, ?, ?,? ,?);");
+          "INSERT INTO Staff(staff_id, cnpNr, fname, lname, address_id, phoneNo, startDate, salary, user_id, password, role) VALUES(?, ?, ?, ?, ?, ?,?, ?, ?,? ,?);");
       statement.setInt(1, staff_id);
       statement.setInt(2, cprNr);
       statement.setString(3, fname);
@@ -90,24 +91,25 @@ public class StaffDAOImpl implements StaffDAO
       statement.setDouble(8, salary);
       statement.setString(9, username);
       statement.setString(10, password);
+      statement.setString(11, role);
       statement.executeQuery();
     }
     catch (SQLException throwables)
     {
       throwables.printStackTrace();
     }
-    return new Secretary(username, password, staff_id, cprNr, fname, lname,
+    return new Secretary(username, password, role, staff_id, cprNr, fname, lname,
         address_id, phoneNo, startDate, salary);
   }
 
-  @Override public Staff createNewManager(String username, String password,
+  @Override public Staff createNewManager(String username, String password, String role,
       int staff_id, int cprNr, String fname, String lname, Address address_id,
       String phoneNo, Date startDate, double salary)
   {
     try (Connection connection = controller.getConnection())
     {
       PreparedStatement statement = connection.prepareStatement(
-          "INSERT INTO Staff(staff_id, cnpNr, fname, lname, address_id, phoneNo, startDate, salary, user_id, password) VALUES(?, ?, ?, ?, ?, ?, ?, ?,? ,?);");
+          "INSERT INTO Staff(staff_id, cnpNr, fname, lname, address_id, phoneNo, startDate, salary, user_id, password, role) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?,? ,?);");
       statement.setInt(1, staff_id);
       statement.setInt(2, cprNr);
       statement.setString(3, fname);
@@ -118,13 +120,14 @@ public class StaffDAOImpl implements StaffDAO
       statement.setDouble(8, salary);
       statement.setString(9, username);
       statement.setString(10, password);
+      statement.setString(11, role);
       statement.executeQuery();
     }
     catch (SQLException throwables)
     {
       throwables.printStackTrace();
     }
-    return new Management(username, password, staff_id, cprNr, fname, lname,
+    return new Management(username, password, role, staff_id, cprNr, fname, lname,
         address_id, phoneNo, startDate, salary);
   }
 
@@ -141,6 +144,7 @@ public class StaffDAOImpl implements StaffDAO
       {
         String username = resultSet.getString("user_id");
         String password = resultSet.getString("password");
+        String role = resultSet.getString("role");
         int staff_id = resultSet.getInt("staff_id");
         String fname = resultSet.getString("fname");
         String lname = resultSet.getString("lname");
@@ -155,11 +159,11 @@ public class StaffDAOImpl implements StaffDAO
         double salary = resultSet.getDouble("salary");
         Address address = new Address(address_id, street, streetNumber, city,
             country);
-         employee = new Employee(username, password, staff_id, cprNr,
+         employee = new Employee(username, password, role, staff_id, cprNr,
             fname, lname, address, phoneNo, startDate, salary);
-         secretary = new Secretary(username, password, staff_id, cprNr,
+         secretary = new Secretary(username, password, role, staff_id, cprNr,
             fname, lname, address, phoneNo, startDate, salary);
-         management = new Management(username, password, staff_id, cprNr,
+         management = new Management(username, password, role, staff_id, cprNr,
             fname, lname, address, phoneNo, startDate, salary);
       }
     }
@@ -207,13 +211,14 @@ public class StaffDAOImpl implements StaffDAO
         double salary = resultSet.getDouble("salary");
         String username = resultSet.getString("username");
         String password = resultSet.getString("password");
+        String role = resultSet.getString("role");
         Address address_id = new Address(address, street, streetNumber, city_id,
             country_id);
-        employee = new Employee(username, password, staff_id, cprNr, searchCriteria, lname,
+        employee = new Employee(username, password, role, staff_id, cprNr, searchCriteria, lname,
             address_id, phoneNo, startDate, salary);
-        secretary = new Secretary(username, password, staff_id, cprNr, searchCriteria, lname,
+        secretary = new Secretary(username, password, role, staff_id, cprNr, searchCriteria, lname,
             address_id, phoneNo, startDate, salary);
-        management = new Management(username, password, staff_id, cprNr, searchCriteria, lname,
+        management = new Management(username, password, role, staff_id, cprNr, searchCriteria, lname,
             address_id, phoneNo, startDate, salary);
 
       }
@@ -255,7 +260,7 @@ public class StaffDAOImpl implements StaffDAO
     try (Connection connection = controller.getConnection())
     {
       PreparedStatement statement = connection.prepareStatement(
-          "UPDATE Staff SET staff_id = ?, cprNr = ?, fname = ?, lname = ?, address_id = ?, phoneNo = ?, startDate = ?, salary = ?, user_id = ?, password = ?");
+          "UPDATE Staff SET staff_id = ?, cprNr = ?, fname = ?, lname = ?, address_id = ?, phoneNo = ?, startDate = ?, salary = ?, user_id = ?, password = ?, role = ?");
       statement.setInt(1, staff.getStaff_id());
       statement.setInt(2, staff.getCprNr());
       statement.setString(3, staff.getFname());
@@ -266,6 +271,7 @@ public class StaffDAOImpl implements StaffDAO
       statement.setDouble(8, staff.getSalary());
       statement.setString(9, staff.getUsername());
       statement.setString(10, staff.getPassword());
+      statement.setString(11, staff.getRole());
       statement.executeUpdate();
     }
     catch (SQLException throwables)

@@ -1,8 +1,10 @@
 package client.networking;
 
 import shared.transfer.Request;
+import shared.transfer.Supplier;
 import shared.transfer.User;
 import shared.transfer.UserAction;
+import shared.transfer.staff.Staff;
 
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
@@ -46,7 +48,7 @@ public class SocketClient implements Client
     {
       while (true)
       {
-        Request request = (Request) inFromServer.readObject(); //
+        Request request = (Request) inFromServer.readObject();
         support.firePropertyChange(request.getRequestType(), null, request.getRequestArg());
       }
     }
@@ -56,12 +58,13 @@ public class SocketClient implements Client
     }
   }
 
-  @Override public void login(User user)
+  public void login(User user)
   {
     Request request = new Request(UserAction.LOGIN_RESULT.toString(), user);
     try
     {
       outToServer.writeObject(request);
+
     }
     catch (IOException e)
     {
@@ -123,6 +126,31 @@ public class SocketClient implements Client
     try
     {
       outToServer.writeObject(new Request(UserAction.CUSTOMER_LIST.toString(), null));
+    }
+    catch (IOException e)
+    {
+      e.printStackTrace();
+    }
+  }
+
+  @Override public void createNewSupplier(Supplier supplierToCreate)
+  {
+    Request request = new Request(UserAction.ADD_NEW_SUPPLIER.toString(), supplierToCreate);
+    try
+    {
+      outToServer.writeObject(request);
+    }
+    catch (IOException e)
+    {
+      e.printStackTrace();
+    }
+  }
+
+  @Override public void logoutUser(User user)
+  {
+    try
+    {
+      outToServer.writeObject(new Request(UserAction.LOGOUT_USER.toString(), user));
     }
     catch (IOException e)
     {

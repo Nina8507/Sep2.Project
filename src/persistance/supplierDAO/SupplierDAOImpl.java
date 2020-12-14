@@ -1,7 +1,6 @@
 package persistance.supplierDAO;
 
 import persistance.JDBCController;
-import shared.transfer.products.Product;
 import shared.transfer.Supplier;
 import shared.transfer.address.Address;
 
@@ -36,30 +35,34 @@ public class SupplierDAOImpl implements SupplierDAO
     return supplierInstance;
   }
 
-  @Override public Supplier addNewSupplier(int supplier_id, Product product,
-      String supplierName, int cvrNr, Address address_id, String email,
-      String phoneNo)
+  @Override public Supplier addSupplier(Supplier supplier)
   {
+    Supplier newSupplier = null;
     try (Connection connection = controller.getConnection())
     {
       PreparedStatement statement = connection.prepareStatement(
-          "INSERT INTO Suppliers(supplier_id, product_id, supplierName, cvrNr, address_id, email, phoneNo) VALUES(?, ?, ?, ?, ?, ?, ?);");
-      statement.setInt(1, supplier_id);
-      statement.setInt(2, product.getProduct_id());
-      statement.setString(3, supplierName);
-      statement.setInt(4, cvrNr);
-      statement.setInt(5, address_id.getAddress_id());
-      statement.setString(6, email);
-      statement.setString(7, phoneNo);
+          "INSERT INTO Suppliers(supplier_id, fName, lName, cvrNr, street, city, country, zipcode, email, phoneNo) VALUES(?, ?, ?, ?,?,?,?,?, ?,?);");
+      statement.setString(1, supplier.getSupplier_id());
+      statement.setString(2, supplier.getfName());
+      statement.setString(3, supplier.getlName());
+      statement.setString(4, supplier.getCvrNr());
+      statement.setString(5, supplier.getStreet());
+      statement.setString(6, supplier.getCity());
+      statement.setString(7, supplier.getCountry());
+      statement.setString(8, supplier.getZipcode());
+      statement.setString(9, supplier.getEmail());
+      statement.setString(10, supplier.getPhoneNo());
       statement.executeUpdate();
-      return new Supplier(supplier_id, product, supplierName, cvrNr, address_id,
-          email, phoneNo);
+      newSupplier = new Supplier(supplier.getSupplier_id(), supplier.getfName(),
+          supplier.getlName(), supplier.getCvrNr(), supplier.getStreet(),
+          supplier.getCity(), supplier.getCountry(), supplier.getZipcode(),
+          supplier.getEmail(), supplier.getPhoneNo());
     }
     catch (SQLException throwables)
     {
       throwables.printStackTrace();
     }
-    return null;
+    return newSupplier;
   }
 
   @Override public List<Supplier> viewAllSuppliers(String searchCriteria)
@@ -67,20 +70,24 @@ public class SupplierDAOImpl implements SupplierDAO
     try (Connection connection = controller.getConnection())
     {
       PreparedStatement statement = connection.prepareStatement(
-          "SELECT * FROM Suppliers JOIN Products ON product_id = id WHERE  LIKE ?");
+          "SELECT * FROM Suppliers WHERE supplier_id = id LIKE ?");
       statement.setString(1, "%" + searchCriteria + "%");
       ResultSet resultSet = statement.executeQuery();
       ArrayList<Supplier> result = new ArrayList<>();
       while (resultSet.next())
       {
-        int supplier_id = resultSet.getInt("supplier_id");
-        Product product = (Product) resultSet.getObject("product");
-        String supplierName = resultSet.getString("supplierName");
-        int cvrNr = resultSet.getInt("cvrNr");
-        Address address_id = (Address) resultSet.getObject("address_id");
+        String supplier_id = resultSet.getString("supplier_id");
+        String fName = resultSet.getString("fName");
+        String lName = resultSet.getString("lName");
+        String cvrNr = resultSet.getString("cvrNr");
+        String street = resultSet.getString("street");
+        String city = resultSet.getString("city");
+        String country = resultSet.getString("country");
+        String zipcode = resultSet.getString("zipcode");
         String email = resultSet.getString("email");
         String phoneNo = resultSet.getString("phoneNo");
-        Supplier supplier = new Supplier(supplier_id, product, supplierName, cvrNr, address_id, email, phoneNo);
+        Supplier supplier = new Supplier(supplier_id, fName, lName, cvrNr,
+            street, city, country, zipcode, email, phoneNo);
         result.add(supplier);
       }
       return result;
@@ -98,7 +105,7 @@ public class SupplierDAOImpl implements SupplierDAO
     {
       PreparedStatement statement = connection
           .prepareStatement("DELETE FROM Suppliers WHERE supplier_id = ?");
-      statement.setInt(1, supplier.getSupplier_id());
+      statement.setString(1, supplier.getSupplier_id());
       statement.executeUpdate();
     }
     catch (SQLException throwables)
@@ -112,14 +119,17 @@ public class SupplierDAOImpl implements SupplierDAO
     try (Connection connection = controller.getConnection())
     {
       PreparedStatement statement = connection.prepareStatement(
-          "UPDATE Suppliers SET supplier_id = ?, product_id = ?, supplierName = ?, cvrNr = ?, address_id = ?, email = ?, phoneNo = ?");
-      statement.setInt(1, supplier.getSupplier_id());
-      statement.setObject(2, supplier.getProduct());
-      statement.setString(3, supplier.getSupplierName());
-      statement.setInt(4, supplier.getCvrNr());
-      statement.setObject(5, supplier.getAddress_id());
-      statement.setString(6, supplier.getEmail());
-      statement.setString(7, supplier.getPhoneNo());
+          "UPDATE Suppliers SET supplier_id = ?, fname = ?, lname = ?, cvrNr = ?, street = ?, city = ?, country = ?, zipcode = ?, email = ?, phoneNo = ?");
+      statement.setString(1, supplier.getSupplier_id());
+      statement.setString(2, supplier.getfName());
+      statement.setString(3, supplier.getlName());
+      statement.setString(4, supplier.getCvrNr());
+      statement.setString(5, supplier.getStreet());
+      statement.setString(6, supplier.getCity());
+      statement.setString(7, supplier.getCountry());
+      statement.setString(8, supplier.getZipcode());
+      statement.setString(9, supplier.getEmail());
+      statement.setString(10, supplier.getPhoneNo());
       statement.executeUpdate();
     }
     catch (SQLException throwables)

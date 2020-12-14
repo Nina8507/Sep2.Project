@@ -2,6 +2,7 @@ package client.core;
 
 import client.views.ViewController;
 import client.views.staff.StaffController;
+import client.views.supplier.SupplierController;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -16,7 +17,10 @@ public class ViewHandler
   private Stage mainStage;
   private Scene loginScene;
   private Scene mainViewScene;
-  private Scene staffScene;
+  private AnchorPane supplierPane;
+  private AnchorPane staffPane;
+  private AnchorPane addNewSupplierPane;
+  private AnchorPane productPane;
   private ViewModelFactory viewModelFactory;
 
   public ViewHandler(ViewModelFactory viewModelFactory, Stage stage)
@@ -28,7 +32,6 @@ public class ViewHandler
   public void start()
   {
     openLoginView();
-    //openMainViewScene();
     mainStage.show();
   }
 
@@ -53,7 +56,7 @@ public class ViewHandler
   {
     try
     {
-      if(mainViewScene == null)
+      if (mainViewScene == null)
       {
         mainViewScene = getScene("../views/adminview/MainView.fxml");
       }
@@ -65,16 +68,16 @@ public class ViewHandler
       e.printStackTrace();
     }
   }
-  private AnchorPane staffPane;
+
   public void openStaffView()
   {
 
-    if (staffPane == null) {
+    if (staffPane == null)
+    {
       try
       {
-        System.out.println("PATH: " + getClass().getResource("../views/staff/Staff.fxml"));
-
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("../views/staff/Staff.fxml"));
+        FXMLLoader loader = new FXMLLoader(
+            getClass().getResource("../views/staff/Staff.fxml"));
         staffPane = loader.load();
         StaffController controller = loader.getController();
         controller.init(this, viewModelFactory);
@@ -86,20 +89,65 @@ public class ViewHandler
     }
     setMainRightArea(staffPane);
 
+  }
 
-//    try
-//    {
-//      if (staffScene == null)
-//      {
-//        staffScene = getScene("../views/staff/Staff.fxml");
-//      }
-//      mainStage.setTitle("Staff");
-//      mainStage.setScene(staffScene);
-//    }
-//    catch (Exception e)
-//    {
-//      e.printStackTrace();
-//    }
+  public void openSupplierView()
+  {
+    if (supplierPane == null)
+    {
+      try
+      {
+        FXMLLoader loader = new FXMLLoader(
+            getClass().getResource("../views/Supplier.fxml"));
+        supplierPane = loader.load();
+        SupplierController controller = loader.getController();
+        controller.init(this, viewModelFactory);
+      }
+      catch (IOException e)
+      {
+        e.printStackTrace();
+      }
+    }
+    setMainRightArea(supplierPane);
+  }
+  public void openAddNewSupplierPane()
+  {
+    if (addNewSupplierPane == null)
+    {
+      try
+      {
+        FXMLLoader loader = new FXMLLoader(
+            getClass().getResource("../views/AddSupplier.fxml"));
+        addNewSupplierPane = loader.load();
+        SupplierController controller = loader.getController();
+        controller.init(this, viewModelFactory);
+      }
+      catch (IOException e)
+      {
+        e.printStackTrace();
+      }
+    }
+    setMainRightArea(addNewSupplierPane);
+  }
+
+  public void openProductView()
+  {
+    if(productPane == null)
+    {
+      FXMLLoader loader = new FXMLLoader(
+          getClass().getResource("../views/Product.fxml"));
+      try
+      {
+        productPane = loader.load();
+      }
+      catch (IOException e)
+      {
+        e.printStackTrace();
+      }
+      SupplierController controller = loader.getController();
+      controller.init(this, viewModelFactory);
+    }
+    setMainRightArea(productPane);
   }
 
   private Scene getScene(String s) throws IOException
@@ -112,7 +160,8 @@ public class ViewHandler
     return new Scene(root);
   }
 
-  private void setMainRightArea(Node node) {
+  private void setMainRightArea(Node node)
+  {
     viewModelFactory.getMainViewVM().setRightArea(node);
   }
 

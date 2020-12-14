@@ -2,7 +2,6 @@ package persistance.customerDAO;
 
 import persistance.JDBCController;
 import shared.transfer.Customer;
-import shared.transfer.address.Address;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -37,34 +36,39 @@ public class CustomerDAOImpl implements CustomerDAO
 
   @Override public List<Customer> viewAllCustomers(String searchCriteria)
   {
+    ArrayList<Customer> result = null;
     try (Connection connection = controller.getConnection())
     {
-      PreparedStatement statement = connection.prepareStatement(
-          "SELECT * FROM Customer WHERE  LIKE ?");
+      PreparedStatement statement = connection
+          .prepareStatement("SELECT * FROM Customer WHERE  LIKE ?");
       statement.setString(1, "%" + searchCriteria + "%");
       ResultSet resultSet = statement.executeQuery();
-      ArrayList<Customer> result = new ArrayList<>();
-      while(resultSet.next())
+      result = new ArrayList<>();
+      while (resultSet.next())
       {
-        int customer_id = resultSet.getInt("customer_id");
-        String fname = resultSet.getString("fname");
-        String lname = resultSet.getString("lname");
-        Address address_id = (Address) resultSet.getObject("address_id");
+        String customer_id = resultSet.getString("customer_id");
+        String name = resultSet.getString("name");
+        String streetName = resultSet.getString("streetName");
+        String city = resultSet.getString("city");
+        String country = resultSet.getString("country");
+        String zipcode = resultSet.getString("zipcode");
         String phoneNo = resultSet.getString("phoneNo");
         Date orderDate = resultSet.getDate("orderDate");
         int orderNumber = resultSet.getInt("orderNumber");
         int quantityOrdered = resultSet.getInt("quantityOrdered");
         double price = resultSet.getDouble("price");
-        Customer customer = new Customer(customer_id, fname, lname, address_id, phoneNo, orderDate, orderNumber, quantityOrdered, price);
+        Customer customer = new Customer(customer_id, name, city, streetName,
+            country, zipcode, phoneNo, orderDate, orderNumber, quantityOrdered,
+            price);
         result.add(customer);
       }
-      return result;
+
     }
     catch (SQLException throwables)
     {
       throwables.printStackTrace();
     }
 
-    return null;
+    return result;
   }
 }

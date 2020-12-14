@@ -6,7 +6,14 @@ public class User implements Serializable
 {
   private String username;
   private String password;
+  private String role;
 
+  public User(String username, String password, String role)
+  {
+    this.username = username;
+    this.password = password;
+    this.role = role;
+  }
   public User(String username, String password)
   {
     this.username = username;
@@ -22,4 +29,6 @@ public class User implements Serializable
   {
     return password;
   }
+
+  public String getRole() { return role; }
 }

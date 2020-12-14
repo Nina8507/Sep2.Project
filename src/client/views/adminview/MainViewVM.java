@@ -1,6 +1,8 @@
 package client.views.adminview;
 
 import client.model.adminclientmodel.AdminClientModel;
+import javafx.application.Platform;
+import javafx.beans.property.Property;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.Node;
@@ -27,26 +29,33 @@ public class MainViewVM implements Subject
   {
     this.adminClientModel = adminClientModel;
     support = new PropertyChangeSupport(this);
-    adminClientModel.addListener(UserAction.PRODUCT_LIST.toString(), this::sendProductListToView);
-    adminClientModel.addListener(UserAction.STAFF_LIST.toString(), this::sendStaffListToView);
+    adminClientModel.addListener(UserAction.PRODUCT_LIST.toString(),
+        this::sendProductListToView);
+    adminClientModel.addListener(UserAction.STAFF_LIST.toString(),
+        this::sendStaffListToView);
   }
 
   private void sendStaffListToView(PropertyChangeEvent evt)
   {
     List<Staff> tempStaffList = (List<Staff>) evt.getNewValue();
-    allStaffList= FXCollections.observableList(tempStaffList);
+    allStaffList = FXCollections.observableList(tempStaffList);
   }
 
   private void sendProductListToView(PropertyChangeEvent evt)
   {
     List<Product> tempProductList = (List<Product>) evt.getNewValue();
     products = FXCollections.observableArrayList(tempProductList);
-    for(int i = 0; i < tempProductList.size(); i++)
+    for (int i = 0; i < tempProductList.size(); i++)
     {
       System.out.println(tempProductList.get(i));
     }
   }
 
+  public void logoutUser()
+  {
+    adminClientModel.logoutUser();
+    Platform.exit();
+  }
 
   public void getProductList()
   {
@@ -104,11 +113,11 @@ public class MainViewVM implements Subject
   {
     rightContent.getChildren().clear();
     rightContent.getChildren().add(node);
-
   }
 
   public void setRightContentNode(AnchorPane rightContent)
   {
     this.rightContent = rightContent;
   }
+
 }

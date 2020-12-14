@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="760.0" prefWidth="1125.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" >
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="760.0" prefWidth="1125.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.views.product.ProductController" >
    <children>
       <AnchorPane layoutX="231.0" layoutY="-1.0" prefHeight="760.0" prefWidth="894.0">
          <children>
@@ -651,7 +651,7 @@
                <children>
                   <ImageView fx:id="search_btn" fitHeight="28.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../../../../Desktop/FXML%20SEP/search.png" />
+                        <Image url="@../images/search.png" />
                      </image>
                   </ImageView>
                   <TextField fx:id="search_field" onAction="#handelSearchAction" prefHeight="28.0" prefWidth="214.0" promptText="Search Product " />
@@ -659,7 +659,7 @@
                      <graphic>
                         <ImageView fitHeight="20.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../../../../../Desktop/FXML%20SEP/plus.png" />
+                              <Image url="@../images/plus.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -668,7 +668,7 @@
                      <graphic>
                         <ImageView fx:id="edit_product" fitHeight="20.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../../../../../Desktop/FXML%20SEP/Edit.png" />
+                              <Image url="@../images/Edit.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -677,7 +677,7 @@
                      <graphic>
                         <ImageView fitHeight="20.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../../../../../Desktop/FXML%20SEP/Move.png" />
+                              <Image url="@../images/Move.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -686,7 +686,7 @@
                      <graphic>
                         <ImageView fitHeight="20.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../../../../../Desktop/FXML%20SEP/trash.png" />
+                              <Image url="@../images/trash.png" />
                            </image>
                         </ImageView>
                      </graphic>

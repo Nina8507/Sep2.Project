@@ -8,17 +8,17 @@ import java.util.Date;
 public class Management extends Staff implements Serializable
 {
 
-  public Management(String username, String password, int staff_id, int cprNr,
+  public Management(String username, String password, String role,  int staff_id, int cprNr,
       String fname, String lname, Address address_id, String phoneNo,
       Date startDate, double salary)
   {
-    super(username, password, staff_id, cprNr, fname, lname, address_id,
+    super(username, password, role, staff_id, cprNr, fname, lname, address_id,
         phoneNo, startDate, salary);
   }
 
-  public Management(String username, String password)
+  public Management(String username, String password, String role)
   {
-    super(username, password);
+    super(username, password, role);
   }
   @Override public int getStaff_id()
   {
@@ -40,6 +40,7 @@ public class Management extends Staff implements Serializable
     return super.getLname();
   }
 
+  @Override public String getRole() {return super.getRole();}
 
 
   @Override public String getUsername()

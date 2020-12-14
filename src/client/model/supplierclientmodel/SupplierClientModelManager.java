@@ -1,38 +1,34 @@
-package client.model.usermodel;
+package client.model.supplierclientmodel;
 
 import client.networking.Client;
-import shared.transfer.User;
 import shared.transfer.UserAction;
-import shared.transfer.staff.Management;
-import shared.transfer.staff.Staff;
+import shared.transfer.address.Address;
 
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
-import java.util.List;
 
-public class UserClientModelManager implements UserClientModel
+public class SupplierClientModelManager implements SupplierClientModel
 {
-  private Client client;
   private PropertyChangeSupport support;
-  private Staff loggedInUser;
+  private Client client;
 
-  public UserClientModelManager(Client client)
+  public SupplierClientModelManager(Client client)
   {
     this.client = client;
     support = new PropertyChangeSupport(this);
+    client.addListener(UserAction.ADD_NEW_SUPPLIER.toString(), this::onCreatedNewSupplier);
   }
 
-  @Override public void login(String username, String password)
+  private void onCreatedNewSupplier(PropertyChangeEvent evt)
   {
-    //User user = new User(username, password);
-    Management user = new Management(username, password, "Management");
-    client.login(user);
+    support.firePropertyChange(evt);
   }
 
-  @Override public List<User> getUserList()
+  @Override public void addANewSupplier(int supplier_id, String supplierName,
+      int cvrNr, Address address_id, String email, String phoneNo)
   {
-    return client.getUserList();
+
   }
 
   @Override public void addListener(PropertyChangeListener listener)
@@ -55,6 +51,7 @@ public class UserClientModelManager implements UserClientModel
   {
     support.removePropertyChangeListener(listener);
   }
+
   @Override public void removeListener(String name,
       PropertyChangeListener listener)
   {
@@ -65,4 +62,5 @@ public class UserClientModelManager implements UserClientModel
       support.removePropertyChangeListener(name, listener);
     }
   }
+
 }

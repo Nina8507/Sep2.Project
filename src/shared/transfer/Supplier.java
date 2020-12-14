@@ -1,55 +1,76 @@
 package shared.transfer;
 
 import shared.transfer.address.Address;
-import shared.transfer.products.Product;
 
 import java.io.Serializable;
 
 public class Supplier implements Serializable
 {
-  private int supplier_id;
-  private Product product;
-  private String supplierName;
-  private int cvrNr;
-  private Address address_id;
+  private String supplier_id;
+  private String fName;
+  private String lName;
+  private String cvrNr;
+  private String street;
+  private String city;
+  private String country;
+  private String zipcode;
   private String email;
   private String phoneNo;
 
-  public Supplier( int supplier_id, Product product, String supplierName, int cvrNr,
-      Address address_id, String email, String phoneNo)
+  public Supplier(String supplier_id, String fName, String lName, String cvrNr,
+      String street, String city, String country, String zipcode, String email,
+      String phoneNo)
   {
     this.supplier_id = supplier_id;
-    this.product = product;
-    this.supplierName = supplierName;
+    this.fName = fName;
+    this.lName = lName;
     this.cvrNr = cvrNr;
-    this.address_id = address_id;
+    this.street = street;
+    this.city = city;
+    this.country = country;
+    this.zipcode = zipcode;
     this.email = email;
     this.phoneNo = phoneNo;
   }
 
-  public int getSupplier_id()
+  public String getSupplier_id()
   {
     return supplier_id;
   }
 
-  public Product getProduct()
+  public String getfName()
   {
-    return product;
+    return fName;
   }
 
-  public String getSupplierName()
+  public String getlName()
   {
-    return supplierName;
+    return lName;
   }
 
-  public int getCvrNr()
+  public String getCvrNr()
   {
     return cvrNr;
   }
 
-  public Address getAddress_id()
+  public String getStreet()
   {
-    return address_id;
+    return street;
+  }
+
+  public String getCity()
+  {
+    return city;
+  }
+
+  public String getCountry()
+  {
+    return country;
+  }
+
+  public String getZipcode()
+  {
+    return zipcode;
   }
 
   public String getEmail()

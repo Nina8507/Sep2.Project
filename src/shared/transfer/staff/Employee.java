@@ -8,16 +8,16 @@ import java.util.Date;
 public class Employee extends Staff implements Serializable
 {
 
-  public Employee(String username, String password)
+  public Employee(String username, String password, String role)
   {
-    super(username, password);
+    super(username, password, role);
   }
 
-  public Employee(String username, String password, int staff_id, int cprNr,
+  public Employee(String username, String password, String role, int staff_id, int cprNr,
       String fname, String lname, Address address_id, String phoneNo,
       Date startDate, double salary)
   {
-    super(username, password, staff_id, cprNr, fname, lname, address_id,
+    super(username, password, role, staff_id, cprNr, fname, lname, address_id,
         phoneNo, startDate, salary);
   }
 
@@ -50,6 +50,8 @@ public class Employee extends Staff implements Serializable
   {
     return super.getPassword();
   }
+
+  @Override public String getRole() {return super.getRole();}
 
   @Override public Address getAddress_id()
   {

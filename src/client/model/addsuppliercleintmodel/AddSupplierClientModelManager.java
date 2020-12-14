@@ -1,38 +1,30 @@
-package client.model.usermodel;
+package client.model.addsuppliercleintmodel;
 
 import client.networking.Client;
-import shared.transfer.User;
-import shared.transfer.UserAction;
-import shared.transfer.staff.Management;
-import shared.transfer.staff.Staff;
+import shared.transfer.Supplier;
 
-import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
-import java.util.List;
 
-public class UserClientModelManager implements UserClientModel
+public class AddSupplierClientModelManager implements AddSupplierClientModel
 {
-  private Client client;
   private PropertyChangeSupport support;
-  private Staff loggedInUser;
+  private Client client;
 
-  public UserClientModelManager(Client client)
+  public AddSupplierClientModelManager(Client client)
   {
     this.client = client;
     support = new PropertyChangeSupport(this);
+
   }
 
-  @Override public void login(String username, String password)
+  @Override public void createNewSupplier(String supplier_id, String fName,
+      String lName, String cvrNr, String email, String phoneNo, String city,
+      String zipcode, String street, String country)
   {
-    //User user = new User(username, password);
-    Management user = new Management(username, password, "Management");
-    client.login(user);
-  }
-
-  @Override public List<User> getUserList()
-  {
-    return client.getUserList();
+    Supplier supplierToCreate = new Supplier(supplier_id, fName, lName, cvrNr,
+        email, phoneNo, zipcode, street, country, city);
+    client.createNewSupplier(supplierToCreate);
   }
 
   @Override public void addListener(PropertyChangeListener listener)
@@ -55,6 +47,7 @@ public class UserClientModelManager implements UserClientModel
   {
     support.removePropertyChangeListener(listener);
   }
+
   @Override public void removeListener(String name,
       PropertyChangeListener listener)
   {

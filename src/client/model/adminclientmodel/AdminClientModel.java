@@ -8,4 +8,5 @@ public interface AdminClientModel extends Subject
   void getSupplierList();
   void getStaffList();
   void getCustomerList();
+  void logoutUser();
 }

@@ -11,6 +11,7 @@ import javafx.scene.control.TextField;
 import shared.transfer.Request;
 import shared.transfer.User;
 import shared.transfer.UserAction;
+import shared.transfer.staff.Management;
 
 import java.beans.PropertyChangeEvent;
 
@@ -38,9 +39,12 @@ public class LoginController implements ViewController
 
   private void onLoginRequest(PropertyChangeEvent evt)
   {
-    Request request = new Request(UserAction.LOGIN_RESULT.toString(),
-        evt.getNewValue());
-    if (UserAction.LOGIN_RESULT.toString()
+    if(evt.getNewValue() instanceof Management)
+    {
+      viewHandler.openMainViewScene();
+    }
+
+    /*if (UserAction.LOGIN_RESULT.toString()
         .equals(UserAction.LOGIN_REQUEST_SECRETARY.toString()))
     {
       //viewHandler.openSecretaryView();
@@ -53,7 +57,7 @@ public class LoginController implements ViewController
     else if (request.equals(UserAction.LOGIN_REQUEST_MANAGER.toString()))
     {
       viewHandler.openMainViewScene();
-    }
+    }*/
 
   }
 

@@ -5,6 +5,7 @@ import persistance.loginDAO.UserDAOImpl;
 import shared.transfer.User;
 import shared.transfer.products.DamageProduct;
 import shared.transfer.products.Product;
+import shared.transfer.staff.Staff;
 
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
@@ -24,10 +25,10 @@ public class UserServerModelManager implements UserServerModel
     users = new ArrayList<>();
   }
 
-  @Override public User validateUser(User user)
+  @Override public Staff validateUser(User user)
   {
     System.out.println(user);
-    return userDAO.validateUser(user);
+    return (Staff) userDAO.validateUser(user);
   }
 
   @Override public List<User> getUsers()

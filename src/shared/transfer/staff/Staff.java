@@ -17,17 +17,18 @@ public abstract class Staff extends User
   private double salary;
   private String username;
   private String password;
+  private String role;
 
-  public Staff(String username, String password)
+  public Staff(String username, String password, String role)
   {
-    super(username, password);
+    super(username, password, role);
   }
 
-  public Staff(String username, String password, int staff_id, int cprNr,
+  public Staff(String username, String password, String role, int staff_id, int cprNr,
       String fname, String lname,
       Address address_id, String phoneNo, Date startDate, double salary)
   {
-    super(username, password);
+    super(username, password, role);
     this.staff_id = staff_id;
     this.cprNr = cprNr;
     this.fname = fname;
@@ -61,6 +62,10 @@ public abstract class Staff extends User
   @Override public String getUsername()
   {
     return super.getUsername();
+  }
+  @Override public String getRole()
+  {
+    return super.getRole();
   }
 
   @Override public String getPassword()

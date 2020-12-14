@@ -14,12 +14,13 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import shared.transfer.products.Product;
-import shared.transfer.UserAction;
+
 
 import java.beans.PropertyChangeEvent;
 
 public class MainViewController implements ViewController
 {
+  @FXML private Button signOutButton;
   @FXML private TableView<Product> tableView = new TableView<>();
   @FXML private TableColumn<Product, Integer> columnProduct_id;
   @FXML private TableColumn<Product, String> columnProductName;
@@ -32,16 +33,6 @@ public class MainViewController implements ViewController
 
   @FXML AnchorPane rightContent;
 
-  @FXML private Button onDashboardButton;
-  @FXML private Button onProductButton;
-  @FXML private Button onSupplierButton;
-  @FXML private Button onOrdersButton;
-  @FXML private Button onStaffButton;
-  @FXML private Button onCustomerButton;
-  @FXML private Button onActivityLogButton;
-  @FXML private Button onSignOutButton;
-  @FXML private Button onChatButton;
-
   private ViewHandler viewHandler;
   private MainViewVM mainViewVM;
   private AdminClientModel adminClientModel;
@@ -52,6 +43,7 @@ public class MainViewController implements ViewController
   {
     this.viewHandler = viewHandler;
     this.mainViewVM = viewModelFactory.getMainViewVM();
+
 //    columnProduct_id.setCellValueFactory(new PropertyValueFactory<>("product_id"));
 //    columnProductName.setCellValueFactory(new PropertyValueFactory<>("productName"));
 //    columnMeasurements.setCellValueFactory(new PropertyValueFactory<>("measurements"));
@@ -75,46 +67,46 @@ public class MainViewController implements ViewController
     });
   }
 
-  public void onDashboardButton(ActionEvent actionEvent)
+  public void onDashboardButton()
   {
 
   }
 
-  public void onProductButton(ActionEvent actionEvent)
+  public void onProductButton()
   {
-    mainViewVM.getProductList();
+    viewHandler.openProductView();
   }
 
-  public void onSupplierButton(ActionEvent actionEvent)
+  public void onSupplierButton()
   {
-    mainViewVM.getSupplierList();
+    viewHandler.openSupplierView();
   }
 
-  public void onOrdersButton(ActionEvent actionEvent)
+  public void onOrdersButton()
   {
 
   }
 
-  public void onStaffButton(ActionEvent actionEvent)
+  public void onStaffButton()
   {
       viewHandler.openStaffView();
-//      mainViewVM.getStaffList();
   }
 
-  public void onCustomerButton(ActionEvent actionEvent)
+  public void onCustomerButton()
   {
     mainViewVM.getCustomerList();
   }
 
-  public void onActivityLogButton(ActionEvent actionEvent)
+  public void onActivityLogButton()
   {
   }
 
-  public void onSignOutButton(ActionEvent actionEvent)
+  public void onSignOutButton()
   {
+    mainViewVM.logoutUser();
   }
 
-  public void onChatButton(ActionEvent actionEvent)
+  public void onChatButton()
   {
   }
 
