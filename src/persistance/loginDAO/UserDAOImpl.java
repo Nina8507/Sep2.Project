@@ -51,8 +51,8 @@ public class UserDAOImpl implements UserDAO
 
       if (resultSet.next())
       {
-        String user_id = resultSet.getString("user_id");
-        String password = resultSet.getString("password");
+        java.lang.String user_id = resultSet.getString("user_id");
+        java.lang.String password = resultSet.getString("password");
 
         Staff validateUser = (Staff) new User(user_id, password);
 
@@ -84,9 +84,9 @@ public class UserDAOImpl implements UserDAO
 
       while (resultSet.next())
       {
-        String user_id = resultSet.getString("user_id");
-        String password = resultSet.getString("password");
-        String role = resultSet.getString("role");
+        java.lang.String user_id = resultSet.getString("user_id");
+        java.lang.String password = resultSet.getString("password");
+        java.lang.String role = resultSet.getString("role");
 
         User userList = new User(user_id, password, role);
         result.add(userList);

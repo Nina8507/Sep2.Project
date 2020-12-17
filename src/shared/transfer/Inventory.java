@@ -6,21 +6,21 @@ import java.io.Serializable;
 
 public class Inventory implements Serializable
 {
-  private Product product_id;
-  private Supplier supplier_id;
+  private String product_id;
+  private String supplier_id;
 
-  public Inventory(Product product_id, Supplier supplier_id)
+  public Inventory(String product_id, String supplier_id)
   {
     this.product_id = product_id;
     this.supplier_id = supplier_id;
   }
 
-  public Product getProduct_id()
+  public String getProduct_id()
   {
     return product_id;
   }
 
-  public Supplier getSupplier_id()
+  public String getSupplier_id()
   {
     return supplier_id;
   }

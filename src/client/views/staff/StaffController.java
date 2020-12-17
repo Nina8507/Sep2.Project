@@ -8,7 +8,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import shared.transfer.address.Address;
+import shared.transfer.Address;
 import shared.transfer.staff.Staff;
 
 import java.util.Date;
@@ -19,11 +19,11 @@ public class StaffController implements ViewController
   @FXML private TableView<Staff> staffTable;
   @FXML private TableColumn<Staff, Integer> staff_idColumn;
   @FXML private TableColumn<Staff, Integer> cprNrColumn;
-  @FXML private TableColumn<Staff, String> lnameColumn;
-  @FXML private TableColumn<Staff, String> fnameColumn;
-  @FXML private TableColumn<Staff, String> emailColumn;
+  @FXML private TableColumn<Staff, java.lang.String> lnameColumn;
+  @FXML private TableColumn<Staff, java.lang.String> fnameColumn;
+  @FXML private TableColumn<Staff, java.lang.String> emailColumn;
   @FXML private TableColumn<Staff, Address> addressColumn;
-  @FXML private TableColumn<Staff, String> phoneNoColumn;
+  @FXML private TableColumn<Staff, java.lang.String> phoneNoColumn;
   @FXML private TableColumn<Staff, Date> startDateColumn;
   @FXML private TableColumn<Staff, Integer> salaryColumn;
 

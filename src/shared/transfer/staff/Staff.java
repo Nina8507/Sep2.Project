@@ -1,39 +1,33 @@
 package shared.transfer.staff;
 
 import shared.transfer.User;
-import shared.transfer.address.Address;
-
-import java.util.Date;
 
 public abstract class Staff extends User
 {
-  private String staff_id;
-  private String cprNr;
-  private String name;
-  private String street;
-  private String city;
-  private String zipcode;
-  private String country;
-  private String phoneNo;
-  private String startDate;
-  private String salary;
-  private String username;
-  private String password;
-  private String role;
+  private java.lang.String staff_id;
+  private java.lang.String cprNr;
+  private java.lang.String name;
+  private java.lang.String street;
+  private java.lang.String city;
+  private java.lang.String zipcode;
+  private java.lang.String country;
+  private java.lang.String phoneNo;
+  private java.lang.String startDate;
+  private java.lang.String salary;
+  private java.lang.String username;
+  private java.lang.String password;
+  private java.lang.String role;
 
-  public Staff(String username, String password, String role)
+  public Staff(
+      java.lang.String username, java.lang.String password, java.lang.String role)
   {
     super(username, password, role);
   }
 
-  public Staff(String username, String password)
-  {
-    super(username, password);
-  }
-
-  public Staff(String username, String password, String role, String staff_id,
-      String cprNr, String name, String street, String city, String zipcode,
-      String country, String phoneNo, String startDate, String salary)
+  public Staff(
+      java.lang.String username, java.lang.String password, java.lang.String role, java.lang.String staff_id,
+      java.lang.String cprNr, java.lang.String name, java.lang.String street, java.lang.String city, java.lang.String zipcode,
+      java.lang.String country, java.lang.String phoneNo, java.lang.String startDate, java.lang.String salary)
   {
     super(username, password, role);
     this.staff_id = staff_id;
@@ -47,68 +41,71 @@ public abstract class Staff extends User
     this.startDate = startDate;
     this.salary = salary;
   }
-
-  public String getStaff_id()
+  public Staff(java.lang.String username, java.lang.String password)
+  {
+    super(username, password);
+  }
+  public java.lang.String getStaff_id()
   {
     return staff_id;
   }
 
-  public String getCprNr()
+  public java.lang.String getCprNr()
   {
     return cprNr;
   }
 
-  public String getName()
+  public java.lang.String getName()
   {
     return name;
   }
 
-  public String getStreet()
+  public java.lang.String getStreet()
   {
     return street;
   }
 
-  public String getCity()
+  public java.lang.String getCity()
   {
     return city;
   }
 
-  public String getZipcode()
+  public java.lang.String getZipcode()
   {
     return zipcode;
   }
 
-  public String getCountry()
+  public java.lang.String getCountry()
   {
     return country;
   }
 
-  public String getPhoneNo()
+  public java.lang.String getPhoneNo()
   {
     return phoneNo;
   }
 
-  public String getStartDate()
+  public java.lang.String getStartDate()
   {
     return startDate;
   }
 
-  public String getSalary()
+  public java.lang.String getSalary()
   {
     return salary;
   }
 
-  @Override public String getUsername()
+  @Override public java.lang.String getUsername()
   {
     return username;
   }
 
-  @Override public String getPassword()
+  @Override public java.lang.String getPassword()
   {
     return password;
   }
 
-  @Override public String getRole()
+  @Override public java.lang.String getRole()
   {
     return role;
   }

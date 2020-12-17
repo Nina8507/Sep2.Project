@@ -1,9 +1,10 @@
 package server.networking;
 
 import server.model.addemployeemodel.AddEmployeeServerModel;
-import server.model.addsuppliermodel.AddSupplierServerModel;
+import server.model.supplierModel.addsuppliermodel.AddSupplierServerModel;
 import server.model.adminmodel.AdminServerModel;
-import server.model.listviewsuppliermodel.ListViewSupplierServerModel;
+import server.model.supplierModel.listviewsuppliermodel.ListViewSupplierServerModel;
+import server.model.product.addproduct.AddProductServerModel;
 import server.model.supplierModel.SupplierServerModel;
 import server.model.usermodel.UserServerModel;
 
@@ -18,11 +19,15 @@ public class SocketServer
   private AddSupplierServerModel addSupplierServerModel;
   private ListViewSupplierServerModel listViewSupplierServerModel;
   private AddEmployeeServerModel addEmployeeServerModel;
+  private AddProductServerModel addProductServerModel;
 
   public SocketServer(UserServerModel userServerModel,
       AdminServerModel adminServerModel,
       SupplierServerModel supplierServerModel,
-      AddSupplierServerModel addSupplierServerModel, ListViewSupplierServerModel listViewSupplierServerModel, AddEmployeeServerModel addEmployeeServerModel)
+      AddSupplierServerModel addSupplierServerModel,
+      ListViewSupplierServerModel listViewSupplierServerModel,
+      AddEmployeeServerModel addEmployeeServerModel,
+      AddProductServerModel addProductServerModel)
   {
     this.userServerModel = userServerModel;
     this.adminServerModel = adminServerModel;
@@ -30,6 +35,7 @@ public class SocketServer
     this.addSupplierServerModel = addSupplierServerModel;
     this.listViewSupplierServerModel = listViewSupplierServerModel;
     this.addEmployeeServerModel = addEmployeeServerModel;
+    this.addProductServerModel = addProductServerModel;
   }
 
   public void startServer()
@@ -45,7 +51,8 @@ public class SocketServer
           Socket socket = serverSocket.accept();
           ServerSocketHandler socketHandler = new ServerSocketHandler(socket,
               userServerModel, adminServerModel, supplierServerModel,
-              addSupplierServerModel, listViewSupplierServerModel, addEmployeeServerModel);
+              addSupplierServerModel, listViewSupplierServerModel,
+              addEmployeeServerModel, addProductServerModel);
 
           Thread t = new Thread(socketHandler);
           t.start();

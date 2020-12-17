@@ -3,8 +3,6 @@ package server.model.usermodel;
 import persistance.loginDAO.UserDAO;
 import persistance.loginDAO.UserDAOImpl;
 import shared.transfer.User;
-import shared.transfer.products.DamageProduct;
-import shared.transfer.products.Product;
 import shared.transfer.staff.Staff;
 
 import java.beans.PropertyChangeListener;
@@ -42,7 +40,7 @@ public class UserServerModelManager implements UserServerModel
     support.addPropertyChangeListener(listener);
   }
 
-  @Override public void addListener(String name,
+  @Override public void addListener(java.lang.String name,
       PropertyChangeListener listener)
   {
     if (name == null || "".equals(name))
@@ -58,7 +56,7 @@ public class UserServerModelManager implements UserServerModel
     support.removePropertyChangeListener(listener);
   }
 
-  @Override public void removeListener(String name,
+  @Override public void removeListener(java.lang.String name,
       PropertyChangeListener listener)
   {
     if (name == null || "".equals(name))

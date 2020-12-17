@@ -4,6 +4,7 @@ import shared.transfer.Request;
 import shared.transfer.Supplier;
 import shared.transfer.User;
 import shared.transfer.UserAction;
+import shared.transfer.products.Product;
 import shared.transfer.staff.Staff;
 
 import java.beans.PropertyChangeListener;
@@ -184,12 +185,25 @@ public class SocketClient implements Client
     }
   }
 
+  @Override public void addNewProduct(Product productToAdd)
+  {
+    Request request = new Request(UserAction.ADD_NEW_PRODUCT.toString(), productToAdd);
+    try
+    {
+      outToServer.writeObject(request);
+    }
+    catch (IOException e)
+    {
+      e.printStackTrace();
+    }
+  }
+
   @Override public void addListener(PropertyChangeListener listener)
   {
     support.addPropertyChangeListener(listener);
   }
 
-  @Override public void addListener(String name,
+  @Override public void addListener(java.lang.String name,
       PropertyChangeListener listener)
   {
     if (name == null || "".equals(name))
@@ -205,7 +219,7 @@ public class SocketClient implements Client
     support.removePropertyChangeListener(listener);
   }
 
-  @Override public void removeListener(String name,
+  @Override public void removeListener(java.lang.String name,
       PropertyChangeListener listener)
   {
     if (name == null || "".equals(name))

@@ -1,7 +1,6 @@
 package client.views.supplier.addsupplier;
 
-import client.model.addsuppliercleintmodel.AddSupplierClientModel;
-import client.networking.Client;
+import client.model.supplierclientmodel.addsuppliercleintmodel.AddSupplierClientModel;
 import javafx.application.Platform;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;

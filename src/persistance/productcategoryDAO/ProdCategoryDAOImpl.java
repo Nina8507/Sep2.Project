@@ -34,25 +34,29 @@ public class ProdCategoryDAOImpl implements ProdCategoryDAO
     return prodCategoryInstance;
   }
 
-  @Override public ProductCategory addNewCategory(int prodCategory_id,
+  @Override public String addNewCategory(String prodCategory_id,
       String categoryName, String categoryDescription)
   {
+    String newCategory = null;
     try (Connection connection = controller.getConnection())
     {
       PreparedStatement statement = connection.prepareStatement(
           "INSERT INTO ProductCategory(prodCategory_id, categoryName, categoryDescription) VALUES(?,?,?); ");
-      statement.setInt(1, prodCategory_id);
+      statement.setString(1, prodCategory_id);
       statement.setString(2, categoryName);
       statement.setString(3, categoryDescription);
       statement.executeQuery();
+
+      /*newCategory =  new ProductCategory(prodCategory_id, categoryName,
+          categoryDescription);*/
     }
     catch (SQLException throwables)
     {
       throwables.printStackTrace();
     }
-    return new ProductCategory(prodCategory_id, categoryName,
-        categoryDescription);
+    return newCategory;
   }
+
 
   @Override public List<ProductCategory> viewAllCategoriesByName(
       String searchCriteria)
@@ -67,7 +71,7 @@ public class ProdCategoryDAOImpl implements ProdCategoryDAO
 
       while (resultSet.next())
       {
-        int prodCategory_id = resultSet.getInt("prodCategory_id");
+        String prodCategory_id = resultSet.getString("prodCategory_id");
         String categoryName = resultSet.getString("categoryName");
         String categoryDescription = resultSet.getString("categoryDescription");
         ProductCategory category = new ProductCategory(prodCategory_id,
@@ -88,7 +92,7 @@ public class ProdCategoryDAOImpl implements ProdCategoryDAO
     {
       PreparedStatement statement = connection.prepareStatement(
           "UPDATE ProductCategory SET prodCategory = ?, categoryName = ?, categoryDescription = ?");
-      statement.setInt(1, category.getProdCategory_id());
+      statement.setString(1, category.getProdCategory_id());
       statement.setString(2, category.getCategoryName());
       statement.setString(3, category.getCategoryDescription());
       statement.executeUpdate();
@@ -105,7 +109,7 @@ public class ProdCategoryDAOImpl implements ProdCategoryDAO
     {
       PreparedStatement statement = connection.prepareStatement(
           "DELETE FROM ProductCategory WHERE prodCategory_id = ?");
-      statement.setInt(1, category.getProdCategory_id());
+      statement.setString(1, category.getProdCategory_id());
       statement.executeUpdate();
     }
     catch (SQLException throwables)

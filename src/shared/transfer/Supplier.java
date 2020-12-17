@@ -1,7 +1,5 @@
 package shared.transfer;
 
-import shared.transfer.address.Address;
-
 import java.io.Serializable;
 
 public class Supplier implements Serializable

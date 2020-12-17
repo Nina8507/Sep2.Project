@@ -1,6 +1,6 @@
 package client.views.staff.addnewstaff.addnewsecretary;
 
-import client.model.addsecretaryclientmodel.AddSecretaryClientModel;
+import client.model.staffmodel.addsecretaryclientmodel.AddSecretaryClientModel;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
@@ -101,7 +101,7 @@ public class AddSecretaryVM
   public void createNewStaff()
   {
     addSecretaryClientModel
-        .createNewEmployee(staff_id.get(), name.get(), cprNr.get(), street.get(),
+        .createNewSecretary(staff_id.get(), name.get(), cprNr.get(), street.get(),
             city.get(), zipcode.get(), country.get(), phoneNo.get(),
             startDate.get(), salary.get(), username.get(), password.get(),
             role.get());

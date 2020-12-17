@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface ProdCategoryDAO
 {
-  ProductCategory addNewCategory(int prodCategory_id, String categoryName,
+  String addNewCategory(String prodCategory_id, String categoryName,
       String categoryDescription);
   List<ProductCategory> viewAllCategoriesByName(String searchCriteria);
   void updateCategory(ProductCategory category);

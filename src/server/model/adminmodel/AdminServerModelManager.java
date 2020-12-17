@@ -53,7 +53,7 @@ public class AdminServerModelManager implements AdminServerModel
     support.addPropertyChangeListener(listener);
   }
 
-  @Override public void addListener(String name,
+  @Override public void addListener(java.lang.String name,
       PropertyChangeListener listener)
   {
     if (name == null || "".equals(name))
@@ -69,7 +69,7 @@ public class AdminServerModelManager implements AdminServerModel
     support.removePropertyChangeListener(listener);
   }
 
-  @Override public void removeListener(String name,
+  @Override public void removeListener(java.lang.String name,
       PropertyChangeListener listener)
   {
     if (name == null || "".equals(name))

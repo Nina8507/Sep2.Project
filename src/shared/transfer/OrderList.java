@@ -1,19 +1,16 @@
 package shared.transfer;
 
-import shared.transfer.staff.Employee;
-
 import java.io.Serializable;
-import java.util.Date;
 
 public class OrderList implements Serializable
 {
-  private int orders_id;
-  private Employee employee_id;
-  private Customer customer_id;
-  private Date date;
+  private String orders_id;
+  private String employee_id;
+  private String customer_id;
+  private String date;
 
-  public OrderList(int orders_id, Employee employee_id, Customer customer_id,
-      Date date)
+  public OrderList(String orders_id, String employee_id, String customer_id,
+      String date)
   {
     this.orders_id = orders_id;
     this.employee_id = employee_id;
@@ -21,22 +18,22 @@ public class OrderList implements Serializable
     this.date = date;
   }
 
-  public int getOrders_id()
+  public String getOrders_id()
   {
     return orders_id;
   }
 
-  public Employee getEmployee_id()
+  public String getEmployee_id()
   {
     return employee_id;
   }
 
-  public Customer getCustomer_id()
+  public String getCustomer_id()
   {
     return customer_id;
   }
 
-  public Date getDate()
+  public String getDate()
   {
     return date;
   }

@@ -1,11 +1,6 @@
 package persistance.staffDAO;
 
 import persistance.JDBCController;
-import shared.transfer.User;
-import shared.transfer.UserAction;
-import shared.transfer.address.Address;
-import shared.transfer.address.City;
-import shared.transfer.address.Country;
 import shared.transfer.staff.Employee;
 import shared.transfer.staff.Management;
 import shared.transfer.staff.Secretary;
@@ -13,9 +8,7 @@ import shared.transfer.staff.Staff;
 
 import java.sql.*;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
-import java.util.Objects;
 
 public class StaffDAOImpl implements StaffDAO
 {
@@ -174,7 +167,8 @@ public class StaffDAOImpl implements StaffDAO
     return null;
   }
 
-  @Override public List<Staff> viewAllStaffByStaffName(String searchCriteria)
+  @Override public List<Staff> viewAllStaffByStaffName(
+      java.lang.String searchCriteria)
   {
     ArrayList<Staff> staffResult = new ArrayList<>();
     Staff management = null, secretary = null, employee = null;
@@ -187,23 +181,6 @@ public class StaffDAOImpl implements StaffDAO
 
       while (resultSet.next())
       {
-        int staff_id = resultSet.getInt("staff_id");
-        String lname = resultSet.getString("lname");
-        int cprNr = resultSet.getInt("cprNr");
-        String email = resultSet.getString("email");
-        int address = resultSet.getInt("address_id");
-        String street = resultSet.getString("street");
-        int streetNumber = resultSet.getInt("streetNumber");
-        City city_id = (City) resultSet.getObject("city_id");
-        Country country_id = (Country) resultSet.getObject("country_id");
-        String phoneNo = resultSet.getString("phoneNo");
-        Date startDate = resultSet.getDate("startDate");
-        double salary = resultSet.getDouble("salary");
-        String username = resultSet.getString("username");
-        String password = resultSet.getString("password");
-        String role = resultSet.getString("role");
-        Address address_id = new Address(address, street, streetNumber, city_id,
-            country_id);
 
       }
     }

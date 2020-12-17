@@ -1,17 +1,19 @@
 package client.core;
 
-import client.model.addemployeeclientmodel.AddEmployeeClientModel;
-import client.model.addemployeeclientmodel.AddEmployeeClientModelManager;
-import client.model.addsecretaryclientmodel.AddSecretaryClientModel;
-import client.model.addsecretaryclientmodel.AddSecretaryClientModelManager;
-import client.model.addsuppliercleintmodel.AddSupplierClientModel;
-import client.model.addsuppliercleintmodel.AddSupplierClientModelManager;
+import client.model.staffmodel.addemployeeclientmodel.AddEmployeeClientModel;
+import client.model.staffmodel.addemployeeclientmodel.AddEmployeeClientModelManager;
+import client.model.supplierclientmodel.addsuppliercleintmodel.AddSupplierClientModel;
+import client.model.supplierclientmodel.addsuppliercleintmodel.AddSupplierClientModelManager;
 import client.model.adminclientmodel.AdminClientModel;
 import client.model.adminclientmodel.AdminClientModelManager;
-import client.model.listviewsupplier.ListViewSupplierClientModel;
-import client.model.listviewsupplier.ListViewSupplierClientModelManager;
-import client.model.staffmodel.StaffClientModel;
-import client.model.staffmodel.StaffClientModelManager;
+import client.model.supplierclientmodel.listviewsupplier.ListViewSupplierClientModel;
+import client.model.supplierclientmodel.listviewsupplier.ListViewSupplierClientModelManager;
+import client.model.productclientmodel.product.ProductClientModel;
+import client.model.productclientmodel.product.ProductClientModelManager;
+import client.model.productclientmodel.addproduct.AddProductClientModel;
+import client.model.productclientmodel.addproduct.AddProductClientModelManager;
+import client.model.staffmodel.allstaffmodel.StaffClientModel;
+import client.model.staffmodel.allstaffmodel.StaffClientModelManager;
 import client.model.supplierclientmodel.SupplierClientModel;
 import client.model.supplierclientmodel.SupplierClientModelManager;
 import client.model.usermodel.UserClientModel;
@@ -26,6 +28,8 @@ public class ModelFactory
   private ListViewSupplierClientModel listViewSupplierClientModel;
   private StaffClientModel staffClientModel;
   private AddEmployeeClientModel addEmployeeClientModel;
+  private ProductClientModel productClientModel;
+  private AddProductClientModel addProductClientModel;
   private ClientFactory clientFactory;
 
   public ModelFactory(ClientFactory clientFactory)
@@ -92,4 +96,22 @@ public class ModelFactory
     return addEmployeeClientModel;
   }
 
+  public ProductClientModel getProductClientModel()
+  {
+    if(productClientModel == null)
+    {
+      productClientModel = new ProductClientModelManager(clientFactory.getClient());
+    }
+    return productClientModel;
+  }
+
+
+  public AddProductClientModel getAddProductClientModel()
+  {
+    if(addProductClientModel == null)
+    {
+      addProductClientModel = new AddProductClientModelManager(clientFactory.getClient());
+    }
+    return addProductClientModel;
+  }
 }

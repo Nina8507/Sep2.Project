@@ -4,11 +4,11 @@ import java.io.Serializable;
 
 public class ProductCategory implements Serializable
 {
-  private int prodCategory_id;
+  private String prodCategory_id;
   private String categoryName;
   private String categoryDescription;
 
-  public ProductCategory(int prodCategory_id, String categoryName,
+  public ProductCategory(String prodCategory_id, String categoryName,
       String categoryDescription)
   {
     this.prodCategory_id = prodCategory_id;
@@ -16,7 +16,7 @@ public class ProductCategory implements Serializable
     this.categoryDescription = categoryDescription;
   }
 
-  public int getProdCategory_id()
+  public String getProdCategory_id()
   {
     return prodCategory_id;
   }

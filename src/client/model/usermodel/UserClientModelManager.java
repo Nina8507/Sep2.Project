@@ -2,11 +2,9 @@ package client.model.usermodel;
 
 import client.networking.Client;
 import shared.transfer.User;
-import shared.transfer.UserAction;
 import shared.transfer.staff.Management;
 import shared.transfer.staff.Staff;
 
-import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 import java.util.List;
@@ -23,7 +21,8 @@ public class UserClientModelManager implements UserClientModel
     support = new PropertyChangeSupport(this);
   }
 
-  @Override public void login(String username, String password)
+  @Override public void login(
+      java.lang.String username, java.lang.String password)
   {
     //User user = new User(username, password);
     Management user = new Management(username, password, "Management");
@@ -40,7 +39,7 @@ public class UserClientModelManager implements UserClientModel
     support.addPropertyChangeListener(listener);
   }
 
-  @Override public void addListener(String name,
+  @Override public void addListener(java.lang.String name,
       PropertyChangeListener listener)
   {
     if (name == null || "".equals(name))
@@ -55,7 +54,7 @@ public class UserClientModelManager implements UserClientModel
   {
     support.removePropertyChangeListener(listener);
   }
-  @Override public void removeListener(String name,
+  @Override public void removeListener(java.lang.String name,
       PropertyChangeListener listener)
   {
     if (name == null || "".equals(name))

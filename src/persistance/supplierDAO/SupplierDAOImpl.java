@@ -2,7 +2,6 @@ package persistance.supplierDAO;
 
 import persistance.JDBCController;
 import shared.transfer.Supplier;
-import shared.transfer.address.Address;
 
 import java.sql.*;
 import java.util.ArrayList;

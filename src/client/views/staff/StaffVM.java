@@ -1,6 +1,6 @@
 package client.views.staff;
 
-import client.model.staffmodel.StaffClientModel;
+import client.model.staffmodel.allstaffmodel.StaffClientModel;
 
 public class StaffVM
 {

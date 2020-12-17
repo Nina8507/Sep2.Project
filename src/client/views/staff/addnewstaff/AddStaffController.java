@@ -29,4 +29,8 @@ public class AddStaffController implements ViewController
   {
     viewHandler.openAddEmployeeView();
   }
+
+  public void onCreateButton(ActionEvent actionEvent)
+  {
+  }
 }

@@ -5,28 +5,28 @@ import java.util.Date;
 
 public class DamageProduct implements Serializable
 {
-  private DamageProduct damageProduct_id;
-  private Product product;
-  private Date date;
+  private String damageProduct_id;
+  private String product;
+  private String date;
 
-  public DamageProduct(DamageProduct damageProduct_id, Product product, Date date)
+  public DamageProduct(String damageProduct_id, String product, String date)
   {
     this.damageProduct_id = damageProduct_id;
     this.product = product;
     this.date = date;
   }
 
-  public DamageProduct getDamageProduct_id()
+  public String getDamageProduct_id()
   {
     return damageProduct_id;
   }
 
-  public Product getProduct()
+  public String getProduct()
   {
     return product;
   }
 
-  public Date getDate()
+  public String getDate()
   {
     return date;
   }

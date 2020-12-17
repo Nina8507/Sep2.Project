@@ -1,6 +1,6 @@
 package client.views.supplier.listviewsupplier;
 
-import client.model.listviewsupplier.ListViewSupplierClientModel;
+import client.model.supplierclientmodel.listviewsupplier.ListViewSupplierClientModel;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 

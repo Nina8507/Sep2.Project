@@ -2,6 +2,7 @@ package client.networking;
 
 import shared.transfer.Supplier;
 import shared.transfer.User;
+import shared.transfer.products.Product;
 import shared.transfer.staff.Staff;
 import shared.util.Subject;
 
@@ -20,4 +21,5 @@ public interface Client extends Subject
   void logoutUser(User user);
   void getSupplierValues(Supplier supplier);
   void createNewEmployee(Staff employeeToCreate);
+  void addNewProduct(Product productToAdd);
 }

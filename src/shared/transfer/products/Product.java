@@ -1,35 +1,22 @@
 package shared.transfer.products;
 
-import shared.transfer.UserAction;
-
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 
-public class Product implements Serializable, ProductsInterface
+
+public class Product implements Serializable
 {
-  private int product_id;
+  private String product_id;
   private String productName;
-  private int measurements;
+  private String measurements;
   private String material;
-  private int quantity;
+  private String quantity;
   private String color;
-  private double purchasePrice;
-  private double salePrice;
-  private DamageProduct damageProduct;
+  private String purchasePrice;
+  private String salePrice;
 
-  public boolean isDamaged() {
-    return damageProduct != null;
-  }
-
-  public DamageProduct getDamageReport(){
-
-    return damageProduct;
-
-  }
-
-  public Product(int product_id, String productName, int measurements,
-      String material, int quantity, String color, double purchasePrice,double salePrice)
+  public Product(String product_id, String productName, String measurements,
+      String material, String quantity, String color, String purchasePrice,
+      String salePrice)
   {
     this.product_id = product_id;
     this.productName = productName;
@@ -41,12 +28,7 @@ public class Product implements Serializable, ProductsInterface
     this.salePrice = salePrice;
   }
 
-  public Product(DamageProduct damageProduct)
-  {
-    this.damageProduct = damageProduct;
-  }
-
-  public int getProduct_id()
+  public String getProduct_id()
   {
     return product_id;
   }
@@ -56,7 +38,7 @@ public class Product implements Serializable, ProductsInterface
     return productName;
   }
 
-  public int getMeasurements()
+  public String getMeasurements()
   {
     return measurements;
   }
@@ -66,7 +48,7 @@ public class Product implements Serializable, ProductsInterface
     return material;
   }
 
-  public int getQuantity()
+  public String getQuantity()
   {
     return quantity;
   }
@@ -76,53 +58,13 @@ public class Product implements Serializable, ProductsInterface
     return color;
   }
 
-  public double getPurchasePrice()
+  public String getPurchasePrice()
   {
     return purchasePrice;
   }
 
-  public double getSalePrice()
+  public String getSalePrice()
   {
     return salePrice;
-  }
-
-  public Product getDamagedProduct(Product damagedProductFromProdList)
-  {
-    List<Product> allProducts = new ArrayList<>(); // size = 0
-    for (int i = 0; i < allProducts.size(); i++)
-    {
-      if (allProducts.get(i).equals(UserAction.DAMAGED_PRODUCT.toString()))
-      {
-        allProducts.remove(damagedProductFromProdList);
-      }
-    }
-    return damagedProductFromProdList;
-  }
-
-  @Override public List<Product> removeProductFromProductList(Product product)
-  {
-    List<Product> allProducts = new ArrayList<>();
-    for(int i = 0; i < allProducts.size(); i++)
-    {
-      if(allProducts.get(i).equals(UserAction.MOVE_PRODUCT_TO_DAMAGE_LIST.toString()))
-      {
-        allProducts.remove(getDamagedProduct(product));
-      }
-    }
-    return allProducts;
-  }
-
-  @Override public List<DamageProduct> addProductToDamageList(DamageProduct damagedProductFromDamList)
-  {
-    List<DamageProduct> damageProducts = new ArrayList<>();
-    List<Product> allProducts = new ArrayList<>();
-    for(int i = 0; i < damageProducts.size(); i++)
-    {
-      if(allProducts.get(i).equals(damagedProductFromDamList))
-      {
-        damageProducts.add(damagedProductFromDamList);
-      }
-    }
-    return damageProducts;
   }
 }

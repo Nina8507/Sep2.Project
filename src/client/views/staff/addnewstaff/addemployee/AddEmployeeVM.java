@@ -1,6 +1,6 @@
 package client.views.staff.addnewstaff.addemployee;
 
-import client.model.addemployeeclientmodel.AddEmployeeClientModel;
+import client.model.staffmodel.addemployeeclientmodel.AddEmployeeClientModel;
 import javafx.application.Platform;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
@@ -31,7 +31,9 @@ public class AddEmployeeVM
   public AddEmployeeVM(AddEmployeeClientModel addEmployeeClientModel)
   {
     this.addEmployeeClientModel = addEmployeeClientModel;
-    addEmployeeClientModel.addListener(UserAction.CREATE_NEW_EMPLOYEE.toString(), this::onCreatingANewEmployee);
+    addEmployeeClientModel
+        .addListener(UserAction.CREATE_NEW_EMPLOYEE.toString(),
+            this::onCreatingANewEmployee);
   }
 
   private void onCreatingANewEmployee(PropertyChangeEvent evt)
@@ -115,9 +117,9 @@ public class AddEmployeeVM
   public void createNewStaff()
   {
     addEmployeeClientModel
-        .createNewEmployee(staff_id.get(), name.get(), cprNr.get(), street.get(),
-            city.get(), zipcode.get(), country.get(), phoneNo.get(),
-            startDate.get(), salary.get(), username.get(), password.get(),
-            role.get());
+        .createNewEmployee(staff_id.get(), name.get(), cprNr.get(),
+            street.get(), city.get(), zipcode.get(), country.get(),
+            phoneNo.get(), startDate.get(), salary.get(), username.get(),
+            password.get(), role.get());
   }
 }

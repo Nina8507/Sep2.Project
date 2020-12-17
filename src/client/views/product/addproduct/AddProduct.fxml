@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="722.0" prefWidth="842.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.views.product.addproduct.AddProductController">
+   <children>
+      <Label layoutX="583.0" layoutY="153.0" text="Purchase Price" />
+      <TextField fx:id="purchasePriceTextField" layoutX="432.0" layoutY="189.0" prefHeight="26.0" prefWidth="398.0" />
+      <Label layoutX="593.0" layoutY="222.0" text="Sales Price" />
+      <TextField fx:id="salesPriceTextField" layoutX="431.0" layoutY="250.0" prefHeight="26.0" prefWidth="398.0" />
+      <Label layoutX="607.0" layoutY="285.0" text="Color" />
+      <TextField fx:id="colorTextField" layoutX="429.0" layoutY="316.0" prefHeight="26.0" prefWidth="398.0" />
+      <Label layoutX="140.0" layoutY="222.0" text="Product Name" />
+      <TextField fx:id="quantityTextField" layoutX="11.0" layoutY="316.0" prefHeight="26.0" prefWidth="391.0" />
+      <Label layoutX="150.0" layoutY="153.0" text="Product ID" />
+      <TextField fx:id="productNameTextField" layoutX="13.0" layoutY="250.0" prefHeight="26.0" prefWidth="391.0" />
+      <TextField fx:id="productIDTextField" layoutX="11.0" layoutY="189.0" prefHeight="26.0" prefWidth="391.0" />
+      <Label layoutX="142.0" layoutY="352.0" text="Measurement" />
+      <TextField fx:id="measurementTextField" layoutX="14.0" layoutY="380.0" prefHeight="26.0" prefWidth="391.0" />
+      <Label layoutX="599.0" layoutY="352.0" text="Material" />
+      <TextField fx:id="materialTextField" layoutX="429.0" layoutY="380.0" prefHeight="26.0" prefWidth="398.0" />
+      <HBox alignment="CENTER_LEFT" layoutX="-1.0" layoutY="27.0" prefHeight="100.0" prefWidth="842.0" style="-fx-background-color: #e5e5e5;">
+         <children>
+            <Label text="Add Product">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Button mnemonicParsing="false" onAction="#onCreateButton" prefHeight="32.0" prefWidth="76.0" style="-fx-background-color: #60bdff;" text="Create">
+               <HBox.margin>
+                  <Insets left="60.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+      </HBox>
+      <Label layoutX="156.0" layoutY="285.0" text="Quantity" />
+   </children>
+</AnchorPane>

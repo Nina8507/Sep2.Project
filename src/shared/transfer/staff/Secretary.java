@@ -1,93 +1,92 @@
 package shared.transfer.staff;
 
-import shared.transfer.address.Address;
-
 import java.io.Serializable;
-import java.util.Date;
 
 public class Secretary extends Staff implements Serializable
 {
 
-  public Secretary(String username, String password, String role)
+  public Secretary(
+      java.lang.String username, java.lang.String password, java.lang.String role)
   {
     super(username, password, role);
   }
 
-  public Secretary(String username, String password)
+  public Secretary(java.lang.String username, java.lang.String password)
   {
     super(username, password);
   }
 
-  public Secretary(String username, String password, String role,
-      String staff_id, String cprNr, String name, String street, String city,
-      String zipcode, String country, String phoneNo, String startDate,
-      String salary)
+  public Secretary(
+      java.lang.String username, java.lang.String password, java.lang.String role,
+      java.lang.String staff_id, java.lang.String cprNr, java.lang.String name, java.lang.String street, java.lang.String city,
+      java.lang.String zipcode, java.lang.String country, java.lang.String phoneNo, java.lang.String startDate,
+      java.lang.String salary)
   {
     super(username, password, role, staff_id, cprNr, name, street, city,
         zipcode, country, phoneNo, startDate, salary);
   }
 
-  @Override public String getStaff_id()
+  @Override public java.lang.String getStaff_id()
   {
     return super.getStaff_id();
   }
 
-  @Override public String getCprNr()
+  @Override public java.lang.String getCprNr()
   {
     return super.getCprNr();
   }
 
-  @Override public String getName()
+  @Override public java.lang.String getName()
   {
     return super.getName();
   }
 
-  @Override public String getStreet()
+  @Override public java.lang.String getStreet()
   {
     return super.getStreet();
   }
 
-  @Override public String getCity()
+  @Override public java.lang.String getCity()
   {
     return super.getCity();
   }
 
-  @Override public String getZipcode()
+  @Override public java.lang.String getZipcode()
   {
     return super.getZipcode();
   }
 
-  @Override public String getCountry()
+  @Override public java.lang.String getCountry()
   {
     return super.getCountry();
   }
 
-  @Override public String getPhoneNo()
+  @Override public java.lang.String getPhoneNo()
   {
     return super.getPhoneNo();
   }
 
-  @Override public String getStartDate()
+  @Override public java.lang.String getStartDate()
   {
     return super.getStartDate();
   }
 
-  @Override public String getSalary()
+  @Override public java.lang.String getSalary()
   {
     return super.getSalary();
   }
 
-  @Override public String getUsername()
+  @Override public java.lang.String getUsername()
   {
     return super.getUsername();
   }
 
-  @Override public String getPassword()
+  @Override public java.lang.String getPassword()
   {
     return super.getPassword();
   }
 
-  @Override public String getRole()
+  @Override public java.lang.String getRole()
   {
     return super.getRole();
   }

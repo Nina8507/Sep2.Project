@@ -4,14 +4,12 @@ import client.core.ViewHandler;
 import client.core.ViewModelFactory;
 import client.model.supplierclientmodel.SupplierClientModel;
 import client.views.ViewController;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
-import shared.transfer.address.Address;
 import shared.transfer.products.Product;
 
 public class SupplierController implements ViewController

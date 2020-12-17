@@ -32,7 +32,7 @@ public class AddSecretaryController implements ViewController
       ViewModelFactory viewModelFactory)
   {
     this.viewHandler = viewHandler;
-    this.addSecretaryVM = viewModelFactory.getAddSecretaryClientModel();
+    //this.addSecretaryVM = viewModelFactory.getAddSecretaryClientModel();
 
     cityTextField.textProperty().bindBidirectional(addSecretaryVM.cityProperty());
     zipCodeTextField.textProperty().bindBidirectional(addSecretaryVM.zipcodeProperty());

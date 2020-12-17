@@ -1,15 +1,17 @@
 package server.networking;
 
 import server.model.addemployeemodel.AddEmployeeServerModel;
-import server.model.addsuppliermodel.AddSupplierServerModel;
+import server.model.supplierModel.addsuppliermodel.AddSupplierServerModel;
 import server.model.adminmodel.AdminServerModel;
-import server.model.listviewsuppliermodel.ListViewSupplierServerModel;
+import server.model.supplierModel.listviewsuppliermodel.ListViewSupplierServerModel;
+import server.model.product.addproduct.AddProductServerModel;
 import server.model.supplierModel.SupplierServerModel;
 import server.model.usermodel.UserServerModel;
 import shared.transfer.Request;
 import shared.transfer.Supplier;
 import shared.transfer.User;
 import shared.transfer.UserAction;
+import shared.transfer.products.Product;
 import shared.transfer.staff.Employee;
 import shared.transfer.staff.Staff;
 
@@ -28,13 +30,17 @@ public class ServerSocketHandler implements Runnable
   private AddEmployeeServerModel addEmployeeServerModel;
   private ListViewSupplierServerModel listViewSupplierServerModel;
   private SupplierServerModel supplierServerModel;
+  private AddProductServerModel addProductServerModel;
   private ObjectInputStream inFromClient;
   private ObjectOutputStream outToClient;
 
   public ServerSocketHandler(Socket socket, UserServerModel userServerModel,
       AdminServerModel adminServerModel,
       SupplierServerModel supplierServerModel,
-      AddSupplierServerModel addSupplierServerModel, ListViewSupplierServerModel listViewSupplierServerModel, AddEmployeeServerModel addEmployeeServerModel)
+      AddSupplierServerModel addSupplierServerModel,
+      ListViewSupplierServerModel listViewSupplierServerModel,
+      AddEmployeeServerModel addEmployeeServerModel,
+      AddProductServerModel addProductServerModel)
   {
     this.socket = socket;
     this.userServerModel = userServerModel;
@@ -43,6 +49,8 @@ public class ServerSocketHandler implements Runnable
     this.addSupplierServerModel = addSupplierServerModel;
     this.listViewSupplierServerModel = listViewSupplierServerModel;
     this.addEmployeeServerModel = addEmployeeServerModel;
+    this.addProductServerModel = addProductServerModel;
+
     adminServerModel.addListener(UserAction.PRODUCT_LIST.toString(),
         this::sendProductListToView);
   }
@@ -98,22 +106,33 @@ public class ServerSocketHandler implements Runnable
           {
             adminServerModel.getStaffList();
           }
-          else if(request.getRequestType().equals(UserAction.ADD_NEW_SUPPLIER.toString()))
+          else if (request.getRequestType()
+              .equals(UserAction.ADD_NEW_SUPPLIER.toString()))
           {
-            Supplier supplierToCreate= (Supplier) request.getRequestArg();
+            Supplier supplierToCreate = (Supplier) request.getRequestArg();
             addSupplierServerModel.createNewSupplier(supplierToCreate);
-          }else if(request.getRequestType().equals(UserAction.LOGOUT_USER.toString()))
+          }
+          else if (request.getRequestType()
+              .equals(UserAction.LOGOUT_USER.toString()))
           {
             //userServerModel.logoutUser()
           }
-          else if(request.getRequestType().equals(UserAction.GET_VALUES_FROM_DAO.toString()))
+          else if (request.getRequestType()
+              .equals(UserAction.GET_VALUES_FROM_DAO.toString()))
           {
             Supplier getSupplier = (Supplier) request.getRequestArg();
-            Supplier supplierValues = listViewSupplierServerModel.getSupplierValues(getSupplier);
-          } else if(request.getRequestType().equals(UserAction.CREATE_NEW_EMPLOYEE.toString()))
+            Supplier supplierValues = listViewSupplierServerModel
+                .getSupplierValues(getSupplier);
+          }
+          else if (request.getRequestType()
+              .equals(UserAction.CREATE_NEW_EMPLOYEE.toString()))
           {
             Employee employeeToCreate = (Employee) request.getRequestArg();
             addEmployeeServerModel.createNewEmployee(employeeToCreate);
+          } else if(request.getRequestType().equals(UserAction.ADD_NEW_PRODUCT.toString()))
+          {
+            Product productToAdd = (Product) request.getRequestArg();
+            addProductServerModel.addNewProduct(productToAdd);
           }
         }
         catch (ClassNotFoundException e)

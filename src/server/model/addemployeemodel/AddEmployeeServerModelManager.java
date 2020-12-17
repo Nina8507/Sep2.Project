@@ -23,7 +23,7 @@ public class AddEmployeeServerModelManager implements AddEmployeeServerModel
     staffDAO = StaffDAOImpl.getInstance();
   }
 
-  @Override public String createNewEmployee(Employee employeeToCreate)
+  @Override public java.lang.String createNewEmployee(Employee employeeToCreate)
   {
     Staff staff = new Employee(employeeToCreate.getStaff_id(),
         employeeToCreate.getName(), employeeToCreate.getCprNr(),
@@ -49,7 +49,7 @@ public class AddEmployeeServerModelManager implements AddEmployeeServerModel
     support.addPropertyChangeListener(listener);
   }
 
-  @Override public void addListener(String name,
+  @Override public void addListener(java.lang.String name,
       PropertyChangeListener listener)
   {
     if (name == null || "".equals(name))
@@ -65,7 +65,7 @@ public class AddEmployeeServerModelManager implements AddEmployeeServerModel
     support.removePropertyChangeListener(listener);
   }
 
-  @Override public void removeListener(String name,
+  @Override public void removeListener(java.lang.String name,
       PropertyChangeListener listener)
   {
     if (name == null || "".equals(name))
